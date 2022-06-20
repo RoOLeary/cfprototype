@@ -3,11 +3,11 @@ import Head from 'next/head'
 
 export async function getStaticPaths() {
   const response = await fetch(
-    'https://jsonplaceholder.typicode.com/posts?_page=1'
+    'https://ronan-oleary.com/wp-json/wp/v2/posts/'
   )
   const postList = await response.json()
   return {
-    paths: postList.map((post) => {
+    paths: Array.from(postList).map((post) => {
       return {
         params: {
           id: `${post.id}`,
@@ -19,9 +19,10 @@ export async function getStaticPaths() {
 }
 
 export async function getStaticProps({ params }) {
+  console.log(params.id)
   // fetch single post detail
   const response = await fetch(
-    `https://jsonplaceholder.typicode.com/posts/${params.id}`
+    `https://ronan-oleary.com/wp-json/wp/v2/posts/${params.id}`
   )
   const post = await response.json()
   return {
@@ -29,17 +30,15 @@ export async function getStaticProps({ params }) {
   }
 }
 
-export default function Post({ title, body }) {
+export default function Post({ title, content }) {
+  
   return (
     <main>
       <Head>
-        <title>{title}</title>
+        <title>{title.rendered}</title>
       </Head>
-
-      <h1>{title}</h1>
-
-      <p>{body}</p>
-
+      <h1>{title.rendered}</h1>
+      <p>{content.rendered}</p>
       <Link href="/">
         <a>Go back to home</a>
       </Link>

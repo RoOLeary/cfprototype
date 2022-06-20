@@ -5,7 +5,7 @@ import Post from '../components/post'
 export async function getStaticProps() {
   // fetch list of posts
   const response = await fetch(
-    'https://jsonplaceholder.typicode.com/posts?_page=1'
+    'https://ronan-oleary.com/wp-json/wp/v2/posts'
   )
   const postList = await response.json()
   return {
@@ -16,6 +16,9 @@ export async function getStaticProps() {
 }
 
 export default function IndexPage({ postList }) {
+
+  
+
   return (
     <main>
       <Head>
@@ -25,8 +28,8 @@ export default function IndexPage({ postList }) {
       <h1>List of posts</h1>
 
       <section>
-        {postList.map((post) => (
-          <Post {...post} key={post.id} />
+        {Object.entries(postList).map((post, idx) => (
+          <Post data={post} key={idx} id={post[1].id}/>
         ))}
       </section>
     </main>
