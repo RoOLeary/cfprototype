@@ -31,14 +31,14 @@ export async function getStaticProps({ params }) {
 }
 
 export default function Post( post ) {
-  console.log(post);
+  console.log(post.content);
   return (
     <main>
       <Head>
         <title>{post.title.rendered}</title>
       </Head>
       <h1>{post.title.rendered}</h1>
-      <p>{post.content.rendered}</p>
+      <p dangerouslySetInnerHTML={{__html: post.content.rendered }} />
       <Link href="/">
         <a>Go back to home</a>
       </Link>

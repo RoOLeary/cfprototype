@@ -5,7 +5,7 @@ export default function Post(post) {
   return (
     <article>
       <h2>{post[1].title.rendered}</h2>
-      <p>{post[1].content.rendered}</p>
+      <p dangerouslySetInnerHTML={{__html: post[1].content.rendered }} />
       <Link href={`/post/${post[1].slug}`}>
         <a>Read more...</a>
       </Link>
