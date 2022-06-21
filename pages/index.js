@@ -17,7 +17,7 @@ export async function getStaticProps() {
 
 export default function IndexPage({ postList }) {
 
-  
+  console.log(postList);
 
   return (
     <main>
@@ -29,7 +29,7 @@ export default function IndexPage({ postList }) {
 
       <section>
         {Object.entries(postList).map((post, idx) => (
-          <Post data={post} key={idx} id={post[1].id}/>
+          <Post {...post} key={idx} id={post[1].id}/>
         ))}
       </section>
     </main>
