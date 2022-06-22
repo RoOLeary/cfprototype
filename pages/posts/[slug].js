@@ -30,12 +30,12 @@ export async function getStaticProps({ params }) {
   }
 }
 
-export default function Post( post ) {
+export default function Post(post) {
   console.log(post);
   return (
     <main>
       <Head>
-        <title>{post.title.replace(/(<([^>]+)>)/gi, "")}</title>
+        
       </Head>
       <h1>{post.title}</h1>
       <div dangerouslySetInnerHTML={{__html: post.content[0].content }} />
