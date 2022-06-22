@@ -1,23 +1,9 @@
 import Head from 'next/head'
+import Link from 'next/link'
 
-import Post from '../components/post'
+export default function Home() {
 
-export async function getStaticProps() {
-  // fetch list of posts
-  const response = await fetch(
-    'https://ronan-oleary.com/wp-json/wp/v2/posts'
-  )
-  const postList = await response.json()
-  return {
-    props: {
-      postList,
-    },
-  }
-}
-
-export default function IndexPage({ postList }) {
-
-  console.log(postList);
+  
 
   return (
     <main>
@@ -25,12 +11,12 @@ export default function IndexPage({ postList }) {
         <title>Home page</title>
       </Head>
 
-      <h1>List of posts</h1>
-
+      
       <section>
-        {Object.entries(postList).map((post, idx) => (
-          <Post {...post} key={idx} id={post[1].id}/>
-        ))}
+      <h1>Generic Index Page</h1>
+      <Link href="/posts">
+        <a>Go to posts</a>
+      </Link>
       </section>
     </main>
   )

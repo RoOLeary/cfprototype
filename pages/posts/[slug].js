@@ -39,8 +39,8 @@ export default function Post( post ) {
       </Head>
       <h1>{post.title.rendered}</h1>
       <p dangerouslySetInnerHTML={{__html: post.content.rendered }} />
-      <Link href="/">
-        <a>Go back to home</a>
+      <Link href="/posts">
+        <a>Back to posts index</a>
       </Link>
     </main>
   )
