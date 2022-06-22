@@ -14,7 +14,7 @@ export async function getStaticPaths() {
         },
       }
     }),
-    fallback: true,
+    fallback: false,
   }
 }
 
@@ -31,14 +31,14 @@ export async function getStaticProps({ params }) {
 }
 
 export default function Post( post ) {
-  console.log(post);
+  
   return (
     <main>
       <Head>
         <title>{post.title.rendered}</title>
       </Head>
       <h1>{post.title.rendered}</h1>
-      <p dangerouslySetInnerHTML={{ __html: post.content.rendered }} />
+      <div dangerouslySetInnerHTML={{__html: post.content.rendered }} />
       <Link href="/posts">
         <a>Back to posts index</a>
       </Link>
