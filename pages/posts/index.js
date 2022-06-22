@@ -5,7 +5,7 @@ import Post from '../../components/post'
 export async function getStaticProps() {
   // fetch list of posts
   const response = await fetch(
-    'https://ronan-oleary.com/wp-json/wp/v2/posts'
+    'https://api2.tnw-staging.com/v2/articles'
   )
   const postList = await response.json()
   return {

@@ -3,7 +3,7 @@ import Head from 'next/head'
 
 export async function getStaticPaths() {
   const response = await fetch(
-    'https://ronan-oleary.com/wp-json/wp/v2/posts'
+    'https://api2.tnw-staging.com/v2/articles'
   )
   const postList = await response.json()
   return {
@@ -22,7 +22,7 @@ export async function getStaticProps({ params }) {
   console.log(params.slug)
   // fetch single post detail
   const response = await fetch(
-    `https://ronan-oleary.com/wp-json/wp/v2/posts?slug=${params.slug}`
+    `https://api2.tnw-staging.com/v2/articles?slug=${params.slug}`
   )
   const post = await response.json()
   return {
@@ -31,14 +31,14 @@ export async function getStaticProps({ params }) {
 }
 
 export default function Post( post ) {
-  
+  console.log(post);
   return (
     <main>
       <Head>
-        <title>{post.title.rendered}</title>
+        <title>{post.title.replace(/(<([^>]+)>)/gi, "")}</title>
       </Head>
-      <h1>{post.title.rendered}</h1>
-      <div dangerouslySetInnerHTML={{__html: post.content.rendered }} />
+      <h1>{post.title}</h1>
+      <div dangerouslySetInnerHTML={{__html: post.content[0].content }} />
       <Link href="/posts">
         <a>Back to posts index</a>
       </Link>
