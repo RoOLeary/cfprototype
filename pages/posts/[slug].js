@@ -31,7 +31,7 @@ export async function getStaticProps({ params }) {
 }
 
 export default function Post( post ) {
-  console.log(post.content);
+  console.log(post);
   return (
     <main>
       <Head>
