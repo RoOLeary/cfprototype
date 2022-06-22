@@ -14,7 +14,7 @@ export async function getStaticPaths() {
         },
       }
     }),
-    fallback: false,
+    fallback: true,
   }
 }
 
@@ -38,7 +38,7 @@ export default function Post( post ) {
         <title>{post.title.rendered}</title>
       </Head>
       <h1>{post.title.rendered}</h1>
-      <p dangerouslySetInnerHTML={{__html: post.content.rendered }} />
+      <p dangerouslySetInnerHTML={{ __html: post.content.rendered }} />
       <Link href="/posts">
         <a>Back to posts index</a>
       </Link>
