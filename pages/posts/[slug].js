@@ -31,23 +31,23 @@ export default function Post( post ) {
 
 export async function getStaticPaths() {
   const response = await fetch(
-    'https://api2.tnw-staging.com/v2/articles'
+    'https://api2.tnw-staging.com/v2/articles?limit=30'
   )
   const postList = await response.json()
   return {
-    paths: Object.entries(postList).map((post) => {
+    paths: Array.from(postList).map((post) => {
       return {
         params: {
           slug: `${post.slug}`,
         },
       }
     }),
-    fallback: true,
+    fallback: true
   }
 }
 
 export async function getStaticProps({ params }) {
-  console.log(params.slug)
+  //console.log(params.slug)
   // fetch single post detail
   const response = await fetch(
     `https://api2.tnw-staging.com/v2/articles/${params.slug}`
