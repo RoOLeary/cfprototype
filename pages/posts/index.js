@@ -1,13 +1,12 @@
 import React, { useState, useEffect, useMemo } from "react"; 
 import useSWRInfinite from 'swr/infinite';
 import Layout from '../../components/Layout'
-import Post from '../../components/Post'
+import Post from '../../components/post'
 
 const fetcher = url => fetch(url).then(res => res.json());
 const PAGE_SIZE = 10;
 
 export default function Posts() {
-
   const {data, error, mutate, size, setSize, isValidating } = useSWRInfinite(
     index =>
     `https://api2.tnw-staging.com/v2/articles?page=${index + 1}&limit=10`,
