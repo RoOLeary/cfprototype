@@ -35,14 +35,14 @@ export async function getStaticPaths() {
   )
   const postList = await response.json()
   return {
-    paths: Array.from(postList).map((post) => {
+    paths: Object.entries(postList).map((post) => {
       return {
         params: {
           slug: `${post.slug}`,
         },
       }
     }),
-    fallback: false,
+    fallback: true,
   }
 }
 
