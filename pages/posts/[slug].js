@@ -31,7 +31,7 @@ export default function Post( post ) {
 
 export async function getStaticPaths() {
   const response = await fetch(
-    'https://api2.tnw-staging.com/v2/articles?limit=30'
+    'https://api2.tnw-staging.com/v2/articles?limit=100'
   )
   const postList = await response.json()
   return {
