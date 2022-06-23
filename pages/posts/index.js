@@ -1,6 +1,4 @@
 import React, { useState, useEffect, useMemo } from "react"; 
-import useSWRInfinite from 'swr/infinite';
-
 import Head from 'next/head'
 import Layout from '../../components/Layout'
 import Post from '../../components/post'
