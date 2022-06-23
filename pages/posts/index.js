@@ -1,12 +1,10 @@
 import React, { useState, useEffect, useMemo } from "react"; 
 import useSWRInfinite from 'swr/infinite';
-
 import Layout from '../../components/Layout'
 import Post from '../../components/Post'
 
 const fetcher = url => fetch(url).then(res => res.json());
 const PAGE_SIZE = 10;
-
 
 export default function Posts() {
 
@@ -25,8 +23,6 @@ export default function Posts() {
   const isReachingEnd =
     isEmpty || (data && data[data.length - 1]?.length < PAGE_SIZE);
   const isRefreshing = isValidating && data && data.length === size;
-
-  console.log(posts);
 
   return (
     <Layout>
