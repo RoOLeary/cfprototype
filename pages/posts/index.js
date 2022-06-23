@@ -1,27 +1,27 @@
 import React, { useState, useEffect, useMemo } from "react"; 
 import useSWRInfinite from 'swr/infinite';
+
+import Head from 'next/head'
 import Layout from '../../components/Layout'
-import Post from '../../components/post'
+import Post from '../../components/Post'
 
-const fetcher = url => fetch(url).then(res => res.json());
-const PAGE_SIZE = 10;
 
-export default function Posts() {
-  const {data, error, mutate, size, setSize, isValidating } = useSWRInfinite(
-    index =>
-    `https://api2.tnw-staging.com/v2/articles?page=${index + 1}&limit=10`,
-    fetcher,
-  );
-  
-  const posts = data ? [].concat(...data) : [];
-  const isLoadingInitialData = !data && !error;
-  const isLoadingMore =
-    isLoadingInitialData ||
-    (size > 0 && data && typeof data[size - 1] === "undefined");
-  const isEmpty = data?.[0]?.length === 0;
-  const isReachingEnd =
-    isEmpty || (data && data[data.length - 1]?.length < PAGE_SIZE);
-  const isRefreshing = isValidating && data && data.length === size;
+export async function getStaticProps() {
+  // fetch list of posts
+  const response = await fetch(
+    'https://api2.tnw-staging.com/v2/articles?limit=100'
+  )
+  const postList = await response.json()
+  return {
+    props: {
+      postList,
+    },
+  }
+}
+
+export default function Posts({ postList }) {
+
+  console.log(postList);
 
   return (
     <Layout>
@@ -29,20 +29,9 @@ export default function Posts() {
       <h1>List of posts</h1>
 
       <section>
-        {Object.entries(posts).map((post, idx) => (
+        {Object.entries(postList).map((post, idx) => (
           <Post {...post} key={idx} id={post[1].id}/>
         ))}
-
-        <button
-            className={`bg-black hover:bg-gray-700 text-white font-bold py-2 px-4 rounded`}
-            disabled={isLoadingMore || isReachingEnd}
-            onClick={() => setSize(size + 1)}>
-            {isLoadingMore
-                ? 'Loading...'
-                : isReachingEnd
-                    ? 'No More Posts'
-                    : 'Load More'}
-        </button>
       </section>
     </Layout>
   )
