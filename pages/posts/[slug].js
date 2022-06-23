@@ -6,13 +6,13 @@ import Layout from '../../components/Layout'
 
 
 export default function Post( post ) {
-  console.log(post);
+  // console.log(post);
 
   const router = useRouter(); 
 
   if(router.isFallback){
     return(
-      <div>loading</div>
+      <div><h1>Loading...</h1></div>
     );
   }
 
