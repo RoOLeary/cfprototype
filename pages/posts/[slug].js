@@ -33,7 +33,7 @@ import Layout from '../../components/Layout'
 
 export async function getServerSideProps(context) {
   const { slug } = context.query
-  const res = await fetch(`https://api2.tnw-staging.com/v2/articles/${slug}`);
+  const res = await fetch(`https://api2.tnw-staging.com/v2/articles?slug=${slug}`);
   const post = await res.json();
   return {
       props: {
@@ -43,7 +43,7 @@ export async function getServerSideProps(context) {
 }
 
 export default function Post({ post }) {
-  // console.log(post[0].content[0].content);
+  console.log(post[0].title);
   return (
     <Layout>
       <h1>{post[0].title}</h1>
