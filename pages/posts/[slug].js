@@ -3,7 +3,7 @@ import Head from 'next/head'
 
 export async function getStaticPaths() {
   const response = await fetch(
-    'https://api2.tnw-staging.com/v2/articles'
+    'https://api2.tnw-staging.com/v2/articles?limit=10'
   )
   const postList = await response.json()
   return {
