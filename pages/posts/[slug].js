@@ -20,6 +20,7 @@ export default function Post( post ) {
 
   return (
     <Layout>
+      <Head><title>{post.title}</title></Head>
       <h1>{post.title}</h1>
       <div dangerouslySetInnerHTML={{__html: post.content[0].content }} />
       <Link href="/posts"> 
