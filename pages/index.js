@@ -13,7 +13,7 @@ export default function Home() {
 
       
       <section>
-      <h1>Generic Index Page</h1>
+      <h1>An Index Page</h1>
       <Link href="/posts">
         <a>Go to posts</a>
       </Link>

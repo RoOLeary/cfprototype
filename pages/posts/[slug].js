@@ -1,5 +1,6 @@
 import Link from 'next/link'
 import Head from 'next/head'
+import Layout from '../../components/Layout'
 
 export async function getStaticPaths() {
   const response = await fetch(
@@ -14,7 +15,7 @@ export async function getStaticPaths() {
         },
       }
     }),
-    fallback: false,
+    fallback: true,
   }
 }
 
@@ -31,17 +32,14 @@ export async function getStaticProps({ params }) {
 }
 
 export default function Post(post) {
-  console.log(post);
+  // console.log(post);
   return (
-    <main>
-      <Head>
-        
-      </Head>
+    <Layout>
       <h1>{post.title}</h1>
       <div dangerouslySetInnerHTML={{__html: post.content[0].content }} />
       <Link href="/posts">
         <a>Back to posts index</a>
       </Link>
-    </main>
+    </Layout>
   )
 }
