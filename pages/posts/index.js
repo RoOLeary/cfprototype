@@ -33,16 +33,16 @@ export default function Posts() {
           <Post {...post} key={idx} id={post[1].id}/>
         ))}
 
-      <button
-          className={`bg-black hover:bg-gray-700 text-white font-bold py-2 px-4 rounded`}
-          disabled={isLoadingMore || isReachingEnd}
-          onClick={() => setSize(size + 1)}>
-          {isLoadingMore
-              ? 'Loading...'
-              : isReachingEnd
-                  ? 'No More Posts'
-                  : 'Load More'}
-      </button>
+        <button
+            className={`bg-black hover:bg-gray-700 text-white font-bold py-2 px-4 rounded`}
+            disabled={isLoadingMore || isReachingEnd}
+            onClick={() => setSize(size + 1)}>
+            {isLoadingMore
+                ? 'Loading...'
+                : isReachingEnd
+                    ? 'No More Posts'
+                    : 'Load More'}
+        </button>
       </section>
     </Layout>
   )

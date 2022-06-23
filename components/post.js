@@ -1,12 +1,13 @@
 import Link from 'next/link'
 
 export default function Post(post) {
-  console.log(post);
+  const { title, slug } = post[1];
+  console.log(title);
   return (
     <article>
-      <h2>{post[1].title}</h2>
-      {/* <div dangerouslySetInnerHTML={{__html: post[1].content[0].content }} /> */}
-      <Link href={`/posts/${post[1].slug}`}>
+      <h2>{title}</h2>
+      {/* <div dangerouslySetInnerHTML={{__html: content[0].content }} /> */}
+      <Link href={`/posts/${slug}`}>
         <a>Read more...</a>
       </Link>
     </article>
