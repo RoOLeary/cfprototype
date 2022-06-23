@@ -9,7 +9,7 @@ import Post from '../../components/Post'
 export async function getStaticProps() {
   // fetch list of posts
   const response = await fetch(
-    'https://api2.tnw-staging.com/v2/articles?limit=100'
+    'https://api2.tnw-staging.com/v2/articles?limit=20'
   )
   const postList = await response.json()
   return {
@@ -20,8 +20,6 @@ export async function getStaticProps() {
 }
 
 export default function Posts({ postList }) {
-
-  console.log(postList);
 
   return (
     <Layout>
