@@ -48,7 +48,6 @@ export async function getStaticPaths() {
 }
 
 export async function getStaticProps({ params }) {
-  //console.log(params.slug)
   // fetch single post detail
   const response = await fetch(
     `https://api2.tnw-staging.com/v2/articles/${params.slug}`
