@@ -49,12 +49,13 @@ export default function Post( post ) {
   return (
     <Layout>
       <Head><title>{post.title}</title></Head>
-      <section className={styles.main}>
+      <section className={'b-text c-section'}>
         <div className={'o-wrapper'}>
+          
+          <h1 className={'b-text__heading'}>{post.title}</h1>
           <br />
-          <h1>{post.title}</h1>
           <div dangerouslySetInnerHTML={{__html: post.content[0].content }} />
-          <Link href="/"> 
+          <Link href="/" scroll={false}> 
             <a>Back to posts index</a>
           </Link>
         </div>

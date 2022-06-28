@@ -24,14 +24,16 @@ export default function Posts({ postList }) {
   return (
     <Layout>
       
-      <h1>List of posts</h1>
+      
 
-      <section className={styles.main}>
-        <>
+      <section className={'b-text c-section'}>
+        <div className={'o-wrapper'}>
+        <h2 className={'b-text__heading'}>List of posts</h2>
+        <br />
         {Object.entries(postList).map((post, idx) => (
           <Post {...post} key={idx} />
         ))}
-        </>
+        </div>
       </section>
     </Layout>
   )

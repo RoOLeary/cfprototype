@@ -6,7 +6,7 @@ export default function Post(post) {
   
   return (
     <article className={styles.articleStyles}>
-      <Link href={`/posts/${slug}`}><a><h2>{title}</h2></a></Link>
+      <Link href={`/posts/${slug}`} scroll={false}><a><h2>{title}</h2></a></Link>
       {/* <div dangerouslySetInnerHTML={{__html: content[0].content }} /> */}
     </article>
   )

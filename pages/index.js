@@ -25,11 +25,10 @@ export default function Home({ postList }) {
     <Layout>
       
      
-
       <section className="b-text  c-section" id="learn-more">
           
           <div className="o-wrapper">
-          <h1>Latest posts</h1>
+          <h1 className={'b-text__heading'}>Latest posts</h1>
           <br />
           {Object.entries(postList).map((post, idx) => (
             <Post {...post} key={idx} />
