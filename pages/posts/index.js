@@ -1,7 +1,9 @@
 import React, { useState, useEffect, useMemo } from "react"; 
 import Head from 'next/head'
 import Layout from '../../components/Layout'
+
 import Post from '../../components/post'
+import styles from '../../styles/Home.module.css'
 
 
 export async function getStaticProps() {
@@ -24,9 +26,9 @@ export default function Posts({ postList }) {
       
       <h1>List of posts</h1>
 
-      <section>
+      <section className={styles.main}>
         {Object.entries(postList).map((post, idx) => (
-          <Post {...post} key={idx} id={post[1].id}/>
+          <Post {...post} key={idx} />
         ))}
       </section>
     </Layout>

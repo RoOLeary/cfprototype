@@ -1,5 +1,5 @@
 import Head from 'next/head';
-
+import Nav from './Nav'
 const Layout = ({ children }) => {
 
     return(
@@ -7,6 +7,7 @@ const Layout = ({ children }) => {
             <Head>
                 <title>Next.Js CF Pages</title>
             </Head>
+            <Nav />
             <main>
                 {children}
             </main>

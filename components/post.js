@@ -2,7 +2,7 @@ import Link from 'next/link'
 
 export default function Post(post) {
   const { title, slug } = post[1];
-  console.log(title);
+  
   return (
     <article>
       <h2>{title}</h2>

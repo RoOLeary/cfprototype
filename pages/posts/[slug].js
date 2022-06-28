@@ -2,8 +2,7 @@ import Link from 'next/link'
 import Head from 'next/head'
 import { useRouter } from 'next/router'
 import Layout from '../../components/Layout'
-
-
+import styles from '../../styles/Home.module.css'
 
 export async function getStaticPaths() {
   const response = await fetch(
@@ -50,11 +49,15 @@ export default function Post( post ) {
   return (
     <Layout>
       <Head><title>{post.title}</title></Head>
-      <h1>{post.title}</h1>
-      <div dangerouslySetInnerHTML={{__html: post.content[0].content }} />
-      <Link href="/posts"> 
-        <a>Back to posts index</a>
-      </Link>
+      <section className={styles.main}>
+        <div className={'o-wrapper'}>
+          <h1>{post.title}</h1>
+          <div dangerouslySetInnerHTML={{__html: post.content[0].content }} />
+          <Link href="/posts"> 
+            <a>Back to posts index</a>
+          </Link>
+        </div>
+      </section>
     </Layout>
   )
 }
