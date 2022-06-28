@@ -2,4 +2,13 @@
 .articleStyles{
     margin: 2em 0;
     padding: 1em 0;
+    
+}
+
+.articleFlex{
+    display: flex;
+}
+
+.artMarg{
+    margin-left: 1em;
 }
