@@ -16,8 +16,8 @@ export default function About() {
             <h1>About Me.</h1>
             <br/>
             <p>Now, this is a story all about how, My life got flipped-turned upside down, And I'd like to take a minute
-            Just sit right there, I'll tell you how I became the prince of a town called Bel-Air</p>
-          
+            Just sit right there, I'll tell you how I became the prince of a town called Bel-Air.</p>
+            <br />
             <p>In West Philadelphia born and raised
                 On the playground was where I spent most of my days
                 Chillin' out, maxin', relaxin', all cool
