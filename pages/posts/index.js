@@ -27,9 +27,11 @@ export default function Posts({ postList }) {
       <h1>List of posts</h1>
 
       <section className={styles.main}>
+        <>
         {Object.entries(postList).map((post, idx) => (
           <Post {...post} key={idx} />
         ))}
+        </>
       </section>
     </Layout>
   )

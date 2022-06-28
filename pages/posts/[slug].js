@@ -51,9 +51,10 @@ export default function Post( post ) {
       <Head><title>{post.title}</title></Head>
       <section className={styles.main}>
         <div className={'o-wrapper'}>
+          <br />
           <h1>{post.title}</h1>
           <div dangerouslySetInnerHTML={{__html: post.content[0].content }} />
-          <Link href="/posts"> 
+          <Link href="/"> 
             <a>Back to posts index</a>
           </Link>
         </div>

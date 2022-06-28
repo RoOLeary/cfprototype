@@ -18,12 +18,13 @@ export default function Nav(){
     const update = (height) => {
         const num = window.scrollY / height
         const multiplier = Math.min(Math.max(num, 0), 1)
-        unitRef.current.style.setProperty('--multiplier', multiplier)
+        unitRef.current.style.setProperty('--multiplier', 1)
     }
 
     useEffect(() => {
         let height = unitRef.current.offsetHeight;
-        window.addEventListener('scroll', () => update(height)); 
+        unitRef.current.style.setProperty('--multiplier', 1)
+        // window.addEventListener('scroll', () => update(height)); 
     }, []);
 
     return(
@@ -44,9 +45,6 @@ export default function Nav(){
                 <ul className="c-nav__menu">
                     <li className="c-nav__menuItem"><Link href={"/"}><a className="c-nav__menuLink">Home</a></Link></li>
                     <li className="c-nav__menuItem"><Link href={"/about"}><a className="c-nav__menuLink">About</a></Link></li>
-                    <li className="c-nav__menuItem"><Link href={"/tech"}><a className="c-nav__menuLink">Tech</a></Link></li>
-                    <li className="c-nav__menuItem"><Link href={"/test"}><a className="c-nav__menuLink">Test</a></Link></li>
-                    <li className="c-nav__menuItem"><Link href={"/retest"}><a className="c-nav__menuLink">Retest</a></Link></li>
                     {/* {session ? <li className="c-nav__menuItem"><Link href={"/members"}><a className="c-nav__menuLink">Members</a></Link></li> : ''}
                     <li className="c-nav__menuItem">
                         {!session ? <>
