@@ -47,6 +47,13 @@ export default function Post( post ) {
           
           <h1 className={'b-text__heading'}>{post.title}</h1>
           <br />
+          {post.authors[0].name}
+          <br />
+          {post.properties.published}<br />
+          {post.tags ? post.tags.map((t) => {
+              return <li className={styles.tags}>{t.name}</li>; 
+            }) : 'no tags' }
+          <br />
 
           {router.isFallback ? <div><h1>Loading...</h1></div> :  
             <div>

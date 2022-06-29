@@ -13,7 +13,7 @@ export default function Home() {
   const [page, setPage] = useState(1);
   const { data, error } = useSWR(
     `https://api2.tnw-staging.com/v2/articles?page=${page}&limit=10`,
-    fetcher
+    fetcher, { refreshInterval: 1000 }
   );
   
   if (error) return <h1>Error</h1>;

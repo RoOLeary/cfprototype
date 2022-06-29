@@ -10,5 +10,14 @@
 }
 
 .artMarg{
+
+}
+
+.innerFlex{
+    flex-direction: column;
     margin-left: 1em;
+}
+
+.tags{
+    padding-right: 5px; 
 }
