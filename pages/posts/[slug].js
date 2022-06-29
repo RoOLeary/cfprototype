@@ -6,7 +6,7 @@ import styles from '../../styles/Home.module.css'
 
 export async function getStaticPaths() {
   const response = await fetch(
-    'https://api2.tnw-staging.com/v2/articles?limit=200'
+    'https://api2.tnw-staging.com/v2/articles?limit=350'
   )
   const postList = await response.json()
   return {
@@ -17,7 +17,7 @@ export async function getStaticPaths() {
         },
       }
     }),
-    fallback: true
+    fallback: false
   }
 }
 
