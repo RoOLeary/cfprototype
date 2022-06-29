@@ -33,7 +33,7 @@ export default function Home() {
   // console.log(data);
 
   if (error) return <h1>Error</h1>;
-  if (!data) return <h1>Loading...</h1>;
+  // if (!data) return <h1>Loading...</h1>;
 
 
 
