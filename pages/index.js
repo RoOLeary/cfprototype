@@ -6,7 +6,7 @@ import useSWR from "swr";
 import styles from '../styles/Home.module.css';
 
 const fetcher = (...args) => fetch(...args).then(res => res.json())
-
+console.log(fetcher);
 // export async function getStaticProps() {
 //   // fetch list of posts
 //   const response = await fetch(
