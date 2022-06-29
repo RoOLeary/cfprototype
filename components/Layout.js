@@ -13,7 +13,6 @@ const variants = {
 
 
 const Layout = ({ children }) => {
-
     return(
         <>
             <Head>
