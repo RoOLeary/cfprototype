@@ -1,6 +1,6 @@
 const settings = {
     meta: {
-      rootUrl: "http://localhost:5000",
+      rootUrl: "https://cfprototype.pages.dev/",
       title: "App",
       description: "The app description goes here.",
       social: {
