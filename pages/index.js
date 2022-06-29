@@ -4,6 +4,7 @@ import React, { useState } from "react";
 import Post from '../components/post';
 import useSWR from "swr";
 import styles from '../styles/Home.module.css';
+import { useRouter } from 'next/router'
 
 const fetcher = (...args) => fetch(...args).then(res => res.json())
 console.log(fetcher);
@@ -24,6 +25,8 @@ console.log(fetcher);
 
 export default function Home() {
 
+  const router = useRouter();
+  const [title, setPageTitle] = useState('Latest Posts')
   const [page, setPage] = useState(1);
   const { data, error } = useSWR(
     `https://api2.tnw-staging.com/v2/articles?page=${page}&limit=10`,
@@ -35,7 +38,11 @@ export default function Home() {
   if (error) return <h1>Error</h1>;
   // if (!data) return <h1>Loading...</h1>;
 
-
+  const messyNav = (page) => {
+    setPage( page + 1 );
+    window.scrollTo(0, 0)
+    setPageTitle(`Page  ${++page}`)
+  }
 
   return (
     <Layout>
@@ -46,7 +53,7 @@ export default function Home() {
           <div className="o-wrapper">
           {!data ? <h1 className={'b-text__heading'}>Loading...</h1> :
             <div>
-            <h1 className={'b-text__heading'}>Latest posts</h1>
+            <h1 className={'b-text__heading'}>{title}</h1>
             <br />
             {Object.entries(data).map((post, idx) => (
               <Post {...post} key={idx} />
@@ -64,7 +71,7 @@ export default function Home() {
           
           <button
             className={'c-button'}
-            onClick={() => setPage( page + 1)}
+            onClick={() => messyNav(page)}
           >
             Next
           </button>
