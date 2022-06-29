@@ -1,6 +1,7 @@
 import Link from 'next/link'
 import Head from 'next/head'
 import { useRouter } from 'next/router'
+import { useEffect } from 'react';
 import Layout from '../../components/Layout'
 import styles from '../../styles/Home.module.css'
 
@@ -38,7 +39,11 @@ export default function Post( post ) {
 
   const router = useRouter(); 
 
-  
+  useEffect(() => {
+    window.history.scrollRestoration = 'manual'
+    console.log('post')
+  },[])
+
   return (
     <Layout>
       <Head><title>{post.title}</title></Head>

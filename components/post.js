@@ -9,6 +9,12 @@ import styles from '../styles/Post.module.css'
 // }
 
 
+const variants = {
+  hidden: { opacity: 0, x: 0, y: 0 },
+  enter: { opacity: 1, x: 0, y: 0 },
+  exit: { opacity: 0, x: 0, y: 0 },
+}
+
 export default function Post(post) {
 
   
@@ -25,7 +31,7 @@ export default function Post(post) {
         <img src={imgSrc} width={300} height={200} />
         
         <div className={styles.innerFlex}>
-          <Link href={`/posts/${slug}`}><a><h2 className={styles.artMarg}>{title.replace(/<[^>]+>/g, '')}</h2></a></Link>
+          <Link href={`/posts/${slug}`} scroll={false}><a><h2 className={styles.artMarg}>{title.replace(/<[^>]+>/g, '')}</h2></a></Link>
           <br />
           <p className={styles.artMarg}>{post[1].properties.published} - {post[1].authors[0].name} <br/>
             <div>Tags:
