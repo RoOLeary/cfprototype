@@ -50,8 +50,8 @@ export default function Post( post ) {
           {post.authors[0].name}
           <br />
           {post.properties.published}<br />
-          {post.tags ? post.tags.map((t) => {
-              return <li className={styles.tags}>{t.name}</li>; 
+          {post.tags ? post.tags.map((t, idx) => {
+              return <li className={styles.tags} key={idx}>{t.name}</li>; 
             }) : 'no tags' }
           <br />
 
