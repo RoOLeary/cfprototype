@@ -38,11 +38,7 @@ export default function Post( post ) {
   // console.log(post);
 
   const router = useRouter(); 
-
-  useEffect(() => {
-    window.history.scrollRestoration = 'manual'
-    console.log('post')
-  },[])
+  
 
   return (
     <Layout>
