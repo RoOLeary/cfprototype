@@ -1,7 +1,7 @@
 import React from "react";
 import PropTypes from "prop-types";
 import Head from "next/head";
-// import settings from "../../settings";
+import settings from "../../settings";
 
 const socialTags = ({
   openGraphType,
@@ -60,16 +60,16 @@ const SEO = (props) => {
   const { url, title, description, image } = props;
 
   return (
-    <Head>
-      <title>{title} | App</title>
+    <>
+      <title>Next.Js CF Pages</title>
       <meta name="description" content={description} />
-      <meta itemprop="name" content={title} />
-      <meta itemprop="description" content={description} />
-      <meta itemprop="image" content={image} />
+      <meta itemProp="name" content={title} />
+      <meta itemProp="description" content={description} />
+      <meta itemProp="image" content={image} />
       {socialTags(props).map(({ name, content }) => {
         return <meta key={name} name={name} content={content} />;
       })}
-    </Head>
+    </>
   );
 };
 

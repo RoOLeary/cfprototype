@@ -30,10 +30,10 @@ export default function Home() {
     fetcher
   );
   
-  console.log(data);
+  // console.log(data);
 
   if (error) return <h1>Error</h1>;
-  if (!data) return <h1>Loading...</h1>;
+  // if (!data) return <h1>Loading...</h1>;
 
 
 
@@ -44,11 +44,14 @@ export default function Home() {
       <section className="b-text  c-section" id="learn-more">
           
           <div className="o-wrapper">
-          <h1 className={'b-text__heading'}>Latest posts</h1>
-          <br />
-          {Object.entries(data).map((post, idx) => (
-            <Post {...post} key={idx} />
-          ))}
+          {!data ? <h1 className={'b-text__heading'}>Loading...</h1> :
+            <div>
+            <h1 className={'b-text__heading'}>Latest posts</h1>
+            <br />
+            {Object.entries(data).map((post, idx) => (
+              <Post {...post} key={idx} />
+            ))}
+            </div> }
           </div>
           <div className="o-wrapper">
           {page > 1 ?

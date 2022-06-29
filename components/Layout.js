@@ -1,12 +1,13 @@
 import Head from 'next/head';
 import Nav from './Nav';
+import SEO from './SEO';
 import Footer from './Footer';
 const Layout = ({ children }) => {
 
     return(
         <>
             <Head>
-                <title>Next.Js CF Pages</title>
+                <SEO title="Next"/>
             </Head>
             <Nav />
             <main>
