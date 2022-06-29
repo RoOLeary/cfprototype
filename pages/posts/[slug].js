@@ -38,14 +38,6 @@ export default function Post( post ) {
 
   const router = useRouter(); 
 
-  if(router.isFallback){
-    return(
-      <div><h1>Loading...</h1></div>
-    );
-  }
-
-
-
   return (
     <Layout>
       <Head><title>{post.title}</title></Head>
@@ -54,10 +46,15 @@ export default function Post( post ) {
           
           <h1 className={'b-text__heading'}>{post.title}</h1>
           <br />
-          <div dangerouslySetInnerHTML={{__html: post.content[0].content }} />
-          <Link href="/" scroll={false}> 
-            <a>Back to posts index</a>
-          </Link>
+
+          {router.isFallback ? <div><h1>Loading...</h1></div> :  
+            <div>
+              <div dangerouslySetInnerHTML={{__html: post.content[0].content }} />
+              <Link href="/" scroll={false}> 
+                <a>Back to posts index</a>
+              </Link>
+            </div>
+          }
         </div>
       </section>
     </Layout>

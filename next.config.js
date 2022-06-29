@@ -3,25 +3,26 @@ const nextConfig = {
   reactStrictMode: false,
   trailingSlash: false,
   distDir: '/out',
+  images: {
+    loader: 'custom',
+    path: '/',
+    domains: ['placedog.net', 'cdn0.tnwcdn.com'],
+  }
 }
 
 module.exports = nextConfig
 
-
-
-
 module.exports = {
-
-        exportPathMap: async function (
-            defaultPathMap,
-            { dev, dir, outDir, distDir, buildId }
-        ) {
-            return {
-            '/': { page: '/' },
-            '/about': { page: '/about' },
-            '/posts': { page: '/posts'}
-            }
-        },
+  exportPathMap: async function (
+      defaultPathMap,
+      { dev, dir, outDir, distDir, buildId }
+  ) {
+      return {
+      '/': { page: '/' },
+      '/about': { page: '/about' },
+      '/posts': { page: '/posts'}
+      }
+  },
   async headers() {
     return [
       {
