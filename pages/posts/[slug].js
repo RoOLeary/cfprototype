@@ -38,6 +38,7 @@ export default function Post( post ) {
 
   const router = useRouter(); 
 
+  
   return (
     <Layout>
       <Head><title>{post.title}</title></Head>
