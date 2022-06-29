@@ -17,7 +17,7 @@ export default function Post(post) {
     <article className={styles.articleStyles}>
       <div className={styles.articleFlex}>
         <img src={imgSrc} width={300} height={200} />
-        <Link href={`/posts/${slug}`}><a><h2 className={styles.artMarg}>{title}</h2></a></Link>
+        <Link href={`/posts/${slug}`}><a><h2 className={styles.artMarg}>{title.replace(/<[^>]+>/g, '')}</h2></a></Link>
         <br></br>
       </div>
       {post[1].properties.published} - {post[1].authors[0].name}

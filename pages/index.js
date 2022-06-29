@@ -50,19 +50,24 @@ export default function Home() {
             <Post {...post} key={idx} />
           ))}
           </div>
+          <div className="o-wrapper">
+          {page > 1 ?
           <button
-          // disabled={!data.previous}
+          // disabled={}
+          className={'c-button'}
           onClick={() => setPage(page - 1)}
         >
           Previous
-        </button>
-
+        </button> : ''}
+          
         <button
           // disabled={!data.next}
+          className={'c-button'}
           onClick={() => setPage( page + 1)}
         >
           Next
         </button>
+        </div>
       </section>
     </Layout>
   )
