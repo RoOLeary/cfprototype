@@ -1,6 +1,6 @@
 import Link from 'next/link'
 import Head from 'next/head'
-import { useRouter } from 'next/router'
+import { useRouter } from 'next/router';
 import { useEffect } from 'react';
 import Layout from '../../components/Layout'
 import styles from '../../styles/Home.module.css'
@@ -37,7 +37,10 @@ export async function getStaticProps({ params }) {
 export default function Post( post ) {
   // console.log(post);
 
-  const router = useRouter(); 
+  const router = useRouter();
+  const { name } = router.query;
+  console.log(name);
+  console.log(router.asPath.replace("/posts/", ""));
   
 
   return (
