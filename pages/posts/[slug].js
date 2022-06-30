@@ -38,9 +38,9 @@ export default function Post( post ) {
   // console.log(post);
 
   const router = useRouter();
-  const { name } = router.query;
-  console.log(name);
-  console.log(router.asPath.replace("/posts/", ""));
+  const { slug } = router.query;
+  // console.log(router);
+  console.log(slug);
   
 
   return (
