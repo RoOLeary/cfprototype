@@ -37,10 +37,7 @@ export async function getStaticProps({ params }) {
 export default function Post( post ) {
   // console.log(post);
 
-  const router = useRouter();
-  const { slug } = router.query;
-  // console.log(router);
-  console.log(slug);
+  const router = useRouter(); 
   
 
   return (
