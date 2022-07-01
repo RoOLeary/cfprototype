@@ -1,41 +1,11 @@
 import Link from 'next/link'
 import Head from 'next/head'
 import { useRouter } from 'next/router';
-import { useEffect } from 'react';
 import Layout from '../../components/Layout'
 import styles from '../../styles/Home.module.css'
 
-// export async function getStaticPaths() {
-//   const response = await fetch(
-//     'https://api2.tnw-staging.com/v2/articles?limit=350'
-//   )
-//   const postList = await response.json()
-//   return {
-//     paths: Array.from(postList).map((post) => {
-//       return {
-//         params: {
-//           slug: `${post.slug}`,
-//         },
-//       }
-//     }),
-//     fallback: false
-//   }
-// }
-
-
-// export async function getStaticProps({ params }) {
-//   // fetch single post detail
-//   const response = await fetch(
-//     `https://api2.tnw-staging.com/v2/articles/${params.slug}`
-//   )
-//   const post = await response.json()
-//   return {
-//     props: post[0],
-//   }
-// }
-
 export async function getServerSideProps(context) {
-  console.log(context.query.slug);
+  console.log('slug is: ' + context.query.slug);
   // Fetch data from external API
   const res = await fetch(`https://api2.tnw-staging.com/v2/articles/${context.query.slug}`)
   const post = await res.json()
@@ -45,7 +15,7 @@ export async function getServerSideProps(context) {
 }
 
 export default function Post( post ) {
-  // console.log(post);
+  console.log('ssr post');
 
   const router = useRouter(); 
   
