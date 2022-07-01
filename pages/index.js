@@ -6,36 +6,36 @@ import useSWR from "swr";
 import styles from '../styles/Home.module.css';
 import { useRouter } from 'next/router'
 
-// const fetcher = (...args) => fetch(...args).then(res => res.json())
-// console.log(fetcher);
-export async function getStaticProps() {
-  // fetch list of posts
-  const response = await fetch(
-    'https://api2.tnw-staging.com/v2/articles?limit=20'
-  )
-  const postList = await response.json()
-  return {
-    props: {
-      postList,
-    },
-  }
-}
+const fetcher = (...args) => fetch(...args).then(res => res.json())
+console.log(fetcher);
+// export async function getStaticProps() {
+//   // fetch list of posts
+//   const response = await fetch(
+//     'https://api2.tnw-staging.com/v2/articles?limit=20'
+//   )
+//   const postList = await response.json()
+//   return {
+//     props: {
+//       postList,
+//     },
+//   }
+// }
 
 
 
-export default function Home({ postList }) {
+export default function Home() {
 
   const router = useRouter();
   const [title, setPageTitle] = useState('Latest Posts')
   const [page, setPage] = useState(1);
-  // const { data, error } = useSWR(
-  //   `https://api2.tnw-staging.com/v2/articles?page=${page}&limit=10`,
-  //   fetcher
-  // );
+  const { data, error } = useSWR(
+    `https://api2.tnw-staging.com/v2/articles?page=${page}&limit=10`,
+    fetcher
+  );
   
   // console.log(data);
 
-  // if (error) return <h1>Error</h1>;
+  if (error) return <h1>Error</h1>;
   // if (!data) return <h1>Loading...</h1>;
 
   const messyNav = (page) => {
@@ -51,17 +51,17 @@ export default function Home({ postList }) {
       <section className="b-text  c-section" id="learn-more">
           
           <div className="o-wrapper">
-          {!postList ? <h1 className={'b-text__heading'}>Loading...</h1> :
+          {!data ? <h1 className={'b-text__heading'}>Loading...</h1> :
             <div>
             <h1 className={'b-text__heading'}>{title}</h1>
             <br />
-            {Object.entries(postList).map((post, idx) => (
+            {Object.entries(data).map((post, idx) => (
               <Post {...post} key={idx} />
             ))}
             </div> }
           </div>
           <div className="o-wrapper">
-          {/* {page > 1 ?
+          {page > 1 ?
           <button 
             className={'c-button'}
             onClick={() => setPage(page - 1)}
@@ -74,7 +74,7 @@ export default function Home({ postList }) {
             onClick={() => messyNav(page)}
           >
             Next
-          </button> */}
+          </button>
         </div>
       </section>
     </Layout>
