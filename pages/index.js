@@ -61,7 +61,7 @@ export default function Home({ postList }) {
             </div> }
           </div>
           <div className="o-wrapper">
-          {page > 1 ?
+          {/* {page > 1 ?
           <button 
             className={'c-button'}
             onClick={() => setPage(page - 1)}
@@ -74,7 +74,7 @@ export default function Home({ postList }) {
             onClick={() => messyNav(page)}
           >
             Next
-          </button>
+          </button> */}
         </div>
       </section>
     </Layout>

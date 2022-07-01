@@ -5,9 +5,9 @@ import Layout from '../../components/Layout'
 import styles from '../../styles/Home.module.css'
 
 export async function getServerSideProps(context) {
-  console.log('slug is: ' + context.query.slug);
+  console.log('slug is: ' + context.params.slug);
   // Fetch data from external API
-  const res = await fetch(`https://api2.tnw-staging.com/v2/articles/${context.query.slug}`)
+  const res = await fetch(`https://api2.tnw-staging.com/v2/articles/${context.params.slug}`)
   const post = await res.json()
 
   // Pass data to the page via props
