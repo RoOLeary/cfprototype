@@ -6,7 +6,7 @@ const settings = {
       social: {
         graphic:
           "https://cheatcode-assets.s3.amazonaws.com/default-social-graphic.png",
-        twitter: "@cheatcodetuts",
+        twitter: "@tnwevents",
       },
     },
     routes: {
