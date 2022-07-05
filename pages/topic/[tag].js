@@ -12,8 +12,7 @@ export default function Tag({ props }) {
         <Layout>
             <section className={'b-text c-section'}>
                 <div className={'o-wrapper'}>
-                
-                    <h1>Tags: {tagName.toUpperCase()}</h1>
+                    <h1>Tags: {tagName.charAt(0).toUpperCase() + tagName.slice(1)}</h1>
                     <p>List of articles tagged with {tagName}</p>
                 </div>
                 <Link href={'/'}><a>Back</a></Link>
