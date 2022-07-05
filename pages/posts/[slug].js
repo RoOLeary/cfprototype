@@ -3,6 +3,7 @@ import Head from 'next/head'
 import { useRouter } from 'next/router';
 import { useEffect } from 'react';
 import Layout from '../../components/Layout'
+import FlexGrid from '../../components/FlexGrid'
 import styles from '../../styles/Home.module.css'
 
 export async function getStaticPaths() {
@@ -45,7 +46,7 @@ export default function Post( post ) {
       <Head><title>{post.title}</title></Head>
       <section className={'b-text c-section'}>
         <div className={'o-wrapper'}>
-          
+         
           <h1 className={'b-text__heading'}>{post.title}</h1>
           <br />
           {post.authors[0].name}
@@ -67,8 +68,11 @@ export default function Post( post ) {
               </Link>
             </div>
           }
+          <FlexGrid />
         </div>
+        
       </section>
+      
     </Layout>
   )
 }

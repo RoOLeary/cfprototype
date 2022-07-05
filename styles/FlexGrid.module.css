@@ -1,0 +1,24 @@
+  
+  
+  .container {
+
+    padding: 1rem 0;
+    margin: 0 auto;
+    max-width: 100%;
+    display: flex;
+    flex-wrap: wrap;
+    --margin: 1rem .35rem;
+    --modifier: calc(40rem - 100%);
+    margin: calc(var(--margin) * -1);
+
+  }
+  
+  .container > * {
+    background-color: #000;
+    min-width: calc(33% - (var(--margin) * 2));
+    max-width: 100%;
+    flex-grow: 1;
+    flex-basis: calc(var(--modifier) * 999);
+    height: 20vh;
+    margin: var(--margin);
+  }
