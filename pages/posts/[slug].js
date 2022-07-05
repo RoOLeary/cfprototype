@@ -53,7 +53,8 @@ export default function Post( post ) {
           {post.properties.published}<br />
           {post.tags ? post.tags.map((t, idx) => {
               return <li className={styles.tags} key={idx}>
-                  <Link href={'/topic/tag'}><a>{t.name}</a></Link>
+                  <Link href={{ pathname: `/topic/${t.slug}`, query: { data: JSON.stringify(t) } }}><a>{t.name}</a></Link>
+                  {/* <Link href={`/topic/${t.slug}`}><a>{t.name}</a></Link> */}
                 </li>; 
             }) : 'no tags' }
           <br />
