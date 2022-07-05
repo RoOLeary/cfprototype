@@ -4,7 +4,7 @@ import Layout from '../../components/Layout'
 export default function Tag({ props }) {
 
     const router = useRouter(); 
-    const tagName = router.query.tag;
+    const tagName = router.query.tag ? router.query.tag : 'tagName';
 
 
     return (
