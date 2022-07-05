@@ -37,7 +37,7 @@ export default function Post(post) {
             <div>Tags:
             <ul>
               {tags ? tags.map((t, id) => {
-                return <li className={styles.tags} key={id}>{t.name}</li>; 
+                return <li className={styles.tags} key={id}><Link href={`/topic/${t.slug}`}><a>{t.name}</a></Link></li>; 
               }) : 'no tags' }
             </ul>
             </div>

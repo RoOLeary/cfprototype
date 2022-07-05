@@ -1,3 +1,4 @@
+import Link from "next/link"
 import { useRouter } from "next/router"
 import Layout from '../../components/Layout'
 
@@ -15,6 +16,7 @@ export default function Tag({ props }) {
                     <h1>Tags: {tagName.toUpperCase()}</h1>
                     <p>List of articles tagged with {tagName}</p>
                 </div>
+                <Link href={'/'}><a>Back</a></Link>
             </section>
         </Layout>
        
