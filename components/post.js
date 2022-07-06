@@ -28,7 +28,7 @@ export default function Post(post) {
         
         <img src={imgSrc} width={300} height={200} />
         <div className={styles.innerFlex}>
-          <Link href={`/posts/${slug}`}><a><h2 className={styles.artMarg}>{title.replace(/<[^>]+>/g, '')}</h2></a></Link>
+          <Link href={`/posts/${slug}`}><a><h2 className={styles.artMarg} dangerouslySetInnerHTML={{__html: title.replace(/<[^>]+>/g, '')}} /></a></Link>
           <br />
           <p className={styles.artMarg}>{post[1].properties.published} - {post[1].authors[0].name} <br/>
             <div>Tags:
