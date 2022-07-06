@@ -69,7 +69,6 @@ export default function Post( post: IProps ) {
                 </li>; 
             }).slice(0,1) : 'no tags' }
           <br />
-
           {router.isFallback ? <div><h1>Loading...</h1></div> :  
             <div>
               <div dangerouslySetInnerHTML={{__html: post['content'][0].content }} />
@@ -78,7 +77,6 @@ export default function Post( post: IProps ) {
               </Link>
             </div>
           }
-          <FlexGrid />
         </div>
       </Section>
     </Layout>
