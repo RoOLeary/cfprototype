@@ -3,7 +3,6 @@ import React, { useState } from "react";
 import Post from '../components/post';
 import useSWRInfinite from "swr/infinite";
 
-
 const fetcher = (...args) => fetch(...args).then(res => res.json())
 console.log(fetcher);
 const PAGE_SIZE = 10;
