@@ -5,11 +5,15 @@ import Layout from '../../components/Layout'
 import FlexGrid from '../../components/FlexGrid'
 import styles from '../../styles/Home.module.css'
 import IPost from '../../interfaces/IPost'
-import { GetStaticProps } from 'next';
+import { GetStaticPaths, GetStaticProps } from 'next';
 
 
 interface IProps {
   post: IPost
+}
+
+interface IParams {
+  params: string
 }
 
 import styled from "styled-components";
@@ -19,14 +23,13 @@ const Section = styled.section`
 `;
 
 
-export async function getStaticPaths() {
+export const getStaticPaths: GetStaticPaths = async () => {
   const response = await fetch(
     'https://api2.tnw-staging.com/v2/articles?limit=350'
   )
   const postList = await response.json()
   return {
     paths: Array.from(postList).map((post) => {
-      // console.log(post['slug']);
       return {
         params: {
           slug: `${post['slug']}`,
@@ -39,7 +42,6 @@ export async function getStaticPaths() {
 
 
 export const getStaticProps: GetStaticProps = async ({ params }) => {
-  // fetch single post detail
   const response = await fetch(
     `https://api2.tnw-staging.com/v2/articles/${params.slug}`
   )
