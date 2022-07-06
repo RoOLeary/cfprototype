@@ -26,7 +26,7 @@ export default function Post(post) {
     <article className={styles.articleStyles}>
       <div className={styles.articleFlex}>
         
-        <img src={imgSrc} width={300} height={200} />
+        <img src={imgSrc} width={250} height={300} />
         <div className={styles.innerFlex}>
           <Link href={`/posts/${slug}`}><a><h2 className={styles.artMarg} dangerouslySetInnerHTML={{__html: title.replace(/<[^>]+>/g, '')}} /></a></Link>
           <br />

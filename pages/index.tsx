@@ -37,6 +37,7 @@ export default function Home() {
             ))}
             </div> }
         </div>
+        <br />
         <div className="o-wrapper">
           <button
             className={'c-button'}

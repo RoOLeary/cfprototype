@@ -3,12 +3,14 @@ import { useRouter } from 'next/router'
 import { useRef, useEffect } from 'react'
 import styles from '../styles/Nav.module.css'
 
-export default function Nav(){
+const Nav = (): JSX.Element => {
     // const { data: session } = useSession();
 
     // console.log(session);
-    let menuRef = useRef();
-    let unitRef = useRef();
+    let menuRef = useRef<HTMLDivElement>();
+    let unitRef = useRef<HTMLDivElement>();
+
+    // console.log(unitRef.current);
 
     const toggleMobileMenu = (e) => {
         e.currentTarget.classList.toggle('mobile-menu-active');
@@ -18,13 +20,13 @@ export default function Nav(){
     const update = (height) => {
         const num = window.scrollY / height
         const multiplier = Math.min(Math.max(num, 0), 1)
-        unitRef.current.style.setProperty('--multiplier', 1)
+        unitRef.current.style.setProperty('--multiplier', "1")
     }
 
     useEffect(() => {
         let height = unitRef.current.offsetHeight;
-        unitRef.current.style.setProperty('--multiplier', 1)
-        // window.addEventListener('scroll', () => update(height)); 
+        unitRef.current.style.setProperty('--multiplier', "1")
+        window.addEventListener('scroll', () => update(height)); 
     }, []);
 
     return(
@@ -61,3 +63,5 @@ export default function Nav(){
         </nav>
     )
 }
+
+export default Nav;
