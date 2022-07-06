@@ -10,7 +10,7 @@ import { GetStaticProps } from 'next';
 import styled from "styled-components";
 
 const Section = styled.section`
-  background: ${props => props.primary ? "teal" : "white"}
+  background: ${props => props.primary ? "white" : "teal"}
 `;
 
 
