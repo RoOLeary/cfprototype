@@ -1,11 +1,16 @@
-import Link from 'next/link'
-import Head from 'next/head'
-import { useRouter } from 'next/router';
-import { useEffect } from 'react';
+import Head from 'next/head';
+import Link from 'next/link';
+import { useRouter } from "next/router"
 import Layout from '../../components/Layout'
 import FlexGrid from '../../components/FlexGrid'
 import styles from '../../styles/Home.module.css'
+import IPost from '../../interfaces/IPost'
 import { GetStaticProps } from 'next';
+
+
+interface IProps {
+  articles: IPost[]
+}
 
 import styled from "styled-components";
 
@@ -44,12 +49,8 @@ export const getStaticProps: GetStaticProps = async ({ params }) => {
   }
 }
 
-export default function Post( post ) {
-  // console.log(post);
-
+export default function Post( post: IProps ) {
   const router = useRouter(); 
-  
-
   return (
     <Layout>
       <Head><title>{post.title}</title></Head>
