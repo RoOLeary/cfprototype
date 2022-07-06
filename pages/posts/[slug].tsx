@@ -65,7 +65,7 @@ export default function Post( post: IProps ) {
               return <li className={styles.tags} key={idx}>
                   <Link href={{ pathname: `/topic/${t.slug}`, query: { data: JSON.stringify(t.slug) } }}><a>{t.name}</a></Link>
                 </li>; 
-            }) : 'no tags' }
+            }).slice(0,1) : 'no tags' }
           <br />
 
           {router.isFallback ? <div><h1>Loading...</h1></div> :  
