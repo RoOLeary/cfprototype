@@ -14,8 +14,8 @@ const PAGE_SIZE = 10;
 
 export default function Home() {
 
-  const router = useRouter();
-  const [title, setPageTitle] = useState('Latest Posts')
+  // const router = useRouter();
+  const title = useState('Latest Posts')
   const { data, error, mutate, size, setSize, isValidating } = useSWRInfinite(
     index =>
       `https://api2.tnw-staging.com/v2/articles?page=${index +
@@ -24,15 +24,12 @@ export default function Home() {
   );
   
     
-
   const posts = data ? [].concat(...data) : [];
   const isLoadingInitialData = !data && !error;
   const isLoadingMore = isLoadingInitialData || (size > 0 && data && typeof data[size - 1] === "undefined");
   const isEmpty = data?.[0]?.length === 0;
   const isReachingEnd = isEmpty || (data && data[data.length - 1]?.length < PAGE_SIZE);
-  const isRefreshing = isValidating && data && data.length === size
-
-  
+  // const isRefreshing = isValidating && data && data.length === size
 
   return (
     <Layout>
