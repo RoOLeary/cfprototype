@@ -8,6 +8,8 @@ interface IPost {
     tags: string[]
     slug: string
     html: string
+    published: string
+    authors: string
 }
 
 export default IPost;

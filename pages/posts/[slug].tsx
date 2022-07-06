@@ -1,6 +1,6 @@
 import Head from 'next/head';
 import Link from 'next/link';
-import { useRouter } from "next/router"
+import { useRouter } from 'next/router';
 import Layout from '../../components/Layout'
 import FlexGrid from '../../components/FlexGrid'
 import styles from '../../styles/Home.module.css'
@@ -9,7 +9,7 @@ import { GetStaticProps } from 'next';
 
 
 interface IProps {
-  articles: IPost[]
+  post: IPost
 }
 
 import styled from "styled-components";
@@ -50,14 +50,15 @@ export const getStaticProps: GetStaticProps = async ({ params }) => {
 }
 
 export default function Post( post: IProps ) {
-  const router = useRouter(); 
+  console.log(post['title']);
+  const router = useRouter();
   return (
     <Layout>
-      <Head><title>{post.title}</title></Head>
+      <Head><title>{post ? post['title'] : 'Generic Post Title'}</title></Head>
       <Section primary className={'b-text c-section'}>
         <div className={'o-wrapper'}>
          
-          <h1 className={'b-text__heading'}>{post.title}</h1>
+          <h1 className={'b-text__heading'}>{post['title']}</h1>
           <br />
           <Link href={{ pathname: `/authors/${post.authors[0].slug}`}}><a>{post.authors[0].name}</a></Link>
           <br />
