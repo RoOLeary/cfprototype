@@ -5,6 +5,7 @@ import { useEffect } from 'react';
 import Layout from '../../components/Layout'
 import FlexGrid from '../../components/FlexGrid'
 import styles from '../../styles/Home.module.css'
+import { GetStaticProps } from 'next';
 
 export async function getStaticPaths() {
   const response = await fetch(
@@ -24,7 +25,7 @@ export async function getStaticPaths() {
 }
 
 
-export async function getStaticProps({ params }) {
+export const getStaticProps: GetStaticProps = async ({ params }) => {
   // fetch single post detail
   const response = await fetch(
     `https://api2.tnw-staging.com/v2/articles/${params.slug}`
@@ -54,7 +55,7 @@ export default function Post( post ) {
           {post.properties.published}<br />
           {post.tags ? post.tags.map((t, idx) => {
               return <li className={styles.tags} key={idx}>
-                  <Link href={{ pathname: `/topic/${t.slug}`, query: { data: JSON.stringify(t) } }}><a>{t.name}</a></Link>
+                  <Link href={{ pathname: `/topic/${t.slug}`, query: { data: JSON.stringify(t.slug) } }}><a>{t.name}</a></Link>
                   {/* <Link href={`/topic/${t.slug}`}><a>{t.name}</a></Link> */}
                 </li>; 
             }) : 'no tags' }
