@@ -12,10 +12,6 @@ interface IProps {
   post: IPost
 }
 
-interface IParams {
-  params: string
-}
-
 import styled from "styled-components";
 
 const Section = styled.section`
