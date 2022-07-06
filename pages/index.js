@@ -32,13 +32,7 @@ export default function Home() {
   const isReachingEnd = isEmpty || (data && data[data.length - 1]?.length < PAGE_SIZE);
   const isRefreshing = isValidating && data && data.length === size
 
-  console.log(posts);
-
-  const messyNav = (page) => {
-    setPage( page + 1 );
-    window.scrollTo(0, 0)
-    setPageTitle(`Page  ${++page}`)
-  }
+  
 
   return (
     <Layout>
@@ -58,7 +52,7 @@ export default function Home() {
           </div>
           <div className="o-wrapper">
             <button
-              className={`bg-black hover:bg-gray-700 text-white font-bold py-2 px-4 rounded`}
+              className={'c-button'}
               disabled={isLoadingMore || isReachingEnd}
               onClick={() => setSize(size + 1)}>
               {isLoadingMore
