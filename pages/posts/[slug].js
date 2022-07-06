@@ -49,7 +49,7 @@ export default function Post( post ) {
          
           <h1 className={'b-text__heading'}>{post.title}</h1>
           <br />
-          {post.authors[0].name}
+          <Link href={{ pathname: `/authors/${post.authors[0].slug}`}}><a>{post.authors[0].name}</a></Link>
           <br />
           {post.properties.published}<br />
           {post.tags ? post.tags.map((t, idx) => {
