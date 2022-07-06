@@ -7,6 +7,13 @@ import FlexGrid from '../../components/FlexGrid'
 import styles from '../../styles/Home.module.css'
 import { GetStaticProps } from 'next';
 
+import styled from "styled-components";
+
+const Section = styled.section`
+  background: ${props => props.primary ? "teal" : "white"}
+`;
+
+
 export async function getStaticPaths() {
   const response = await fetch(
     'https://api2.tnw-staging.com/v2/articles?limit=350'
@@ -46,7 +53,7 @@ export default function Post( post ) {
   return (
     <Layout>
       <Head><title>{post.title}</title></Head>
-      <section className={'b-text c-section'}>
+      <Section primary className={'b-text c-section'}>
         <div className={'o-wrapper'}>
          
           <h1 className={'b-text__heading'}>{post.title}</h1>
@@ -73,7 +80,7 @@ export default function Post( post ) {
           <FlexGrid />
         </div>
         
-      </section>
+      </Section>
       
     </Layout>
   )
