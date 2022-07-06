@@ -50,15 +50,13 @@ export const getStaticProps: GetStaticProps = async ({ params }) => {
 }
 
 export default function Post( post: IProps ) {
-  console.log(post['authors']);
   const router = useRouter();
   return (
     <Layout>
       <Head><title>{post ? post['title'] : 'Generic Post Title'}</title></Head>
       <Section primary className={'b-text c-section'}>
         <div className={'o-wrapper'}>
-         
-          <h1 className={'b-text__heading'}>{post['title']}</h1>
+          <h1 className={'b-text__heading'} dangerouslySetInnerHTML={{__html: post['title']}} />
           <br />
           <Link href={{ pathname: `/authors/${post['authors'][0].slug}`}}><a>{post['authors'][0].name}</a></Link>
           <br />
@@ -66,7 +64,6 @@ export default function Post( post: IProps ) {
           {post['tags'] ? post['tags'].map((t, idx) => {
               return <li className={styles.tags} key={idx}>
                   <Link href={{ pathname: `/topic/${t.slug}`, query: { data: JSON.stringify(t.slug) } }}><a>{t.name}</a></Link>
-                  {/* <Link href={`/topic/${t.slug}`}><a>{t.name}</a></Link> */}
                 </li>; 
             }) : 'no tags' }
           <br />
@@ -81,9 +78,7 @@ export default function Post( post: IProps ) {
           }
           <FlexGrid />
         </div>
-        
       </Section>
-      
     </Layout>
   )
 }
