@@ -50,7 +50,7 @@ export const getStaticProps: GetStaticProps = async ({ params }) => {
 }
 
 export default function Post( post: IProps ) {
-  console.log(post['title']);
+  console.log(post['authors']);
   const router = useRouter();
   return (
     <Layout>
@@ -60,10 +60,10 @@ export default function Post( post: IProps ) {
          
           <h1 className={'b-text__heading'}>{post['title']}</h1>
           <br />
-          <Link href={{ pathname: `/authors/${post.authors[0].slug}`}}><a>{post.authors[0].name}</a></Link>
+          <Link href={{ pathname: `/authors/${post['authors'][0].slug}`}}><a>{post['authors'][0].name}</a></Link>
           <br />
-          {post.properties.published}<br />
-          {post.tags ? post.tags.map((t, idx) => {
+          {post['properties'].published}<br />
+          {post['tags'] ? post['tags'].map((t, idx) => {
               return <li className={styles.tags} key={idx}>
                   <Link href={{ pathname: `/topic/${t.slug}`, query: { data: JSON.stringify(t.slug) } }}><a>{t.name}</a></Link>
                   {/* <Link href={`/topic/${t.slug}`}><a>{t.name}</a></Link> */}
@@ -73,7 +73,7 @@ export default function Post( post: IProps ) {
 
           {router.isFallback ? <div><h1>Loading...</h1></div> :  
             <div>
-              <div dangerouslySetInnerHTML={{__html: post.content[0].content }} />
+              <div dangerouslySetInnerHTML={{__html: post['content'][0].content }} />
               <Link href="/"> 
                 <a>Back to posts index</a>
               </Link>

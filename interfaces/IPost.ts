@@ -9,7 +9,8 @@ interface IPost {
     slug: string
     html: string
     published: string
-    authors: string
+    authors: string[]
+    properties: string[]
 }
 
 export default IPost;
