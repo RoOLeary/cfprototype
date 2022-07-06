@@ -14,9 +14,10 @@ export async function getStaticPaths() {
   const postList = await response.json()
   return {
     paths: Array.from(postList).map((post) => {
+      // console.log(post['slug']);
       return {
         params: {
-          slug: `${post.slug}`,
+          slug: `${post['slug']}`,
         },
       }
     }),

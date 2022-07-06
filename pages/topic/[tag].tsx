@@ -7,13 +7,13 @@ export default function Tag(tag) {
     const router = useRouter(); 
     const tagName = router.query.tag ? router.query.tag : 'tagName';
 
-    console.log(tag);
+    console.log(tagName);
     
     return (
         <Layout>
             <section className={'b-text c-section'}>
                 <div className={'o-wrapper'}>
-                    <h1>Tags: {tagName.charAt(0).toUpperCase() + tagName.slice(1)}</h1>
+                    <h1>Tag</h1>
                     <p>List of articles tagged with {tagName}</p>
                 </div>
                 <Link href={'/'}><a>Back</a></Link>

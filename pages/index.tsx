@@ -3,13 +3,13 @@ import React, { useState } from "react";
 import Post from '../components/post';
 import useSWRInfinite from "swr/infinite";
 
-const fetcher = (...args) => fetch(...args).then(res => res.json())
+const fetcher = url => fetch(url).then(res => res.json())
 console.log(fetcher);
 const PAGE_SIZE = 10;
 
 export default function Home() {
 
-  const title = useState('Latest Posts')
+  const [title, setPageTitle ] = useState('Latest Posts');
   // some other crap in here I can do without for the moment. 
   const { data, error, mutate, size, setSize, isValidating } = useSWRInfinite(
     index =>
