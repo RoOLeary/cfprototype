@@ -2,14 +2,13 @@ import Link from "next/link"
 import { useRouter } from "next/router"
 import Layout from '../../components/Layout'
 import { GetServerSideProps } from 'next';
-
+import ITag from '../../interfaces/ITag'
 import useSWRInfinite from "swr/infinite";
 
 const fetcher = url => fetch(url).then(res => res.json())
-console.log(fetcher);
 const PAGE_SIZE = 10;
 
-export default function Tag(){
+export default function Tag( tag: ITag ) {
 
     const router = useRouter(); 
     let tagName = router.query.tag ? router.query.tag : 'tagName';
@@ -34,7 +33,7 @@ export default function Tag(){
         <Layout>
             <section className={'b-text c-section'}>
                 <div className={'o-wrapper'}>
-                    <h1>Tag: {tagName ? tagName : 'Tag' }</h1>
+                    <h1>Posted Tagged with: {tagName ? tagName : 'Tag' }</h1>
                     <br />
                     <p>List of articles tagged with <strong><em>{tagName}</em></strong></p>
                     <br />
