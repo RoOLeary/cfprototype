@@ -1,13 +1,5 @@
 import Link from 'next/link'
-// import Image from 'next/image'
 import styles from '../styles/Post.module.css'
-
-// function CustomLoader({ src, width }) {
-//   const relativeSrc = (src) => src.split("/").pop();
-//   console.log(src);
-//   return src;
-// }
-
 
 const variants = {
   hidden: { opacity: 0, x: 0, y: 0 },
@@ -16,16 +8,11 @@ const variants = {
 }
 
 export default function Post(post) {
-
-  
-
   const imgSrc = post[1].media[0].media.attributes.url ? post[1].media[0].media.attributes.url : 'https://placedog.net/500/300';
   const { title, slug, tags } = post[1];
-
   return (
     <article className={styles.articleStyles}>
       <div className={styles.articleFlex}>
-        
         <img src={imgSrc} width={250} height={300} />
         <div className={styles.innerFlex}>
           <Link href={`/posts/${slug}`}><a><h2 className={styles.artMarg} dangerouslySetInnerHTML={{__html: title.replace(/<[^>]+>/g, '')}} /></a></Link>
@@ -40,9 +27,7 @@ export default function Post(post) {
             </div>
           </p>
         </div>
-        
       </div>
-     
     </article>
   )
 }

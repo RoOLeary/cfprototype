@@ -3,29 +3,30 @@ import { useRouter } from 'next/router'
 import { useRef, useEffect } from 'react'
 import styles from '../styles/Nav.module.css'
 
-const Nav = (): JSX.Element => {
+const Nav = () => {
     // const { data: session } = useSession();
 
     // console.log(session);
-    let menuRef = useRef<HTMLDivElement>();
-    let unitRef = useRef<HTMLDivElement>();
-
-    // console.log(unitRef.current);
-
+    let menuRef = useRef(null);
+    let unitRef = useRef(null);
+ 
+    
     const toggleMobileMenu = (e) => {
         e.currentTarget.classList.toggle('mobile-menu-active');
         menuRef.current.classList.toggle('show');
     }
 
+    
     const update = (height) => {
         const num = window.scrollY / height
         const multiplier = Math.min(Math.max(num, 0), 1)
-        unitRef.current.style.setProperty('--multiplier', "1")
+        // eslint-disable-next-line @typescript-eslint/no-explicit-any
+        unitRef.current.style.setProperty('--multiplier', 1)
     }
 
     useEffect(() => {
         let height = unitRef.current.offsetHeight;
-        unitRef.current.style.setProperty('--multiplier', "1")
+        unitRef.current.style.setProperty('--multiplier', 1)
         window.addEventListener('scroll', () => update(height)); 
     }, []);
 
