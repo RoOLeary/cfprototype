@@ -1,22 +1,16 @@
 import Link from 'next/link'
 import Layout from '../../components/Layout'
 import { useRouter } from 'next/router';
-import { GetServerSideProps } from 'next';
-
+import IAuthor from '../../interfaces/IAuthor'
 import useSWRInfinite from "swr/infinite";
 
 const fetcher = url => fetch(url).then(res => res.json())
-console.log(fetcher);
 const PAGE_SIZE = 10;
 
-export default function Author(props) {
-
-   
+export default function Author( author: IAuthor) {
     const router = useRouter(); 
-    console.log(router.query);
     const authorName = router.query.name ? router.query.name : 'Callum Booth';
     const authorSlug = router.query.slug ? router.query.slug : 'callum-booth';
-    
     const { data, error, mutate, size, setSize, isValidating } = useSWRInfinite(
         index =>
           `https://api2.tnw-staging.com/v2/articles?author[]=${authorSlug}&page=${index +
