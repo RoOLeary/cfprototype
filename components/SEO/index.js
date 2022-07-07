@@ -59,6 +59,7 @@ const socialTags = ({
 const SEO = (props) => {
   const { url, title, description, image } = props;
 
+  console.log(title);
   
   return (
     <>

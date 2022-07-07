@@ -7,7 +7,8 @@ const variants = {
   exit: { opacity: 0, x: 0, y: 0 },
 }
 
-export default function Post(post) {
+
+export default function Post( post ) {
   const imgSrc = post[1].media[0].media.attributes.url ? post[1].media[0].media.attributes.url : 'https://placedog.net/500/300';
   const { title, slug, tags } = post[1];
   return (
