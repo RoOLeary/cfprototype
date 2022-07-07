@@ -9,7 +9,7 @@ const fetcher = url => fetch(url).then(res => res.json())
 console.log(fetcher);
 const PAGE_SIZE = 10;
 
-export default function Tag(tag){
+export default function Tag(){
 
     const router = useRouter(); 
     let tagName = router.query.tag ? router.query.tag : 'tagName';
