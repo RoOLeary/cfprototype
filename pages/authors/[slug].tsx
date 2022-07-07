@@ -11,6 +11,7 @@ export default function Author( author: IAuthor) {
     const router = useRouter(); 
     const authorName = router.query.name ? router.query.name : 'Callum Booth';
     const authorSlug = router.query.slug ? router.query.slug : 'callum-booth';
+    // SWR crap
     const { data, error, mutate, size, setSize, isValidating } = useSWRInfinite(
         index =>
           `https://api2.tnw-staging.com/v2/articles?author[]=${authorSlug}&page=${index +
@@ -18,13 +19,12 @@ export default function Author( author: IAuthor) {
         fetcher,
       );
      
-      const posts = data ? [].concat(...data) : [];
-      const isLoadingInitialData = !data && !error;
-      const isLoadingMore = isLoadingInitialData || (size > 0 && data && typeof data[size - 1] === "undefined");
-      const isEmpty = data?.[0]?.length === 0;
-      const isReachingEnd = isEmpty || (data && data[data.length - 1]?.length < PAGE_SIZE);
+    const posts = data ? [].concat(...data) : [];
+    const isLoadingInitialData = !data && !error;
+    const isLoadingMore = isLoadingInitialData || (size > 0 && data && typeof data[size - 1] === "undefined");
+    const isEmpty = data?.[0]?.length === 0;
+    const isReachingEnd = isEmpty || (data && data[data.length - 1]?.length < PAGE_SIZE);
 
-     console.log(posts);
     return (
         <Layout>
             <section className={'b-text c-section'}>
