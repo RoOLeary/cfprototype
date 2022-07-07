@@ -18,8 +18,7 @@ export default function Tag(tag){
                     <br />
                     <ul>
                         {tag.tagged.map((tag, i) => {
-                            console.log(tag);
-                            return <li key={tag.slug}><Link href={`/posts/${tag.slug}`}><a>{tag.title}</a></Link></li>
+                            return <li key={i}><Link href={`/posts/${tag.slug}`}><a dangerouslySetInnerHTML={{__html: tag.title}} /></Link></li>
                         })}
                     </ul>
                     <Link href={'/'}><a>Back</a></Link>
@@ -54,11 +53,9 @@ export default function Tag(tag){
 export const getServerSideProps: GetServerSideProps = async ({ params }) => {
    
     const response = await fetch(
-      `https://api2.tnw-staging.com/v2/articles?tag[]=${params.tag}&limit=200`
+      `https://api2.tnw-staging.com/v2/articles?tag[]=${params.tag}&limit=50`
     )
-    
-    const tag = await response.json()
-    
+    const tag = await response.json();
     return {
       props: { tagged: tag },
     }
