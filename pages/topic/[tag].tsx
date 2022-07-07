@@ -54,7 +54,7 @@ export default function Tag(tag){
 export const getServerSideProps: GetServerSideProps = async ({ params }) => {
    
     const response = await fetch(
-      `https://api2.tnw-staging.com/v2/articles?tag[]=${params.tag}`
+      `https://api2.tnw-staging.com/v2/articles?tag[]=${params.tag}&limit=200`
     )
     
     const tag = await response.json()
