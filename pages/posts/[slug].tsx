@@ -68,9 +68,8 @@ export default function Post( post: IProps ) {
           {router.isFallback ? <div><h1>Loading...</h1></div> :  
             <div>
               <div dangerouslySetInnerHTML={{__html: post['content'][0].content }} />
-              <Link href="/"> 
-                <a>Back to posts index</a>
-              </Link>
+              <br />
+              <Link href={'/'}><button className={'c-button'}>Back to Post Index</button></Link>
             </div>
           }
         </div>

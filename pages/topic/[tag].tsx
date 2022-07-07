@@ -48,6 +48,7 @@ export default function Tag(tag){
                 <br />
                 <div className="o-wrapper">
                     <Link href={'/'}><button className={'c-button'}>Back</button></Link>
+                    {!isReachingEnd ? 
                     <button
                         className={'c-button'}
                         disabled={isLoadingMore || isReachingEnd}
@@ -58,6 +59,7 @@ export default function Tag(tag){
                                 ? 'No More Posts'
                                 : 'Load More'}
                     </button>
+                    : ''}
                 </div>
             </section>
         </Layout>
