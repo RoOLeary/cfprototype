@@ -16,7 +16,7 @@ export default function Tag(tag){
     const { data, error, mutate, size, setSize, isValidating } = useSWRInfinite(
         index =>
           `https://api2.tnw-staging.com/v2/articles?tag[]=${tagName}&page=${index +
-            1}&limit${PAGE_SIZE}`,
+            1}&limit=${PAGE_SIZE}`,
         fetcher,
       );
           
