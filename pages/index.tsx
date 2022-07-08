@@ -1,3 +1,4 @@
+import Head from 'next/head';
 import Layout from '../components/Layout';
 import React, { useState } from "react";
 import Post from '../components/post';
@@ -26,6 +27,8 @@ export default function Home() {
   
   return (
     <Layout>
+       <Head><title>Nerkst</title></Head>
+     
       <section className="b-text  c-section" id="learn-more">
         <div className="o-wrapper">
           {!data ? <h1 className={'b-text__heading'}>Loading...</h1> :

@@ -6,6 +6,7 @@ import Text from './Text';
 import Video from './Video';
 import Footer from './Footer';
 import { motion } from 'framer-motion';
+import { useRouter } from 'next/router';
 
 const variants = {
     hidden: { opacity: 0, x: 0, y: 0 },
@@ -27,6 +28,7 @@ const TextContent = {
 const videoEmbedCode = `<iframe width="560" height="315" src="https://www.youtube.com/embed/S1-wuoFsdT4" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>`;
 
 const Layout = ({ children }) => {
+    const router = useRouter();
     return(
         <>
             <Head>
