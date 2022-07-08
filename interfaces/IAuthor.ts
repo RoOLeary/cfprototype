@@ -2,7 +2,7 @@ interface IAuthor {
     id: string, 
     slug: string,
     authorName: string,
-    authorSlug: string,
+    authorSlug: number,
     posts: string[]
 }
 
