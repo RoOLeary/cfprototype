@@ -53,13 +53,13 @@ export const getStaticProps: GetStaticProps = async ({ params }) => {
 export default function Post( post: IProps ) {
   const router = useRouter();
   const HeroText = {
-    headline: post ? post['title'] : 'Your Buddy is now your Guy',
+    headline: post ? post['title'] : 'Your Friend is now your Buddy',
   }
 
   return (
     <Layout>
       <Head><title>{post ? post['title'] : 'Generic Post Title'}</title></Head>
-      <Header />
+      <Header content={HeroText} />
       <Section primary className={'b-text c-section'}>
         <div className={'o-wrapper'}>
           <h1 className={'b-text__heading'} dangerouslySetInnerHTML={{__html: post['title']}} />
