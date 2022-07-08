@@ -62,8 +62,8 @@ export default function Post( post: IProps ) {
       <Header />
       <Section primary className={'b-text c-section'}>
         <div className={'o-wrapper'}>
-          {/* <h1 className={'b-text__heading'} dangerouslySetInnerHTML={{__html: post['title']}} />
-          <br /> */}
+          <h1 className={'b-text__heading'} dangerouslySetInnerHTML={{__html: post['title']}} />
+          <br />
           <Link href={{ pathname: `/authors/${post['authors'][0].slug}`, query: { name: post['authors'][0].name }}}><a>{post['authors'][0].name}</a></Link>
           <br />
           {post['properties'].published}<br />
