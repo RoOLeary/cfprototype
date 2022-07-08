@@ -27,7 +27,7 @@ export default function Home() {
   
   return (
     <Layout>
-       <Head><title>Nerkst</title></Head>
+       <Head><title>Next JS/TNW</title></Head>
      
       <section className="b-text  c-section" id="learn-more">
         <div className="o-wrapper">
