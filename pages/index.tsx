@@ -5,7 +5,7 @@ import Post from '../components/Post';
 import useSWRInfinite from "swr/infinite";
 
 const fetcher = url => fetch(url).then(res => res.json())
-console.log(fetcher);
+// console.log(fetcher);
 const PAGE_SIZE = 10;
 
 export default function Home() {

@@ -33,7 +33,7 @@ export default function Author( author: IAuthor) {
                 <br />
                 <ul>
                     {posts.map((post, i) => {
-                        console.log(post.title);
+                        // console.log(post.title);
                         return <li key={i}><Link href={`/posts/${post.slug}`}><a dangerouslySetInnerHTML={{__html: post.title}} /></Link></li>
                     })}
                 </ul>

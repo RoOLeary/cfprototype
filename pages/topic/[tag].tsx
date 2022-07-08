@@ -27,8 +27,8 @@ export default function Tag( tag: ITag ) {
 
     
     
-    console.log('tagname: ' + tagName)
-    console.log(posts);
+    // console.log('tagname: ' + tagName)
+    // console.log(posts);
     return (
         <Layout>
             <section className={'b-text c-section'}>
