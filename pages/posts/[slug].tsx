@@ -1,4 +1,5 @@
 import Head from 'next/head';
+import Header from '../../components/Header';
 import Link from 'next/link';
 import { useRouter } from 'next/router';
 import Layout from '../../components/Layout'
@@ -47,15 +48,22 @@ export const getStaticProps: GetStaticProps = async ({ params }) => {
   }
 }
 
+
+
 export default function Post( post: IProps ) {
   const router = useRouter();
+  const HeroText = {
+    headline: post ? post['title'] : 'Your Buddy is now your Guy',
+  }
+
   return (
     <Layout>
       <Head><title>{post ? post['title'] : 'Generic Post Title'}</title></Head>
+      <Header />
       <Section primary className={'b-text c-section'}>
         <div className={'o-wrapper'}>
-          <h1 className={'b-text__heading'} dangerouslySetInnerHTML={{__html: post['title']}} />
-          <br />
+          {/* <h1 className={'b-text__heading'} dangerouslySetInnerHTML={{__html: post['title']}} />
+          <br /> */}
           <Link href={{ pathname: `/authors/${post['authors'][0].slug}`, query: { name: post['authors'][0].name }}}><a>{post['authors'][0].name}</a></Link>
           <br />
           {post['properties'].published}<br />

@@ -16,7 +16,7 @@ const Header = ({ content }) => {
                 <div className="b-header__shape b-header__shape--3" id="lines">
                 </div>
                 <div className="b-header__content">
-                    <h1 className="b-header__title">{content.headline ? content.headline : 'Headline' }</h1>
+                    <h1 className="b-header__title" dangerouslySetInnerHTML={{__html: content ? content.headline : 'Headline' }}/>
                 </div>
             </div>
         </header>

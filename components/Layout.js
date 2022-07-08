@@ -1,5 +1,4 @@
 import Head from 'next/head';
-import Header from './Header';
 import Nav from './Nav';
 import SEO from './SEO';
 import Text from './Text';
@@ -14,11 +13,7 @@ const variants = {
     exit: { opacity: 0, x: 0, y: 0 },
 }
 
-const HeroText = {
-    eyebrow: 'Ask my arse',
-    headline: 'Your Buddy is now your Guy',
-    subHeading: 'Go on ta fuck ye',
-}
+
 
 const TextContent = {
     title: 'Ask my arse',
@@ -35,7 +30,7 @@ const Layout = ({ children }) => {
                 <SEO title="Next"/>
             </Head>
             <Nav />
-            <Header content={HeroText}/>
+            
             <motion.main
                 variants={variants} // Pass the variant object into Framer Motion 
                 initial="hidden" // Set the initial state to variants.hidden
