@@ -1,13 +1,38 @@
+import React, { useState, useEffect, useMemo } from "react"; 
 import Layout from '../../components/Layout'
+import Text from '../../components/Text'
+import Video from '../../components/Video'
+
+const ConfText = {
+    title: 'Conference Hompage',
+    articleBody: 'Your Guy is now your Friend',
+}
+
+const videoEmbedCode = `<iframe width="560" height="315" src="https://www.youtube.com/embed/S1-wuoFsdT4" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>`;
 
 export default function ConfIndex() {
-    return (
-        <Layout>
-            <section className={'b-text c-section'}>
-                <div className={'o-wrapper'}>
-                <h1>Conf Index - shhhhh</h1>
-                </div>
-            </section>
-        </Layout>
-    )
+  return (
+    <Layout>
+      <section className="b-text  c-section" id="learn-more">
+        <div className="o-wrapper">
+          <h1>Conference</h1>
+          <br/>
+          <p>Now, this is a story all about how, My life got flipped-turned upside down, And I'd like to take a minute
+          Just sit right there, I'll tell you how I became the prince of a town called Bel-Air.</p>
+          <br />
+          <p>In West Philadelphia born and raised
+              On the playground was where I spent most of my days
+              Chillin' out, maxin', relaxin', all cool
+              And all shootin' some b-ball outside of the school
+              When a couple of guys who were up to no good
+              Started making trouble in my neighborhood
+              I got in one little fight and my mom got scared
+              She said, "You're movin' with your auntie and uncle in Bel-Air"
+          </p>
+        </div>
+      </section>
+      <Text content={ConfText} />
+      <Video content={videoEmbedCode} />
+    </Layout>
+  )
 }
