@@ -1,6 +1,6 @@
 const Header = ({ content }) => {
 
-    console.log(content);
+    // console.log(content);
 
     return(
         <header className="b-header js-equinoxNode t-dark">
