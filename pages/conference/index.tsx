@@ -7,7 +7,7 @@ import Video from '../../components/Video'
 
 const ConfText = {
     eyebrow: 'Eyebrow',
-    heading: 'Ask My Bollocks Conf',
+    heading: 'Primary CTA will go here',
     subHeadline: 'Your buddy is now your Guy',
 }
 
