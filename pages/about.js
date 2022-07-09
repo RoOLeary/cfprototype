@@ -31,7 +31,7 @@ export default function About({ entry }) {
 // }
 
 export const getStaticProps = async ({params}) => {
-    const slug = params?.slug || "all-components";
+    const slug = params?.slug || "about";
     const response = await fetch(
       `https://cities.thenextweb.com/api/pages/${slug}.json`
     )

@@ -1,11 +1,13 @@
 import React, { useState, useEffect, useMemo } from "react"; 
 import Layout from '../../components/Layout'
+import Hero from '../../components/Hero'
 import Text from '../../components/Text'
 import Video from '../../components/Video'
 
 const ConfText = {
-    title: 'Conference Hompage',
-    articleBody: 'Your Guy is now your Friend',
+    eyebrow: 'Eyebrow',
+    heading: 'Ask My Bollocks Conf',
+    subHeadline: 'Your buddy is now your Guy',
 }
 
 const videoEmbedCode = `<iframe width="560" height="315" src="https://www.youtube.com/embed/S1-wuoFsdT4" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>`;
@@ -13,6 +15,7 @@ const videoEmbedCode = `<iframe width="560" height="315" src="https://www.youtub
 export default function ConfIndex() {
   return (
     <Layout>
+      <Hero content={ConfText} />
       <section className="b-text  c-section" id="learn-more">
         <div className="o-wrapper">
           <h1>Conference</h1>
