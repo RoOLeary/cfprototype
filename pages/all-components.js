@@ -3,7 +3,7 @@ import Layout from '../components/Layout'
 import PageBlocks from '../components/PageBlocks'
 // import { GetStaticProps } from 'next';
 
-export default function About({ entry, slug }) {
+export default function AllComps({ entry, slug }) {
   console.log(slug);
   const content = entry.data[0].pageBlocks;
   return (
