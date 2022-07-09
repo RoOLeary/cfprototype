@@ -1,6 +1,7 @@
 import type { AppProps, NextWebVitalsMetric } from 'next/app';
 import { AnimatePresence } from 'framer-motion';
 import { useEffect } from 'react';
+import Nav from './../components/Nav';
 import '../styles/globals.css'
 
 
@@ -34,6 +35,7 @@ function Cfprototype({ Component, pageProps, router }: AppProps): JSX.Element {
   })
 
   return (
+
         <AnimatePresence
           exitBeforeEnter
           initial={false}
@@ -43,6 +45,7 @@ function Cfprototype({ Component, pageProps, router }: AppProps): JSX.Element {
             behavior: 'auto',
           })}
         >
+          <Nav />
           <Component {...pageProps} />
         </AnimatePresence>
     );
