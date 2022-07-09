@@ -4,16 +4,7 @@ import React, { useState } from "react";
 import Post from '../components/post';
 import useSWRInfinite from "swr/infinite";
 
-const fetcher = url => fetch(url, {        
-  mode: "no-cors",
-  credentials: "include",
-  headers: {
-      "Access-Control-Allow-Origin" : "*", 
-      "Access-Control-Allow-Credentials" : "true"
-  }
-}).then(res => res.json());
-
-// console.log('fetcher: ' + fetcher)
+const fetcher = url => fetch(url).then(res => res.json())
 const PAGE_SIZE = 10;
 
 export default function Home() {
@@ -21,15 +12,12 @@ export default function Home() {
   const [title, setPageTitle ] = useState('Latest Posts');
   // some other crap in here I can do without for the moment. 
   const { data, error, mutate, size, setSize, isValidating } = useSWRInfinite(
-    index =>
+    (index) =>
       `https://api2.tnw-staging.com/v2/articles?page=${index +
         1}&limit=${PAGE_SIZE}`,
     fetcher,
   );
       
-
-    console.log(data);
-
   const posts = data ? [].concat(...data) : [];
   const isLoadingInitialData = !data && !error;
   const isLoadingMore = isLoadingInitialData || (size > 0 && data && typeof data[size - 1] === "undefined");
