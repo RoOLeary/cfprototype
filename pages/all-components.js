@@ -4,7 +4,6 @@ import PageBlocks from '../components/PageBlocks'
 // import { GetStaticProps } from 'next';
 
 export default function AllComps({ entry, slug }) {
-  console.log(slug);
   const content = entry.data[0].pageBlocks;
   return (
     <Layout>
@@ -27,7 +26,7 @@ export default function AllComps({ entry, slug }) {
 
 export const getStaticProps = async ({params}) => {
     const slug = params?.slug || "all-components";
-    console.log(slug);
+    // console.log(slug);
     const response = await fetch(
       `https://cities.thenextweb.com/api/pages/${slug}.json`
     )

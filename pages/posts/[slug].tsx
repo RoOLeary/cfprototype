@@ -21,8 +21,18 @@ const Section = styled.section`
 
 export const getStaticPaths: GetStaticPaths = async () => {
   const response = await fetch(
-    'https://api2.tnw-staging.com/v2/articles?limit=500'
-  )
+    'https://api2.tnw-staging.com/v2/articles?limit=500',
+      {        
+        mode: "no-cors",
+        credentials: "include",
+        headers: {
+            "Access-Control-Allow-Origin" : "*", 
+            "Access-Control-Allow-Credentials" : "true"
+      }
+    }
+  );
+
+
   const postList = await response.json()
   return {
     paths: Array.from(postList).map((post) => {
@@ -39,7 +49,15 @@ export const getStaticPaths: GetStaticPaths = async () => {
 
 export const getStaticProps: GetStaticProps = async ({ params }) => {
   const response = await fetch(
-    `https://api2.tnw-staging.com/v2/articles/${params.slug}`
+    `https://api2.tnw-staging.com/v2/articles/${params.slug}`,
+        {        
+          mode: "no-cors",
+          credentials: "include",
+          headers: {
+              "Access-Control-Allow-Origin" : "*", 
+              "Access-Control-Allow-Credentials" : "true"
+        }
+      }
   )
   const post = await response.json()
   return {

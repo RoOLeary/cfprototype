@@ -4,7 +4,10 @@ import React, { useState } from "react";
 import Post from '../components/post';
 import useSWRInfinite from "swr/infinite";
 
-const fetcher = url => fetch(url).then(res => res.json())
+const fetcher = url => fetch(url).then(res => res.json());
+
+// console.log('fetcher: ' + fetcher)
+
 const PAGE_SIZE = 10;
 
 export default function Home() {
@@ -18,6 +21,9 @@ export default function Home() {
     fetcher,
   );
       
+
+    console.log(data);
+
   const posts = data ? [].concat(...data) : [];
   const isLoadingInitialData = !data && !error;
   const isLoadingMore = isLoadingInitialData || (size > 0 && data && typeof data[size - 1] === "undefined");
