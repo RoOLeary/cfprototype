@@ -2,6 +2,7 @@ import React, { useState, useEffect, useMemo } from "react";
 import Layout from '../../components/Layout'
 import Hero from '../../components/Hero'
 import Text from '../../components/Text'
+import Tickets from '../../components/Tickets'
 import Video from '../../components/Video'
 
 const ConfText = {
@@ -35,6 +36,7 @@ export default function ConfIndex() {
         </div>
       </section>
       <Text content={ConfText} />
+      <Tickets />
       <Video content={videoEmbedCode} />
     </Layout>
   )
