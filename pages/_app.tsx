@@ -5,7 +5,7 @@ import '../styles/globals.css'
 
 
 // eslint-disable-next-line @typescript-eslint/no-explicit-any
-// declare const window: any
+declare const window: any
 
 // export function reportWebVitals({ id, name, label, value }: NextWebVitalsMetric): void {
 //     window.gtag('event', name, {
