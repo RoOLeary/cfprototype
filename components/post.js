@@ -16,7 +16,7 @@ export default function Post( post ) {
       <div className={styles.articleFlex}>
         <img src={imgSrc} width={250} height={300} />
         <div className={styles.innerFlex}>
-          <Link href={`/posts/${slug}`}><a><h2 className={styles.artMarg} dangerouslySetInnerHTML={{__html: title.replace(/<[^>]+>/g, '')}} /></a></Link>
+          <a href={`/posts/${slug}`}><h2 className={styles.artMarg} dangerouslySetInnerHTML={{__html: title.replace(/<[^>]+>/g, '')}} /></a>
           <br />
           <p className={styles.artMarg}>{post[1].properties.published} - <Link href={{ pathname: `/authors/${post[1]['authors'][0].slug}`, query: { name: post[1]['authors'][0].name }}}><a>{post[1]['authors'][0].name}</a></Link><br/>
             <div>Tags:

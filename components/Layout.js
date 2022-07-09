@@ -8,9 +8,9 @@ import { motion } from 'framer-motion';
 import { useRouter } from 'next/router';
 
 const variants = {
-    hidden: { opacity: 0, x: 0, y: 0 },
-    enter: { opacity: 1, x: 0, y: 0 },
-    exit: { opacity: 0, x: -100, y: 0 },
+    hidden: { opacity: 0 },
+    enter: { opacity: 1 },
+    exit: { opacity: 0 },
 }
 
 
@@ -35,7 +35,7 @@ const Layout = ({ children }) => {
                 animate="enter" // Animated state to variants.enter
                 exit="exit" // Exit state (used later) to variants.exit
                 transition={{ type: 'linear' }} // Set the transition to linear
-                className="body__content"
+                className=""
             >
                 {children}
             </motion.main>
