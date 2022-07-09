@@ -4,10 +4,16 @@ import React, { useState } from "react";
 import Post from '../components/post';
 import useSWRInfinite from "swr/infinite";
 
-const fetcher = url => fetch(url).then(res => res.json());
+const fetcher = url => fetch(url, {        
+  mode: "no-cors",
+  credentials: "include",
+  headers: {
+      "Access-Control-Allow-Origin" : "*", 
+      "Access-Control-Allow-Credentials" : "true"
+  }
+}).then(res => res.json());
 
 // console.log('fetcher: ' + fetcher)
-
 const PAGE_SIZE = 10;
 
 export default function Home() {
