@@ -1,3 +1,4 @@
+import React, { ReactNode } from 'react'
 import Head from 'next/head';
 import Nav from './Nav';
 import SEO from './SEO';
@@ -13,22 +14,19 @@ const variants = {
     exit: { opacity: 0, x: 0, y: 0 },
 }
 
-
-
-const TextContent = {
-    title: 'Ask my arse',
-    articleBody: 'Your Buddy is now your Guy',
+type Props = {
+    title: string,
+    description: string,
+    children: ReactNode
 }
 
-const Layout = ({ children }) => {
-    const router = useRouter();
-    return(
+
+const Layout = ({ children, title, description }: Props): JSX.Element => (
+       
         <>
             <Head>
-                <SEO title="Next"/>
-            </Head>
-            <Nav />
-            
+                <SEO />
+            </Head>            
             <motion.main
                 variants={variants} // Pass the variant object into Framer Motion 
                 initial="hidden" // Set the initial state to variants.hidden
@@ -43,6 +41,5 @@ const Layout = ({ children }) => {
         </>
 
     )
-}
 
 export default Layout; 

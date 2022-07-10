@@ -74,7 +74,7 @@ export default function Post( post: IProps ) {
   }
 
   return (
-    <Layout>
+    <Layout title="Posts Page" description="A page about posts">
       <Head><title>{post ? post['title'] : 'Generic Post Title'}</title></Head>
       <Header content={HeroText} />
       <Section primary className={'b-text c-section'}>

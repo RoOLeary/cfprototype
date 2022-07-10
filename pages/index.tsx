@@ -25,7 +25,7 @@ export default function Home() {
   const isReachingEnd = isEmpty || (data && data[data.length - 1]?.length < PAGE_SIZE);
   
   return (
-    <Layout>
+    <Layout title="Index Page" description="Main index page">
       <Head><title>Next JS/TNW</title></Head>
       <section className="b-text  c-section" id="learn-more">
         <div className="o-wrapper">

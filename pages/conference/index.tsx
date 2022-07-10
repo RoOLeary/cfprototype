@@ -15,7 +15,7 @@ const videoEmbedCode = `<iframe width="560" height="315" src="https://www.youtub
 
 export default function Index() {
   return (
-    <Layout>
+    <Layout title="Conf Page" description="A page about conf">
       <Hero content={ConfText} />
       <section className="b-text  c-section" id="learn-more">
         <div className="o-wrapper">
