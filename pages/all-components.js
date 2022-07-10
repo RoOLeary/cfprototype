@@ -6,7 +6,7 @@ import { GetStaticProps } from 'next';
 export default function AllComps({ entry }) {
   const content = entry.data[0].pageBlocks;
   return (
-    <Layout title="All Comps Page" description="A page about comps">
+    <Layout>
       <PageBlocks content={content} />
     </Layout>
   )

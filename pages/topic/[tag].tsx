@@ -30,7 +30,7 @@ export default function Tag( tag: ITag ) {
     // console.log('tagname: ' + tagName)
     // console.log(posts);
     return (
-        <Layout title="Topics Page" description="A page about a topic">
+        <Layout>
             <section className={'b-text c-section'}>
                 <div className={'o-wrapper'}>
                     <h1>Posted Tagged with: {tagName ? tagName : 'Tag' }</h1>

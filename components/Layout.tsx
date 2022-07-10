@@ -15,13 +15,11 @@ const variants = {
 }
 
 type Props = {
-    title: string,
-    description: string,
     children: ReactNode
 }
 
 
-const Layout = ({ children, title, description }: Props): JSX.Element => (
+const Layout = ({ children }: Props): JSX.Element => (
        
         <>
             <Head>

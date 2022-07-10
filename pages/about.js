@@ -11,7 +11,7 @@ export default function About({ entry }) {
     headline: 'About',
   }
   return (
-    <Layout title="About Page" description="A page about progs">
+    <Layout>
       <Header content={HeroText} />
       <PageBlocks content={content} />
     </Layout>

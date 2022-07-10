@@ -30,7 +30,7 @@ export default function Author ( author: Props ) {
     const isReachingEnd = isEmpty || (data && data[data.length - 1]?.length < PAGE_SIZE);
 
     return(
-        <Layout title="Authors Page" description="A page about authors">
+        <Layout>
             <section className={'b-text c-section'}>
                 <div className={'o-wrapper'}>
                 <h1>Author: {authorName}</h1>
