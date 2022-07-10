@@ -1,0 +1,1 @@
+export * as useModal from './useModal';
