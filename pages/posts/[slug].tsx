@@ -7,13 +7,11 @@ import FlexGrid from '../../components/FlexGrid'
 import styles from '../../styles/Home.module.css'
 import IPost from '../../interfaces/IPost'
 import { GetStaticPaths, GetStaticProps } from 'next';
-
+import styled from "styled-components";
 
 interface IProps {
   post: IPost
 }
-
-import styled from "styled-components";
 
 const Section = styled.section`
   background: ${props => props.primary ? "white" : "teal"}
