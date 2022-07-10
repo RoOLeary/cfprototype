@@ -36,7 +36,6 @@ export default function Index() {
         </div>
       </section>
       <Text content={ConfText} />
-      <Tickets />
       <Video content={videoEmbedCode} />
     </Layout>
   )

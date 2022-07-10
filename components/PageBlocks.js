@@ -32,8 +32,8 @@ const PageBlocks = ({ content }) => {
                 return <Video key={block.uid} content={block} />
             case 'speakers':
                 return <Speakers key={block.uid} content={block} />
-            // case 'projects':
-            //     return <Projects key={block.uid} content={block} />
+            case 'tickets':
+                return <Tickets key={block.uid} content={block} />
             default:
                 return(
                     <div key={id}>
