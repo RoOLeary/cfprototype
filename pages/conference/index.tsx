@@ -1,4 +1,3 @@
-import React, { useState, useEffect, useMemo } from "react"; 
 import Layout from '../../components/Layout'
 import Hero from '../../components/Hero'
 import Text from '../../components/Text'
@@ -36,6 +35,7 @@ export default function Index() {
         </div>
       </section>
       <Text content={ConfText} />
+      <Tickets />
       <Video content={videoEmbedCode} />
     </Layout>
   )
