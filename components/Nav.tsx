@@ -13,6 +13,13 @@ const Nav = (): JSX.Element => {
         menuRef.current.classList.toggle('show');
     }
    
+
+    const handleClick = (e) => {
+        e.preventDefault();
+        console.log(e); 
+    } 
+
+
     const update = (height) => {
         const num = window.scrollY / height
         const multiplier = Math.min(Math.max(num, 0), 1)
@@ -42,7 +49,7 @@ const Nav = (): JSX.Element => {
             </label>
             <div className="c-nav__mobileMenu c-nav__right" ref={menuRef}>
                 <ul className="c-nav__menu">
-                    <li className="c-nav__menuItem"><Link href={"/"}><a className="c-nav__menuLink">Home</a></Link></li>
+                    <li className="c-nav__menuItem"><Link href={"/"}><a className="c-nav__menuLink" onClick={(e) => handleClick(e)}>Home</a></Link></li>
                     <li className="c-nav__menuItem"><Link href={"/about"}><a className="c-nav__menuLink">About</a></Link></li>
                     <li className="c-nav__menuItem"><Link href={"/conference"}><a className="c-nav__menuLink">Conference</a></Link></li>
                     {/* {session ? <li className="c-nav__menuItem"><Link href={"/members"}><a className="c-nav__menuLink">Members</a></Link></li> : ''}

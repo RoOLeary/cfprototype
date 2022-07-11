@@ -16,6 +16,11 @@ const Nav = () => {
         menuRef.current.classList.toggle('show');
     }
 
+    const closeOnChange = (e) => {
+        setTimeout(() => {
+            menuRef.current.classList.toggle('show');
+        }, "300")
+    } 
     
     const update = (height) => {
         const num = window.scrollY / height
@@ -46,9 +51,9 @@ const Nav = () => {
             </label>
             <div className="c-nav__mobileMenu c-nav__right" ref={menuRef}>
                 <ul className="c-nav__menu">
-                    <li className="c-nav__menuItem"><Link href={"/"}><a className="c-nav__menuLink">Home</a></Link></li>
-                    <li className="c-nav__menuItem"><Link href={"/about"}><a className="c-nav__menuLink">About</a></Link></li>
-                    <li className="c-nav__menuItem"><Link href={"/conference"}><a className="c-nav__menuLink">Conference</a></Link></li>
+                    <li className="c-nav__menuItem"><Link href={"/"}><a className="c-nav__menuLink" onClick={(e) => closeOnChange(e)}>Home</a></Link></li>
+                    <li className="c-nav__menuItem"><Link href={"/about"}><a className="c-nav__menuLink" onClick={(e) => closeOnChange(e)}>About</a></Link></li>
+                    <li className="c-nav__menuItem"><Link href={"/conference"}><a className="c-nav__menuLink" onClick={(e) => closeOnChange(e)}>Conference</a></Link></li>
                     {/* {session ? <li className="c-nav__menuItem"><Link href={"/members"}><a className="c-nav__menuLink">Members</a></Link></li> : ''}
                     <li className="c-nav__menuItem">
                         {!session ? <>

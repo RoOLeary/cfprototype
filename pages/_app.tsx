@@ -19,7 +19,7 @@ declare const window: any
 
 
 
-function Cfprototype({ Component, pageProps, router }: AppProps): JSX.Element {
+function Cfprototype({ Component, pageProps }: AppProps): JSX.Element {
 
   useEffect(() => {
     // On page load or when changing themes, best to add inline in `head` to avoid FOUC
@@ -42,7 +42,7 @@ function Cfprototype({ Component, pageProps, router }: AppProps): JSX.Element {
           onExitComplete={() => window.scrollTo({
             top: 0,
             left: 0,
-            behavior: 'auto',
+            behavior: 'smooth',
           })}
         >
           <Nav />
