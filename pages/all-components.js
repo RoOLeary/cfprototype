@@ -1,7 +1,6 @@
 import React, { useState, useEffect, useMemo } from "react"; 
 import Layout from '../components/Layout'
 import PageBlocks from '../components/PageBlocks'
-import { GetStaticProps } from 'next';
 
 export default function AllComps({ entry }) {
   const content = entry.data[0].pageBlocks;
