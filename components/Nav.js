@@ -9,18 +9,20 @@ const Nav = () => {
     // console.log(session);
     let menuRef = useRef(null);
     let unitRef = useRef(null);
- 
-    
+    const mobTogglRef = useRef(); 
+
     const toggleMobileMenu = (e) => {
-        e.currentTarget.classList.toggle('mobile-menu-active');
+        mobTogglRef.current.classList.toggle('mobile-menu-active');
         menuRef.current.classList.toggle('show');
     }
 
     const closeOnChange = (e) => {
+        // e.preventDefault();
         setTimeout(() => {
-            menuRef.current.classList.toggle('show');
-        }, "300")
-    } 
+            mobTogglRef.current.classList.toggle('mobile-menu-active');
+            menuRef.current.classList.toggle("show");
+        }, 500)
+    }
     
     const update = (height) => {
         const num = window.scrollY / height
@@ -44,7 +46,7 @@ const Nav = () => {
                     </a>
                 </Link>
             </div>
-            <label className={'c-nav__mobileMenuToggle'} htmlFor="navMobileMenuToggle" onClick={toggleMobileMenu}>
+            <label className={'c-nav__mobileMenuToggle'} htmlFor="navMobileMenuToggle" ref={mobTogglRef} onClick={toggleMobileMenu}>
                 <div></div>
                 <div></div>
                 <div></div>
