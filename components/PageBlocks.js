@@ -3,7 +3,7 @@ import Header from './Header';
 import Hero from './Hero';
 import Text from './Text';
 import TextVisual from './TextVisual';
-// import Slider from './Slider';
+import Slider from './Slider';
 // import Faq from './Faq';
 import Video from './Video';
 import Speakers from './Speakers';
@@ -24,8 +24,8 @@ const PageBlocks = ({ content }) => {
                 return <Text key={block.uid} content={block} />
             case 'textVisual':
                     return <TextVisual key={block.uid} content={block} />
-            // case 'imageSlider':
-            //     return <Slider key={block.uid} content={block} />
+            case 'imageSlider':
+                return <Slider key={block.uid} content={block} />
             // case 'faq':
             //     return <Faq key={block.uid} content={block} />
             case 'video':

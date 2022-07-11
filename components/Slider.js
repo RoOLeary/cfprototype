@@ -94,7 +94,7 @@ export default function Slider({ content }) {
                     {content.sliderMatrix.map((sl, i) => {
                         const current = ++i;
                         return(
-                            <div key={++i} className={`flex__container flex--${sl.slideColor.replace(/\s/g, '')} ${activeSlide == current ? `flex--active` : 'animate--start' }`} data-slide={current}>
+                            <div key={++i} className={`flex__container flex--${sl.sliderColor.replace(/\s/g, '')} ${activeSlide == current ? `flex--active` : 'animate--start' }`} data-slide={current}>
                                 <div className="flex__item flex__item--left">
                                 <div className="flex__content">
                                     <p className="text--sub">{sl.textSub}</p>
