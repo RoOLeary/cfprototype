@@ -7,7 +7,6 @@ import '../styles/globals.css'
 
 // eslint-disable-next-line @typescript-eslint/no-explicit-any
 declare const window: any
-
 // export function reportWebVitals({ id, name, label, value }: NextWebVitalsMetric): void {
 //     window.gtag('event', name, {
 //         event_category: label === 'web-vital' ? 'Web Vitals' : 'Next.js custom metric',
@@ -16,8 +15,6 @@ declare const window: any
 //         non_interaction: true, // avoids affecting bounce rate.
 //     })
 // }
-
-
 
 function Cfprototype({ Component, pageProps }: AppProps): JSX.Element {
 
