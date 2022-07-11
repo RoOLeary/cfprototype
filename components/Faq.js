@@ -5,7 +5,6 @@ import Link from 'next/link';
 const Faq = ({ content }) => { 
 
     const { faqHeading, faqLeadtext, faqs } = content;
-    // console.log(content);
     const selectorAnswerInner = '.js-faqAnswerInner';
     
     const onQuestionClick = (e) => {
