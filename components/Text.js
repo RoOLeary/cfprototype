@@ -1,5 +1,5 @@
 const Text = ({ content }) => {
-    const { heading, column1 } = content;
+    const { heading, column1, column2 } = content;
    
     return(
         <section className="b-text  c-section" id="learn-more">
@@ -10,7 +10,11 @@ const Text = ({ content }) => {
                     </div>
                     <div className="o-grid__col l:o-grid__col--span-8">
                         <div className={"c-formatted"} dangerouslySetInnerHTML={{__html: column1 ? column1 : 'Lorem upsum...'}} />        
+                        {column2 ? 
+                       <div className={"c-formatted"} dangerouslySetInnerHTML={{__html: column2 ? column2 : 'Lorem upsum...'}} />        
+                        : ''}
                     </div>
+                    
                 </div>
             </div>
         </section>
