@@ -1,8 +1,5 @@
 const Text = ({ content }) => {
-
-    // console.log(content);
     const { heading, column1, column2 } = content;
-   
     return(
         <section className="b-text  c-section" id="learn-more">
             <div className="o-wrapper">
