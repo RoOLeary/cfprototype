@@ -20,7 +20,9 @@ const renderContent = ( content: PropsWithChildren ) => {
    
     const pageBlocksList = Object.entries(content).map((block: any, id: number) => {
     const blockContent = block[1];
+        console.log(block[1]['blockType']);
         switch(block[1]['blockType']) {
+            
             case 'header':
                 return <Header key={block[1]['uid']} content={blockContent} />
             case 'hero':

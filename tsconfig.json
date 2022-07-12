@@ -22,7 +22,7 @@
     "next-env.d.ts",
     "**/*.ts",
     "**/*.tsx"
-  ],
+, "components/Signup.js", "pages/about.js", "pages/about.js", "pages/about.js", "components/PageBlocks.js", "components/PageBlocks.js"  ],
   "exclude": [
     "node_modules"
   ]
