@@ -23,6 +23,8 @@ const Hero = ({ content }: Hero): JSX.Element => {
     const y1 = useTransform(scrollY, [0, 300], [0, 200]);
     const y2 = useTransform(scrollY, [0, 300], [0, -100]);
     const y3 = useTransform(scrollY, [0, 300], [0, -50]);
+    const y4 = useTransform(scrollY, [0, 750], [0, -250]);
+    const y5 = useTransform(scrollY, [0, 500], [0, -250]);
     const { eyebrow, heading, subHeadline } = content;
     
     return(
@@ -44,12 +46,12 @@ const Hero = ({ content }: Hero): JSX.Element => {
                 </motion.figure>
                
                
-                <figure className={"b-hero__photo b-hero__photo--3"}>
+                <motion.figure className="b-hero__photo b-hero__photo--3" style={{ y: y4, x: 0 }}>
                     <img alt="photo1 - Audience member photo" src="https://placedog.net/550/550" />
-                </figure>
-                <figure className={"b-hero__photo b-hero__photo--4"}>
+                </motion.figure>
+                <motion.figure className={"b-hero__photo b-hero__photo--4"} style={{ y: y5, x: 0 }}>
                     <img alt="photo1 - Audience member photo" src="https://placedog.net/550/550" />
-                </figure>
+                </motion.figure>
                 <figure className={"b-hero__shape b-hero__shape--1"} id="dots"></figure>
                 <figure className={"b-hero__shape b-hero__shape--2"} id="donut"></figure>
                 <figure className={"b-hero__shape b-hero__shape--3"} id="bars"></figure>
