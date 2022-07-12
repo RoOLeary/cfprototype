@@ -3,7 +3,7 @@ import Layout from '../components/Layout'
 import PageBlocks from '../components/PageBlocks'
 
 export default function AllComps({ entry }) {
-  const content = entry.data[0].pageBlocks;
+  const content = entry.data[0]['pageBlocks'];
   return (
     <Layout>
       <PageBlocks content={content} />
