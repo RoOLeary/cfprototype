@@ -1,8 +1,7 @@
 import React from 'react';
 
 interface Signup {   
-    content: any
-   
+    content: any  
 }
 
 const Signup = ({ content }: Signup): JSX.Element => {
