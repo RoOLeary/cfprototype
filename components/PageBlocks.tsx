@@ -15,29 +15,29 @@ interface IProps {
   }
 
 
-const renderContent = ( content ) => {
-    console.log('in render method');
+const renderContent = ( content: PropsWithChildren ) => {
+   
     const pageBlocksList = Object.entries(content).map((block: any, id: number) => {
     const blockContent = block[1];
         switch(block[1]['blockType']) {
             case 'header':
-                return <Header key={block['uid']} content={blockContent} />
+                return <Header key={block[1]['uid']} content={blockContent} />
             case 'hero':
-                return <Hero key={block['uid']} content={blockContent} />
+                return <Hero key={block[1]['uid']} content={blockContent} />
             case 'text':
-                return <Text key={block['uid']} content={blockContent} />
+                return <Text key={block[1]['uid']} content={blockContent} />
             case 'textVisual':
-                return <TextVisual key={block['uid']} content={blockContent} />
+                return <TextVisual key={block[1]['uid']} content={blockContent} />
             case 'imageSlider':
-                return <Slider key={block['uid']} content={blockContent} />
+                return <Slider key={block[1]['uid']} content={blockContent} />
             case 'faq':
-                return <Faq key={block['uid']} content={blockContent} />
+                return <Faq key={block[1]['uid']} content={blockContent} />
             case 'video':
-                return <Video key={block['uid']} content={blockContent} />
+                return <Video key={block[1]['uid']} content={blockContent} />
             case 'speakers':
-                return <Speakers key={block['uid']} content={blockContent} />
+                return <Speakers key={block[1]['uid']} content={blockContent} />
             // case 'tickets':
-            //     return <Tickets key={block['uid']} content={blockContent} />
+            //     return <Tickets key={block[1]['uid']} content={blockContent} />
             default:
                 return(
                     <>
