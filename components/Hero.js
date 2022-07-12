@@ -9,12 +9,19 @@ const Hero = ({ content }) => {
         <section className={"b-hero js-equinoxNode t-dark"}>
             <div className={"b-hero__grid"}>
                
-                
+                <figure className="b-hero__photo b-hero__photo--1">
+                    <img alt="photo1 - Audience member photo" src="https://source.unsplash.com/1600x900/?tech" />
+                </figure>
+                <figure className="b-hero__photo b-hero__photo--2">
+                    <img alt="photo2 - Speaker" src="https://source.unsplash.com/1600x900/?code" />
+                </figure>
+
+
                 <figure className={"b-hero__photo b-hero__photo--3"}>
-                    <img alt="photo1 - Audience member photo" src="/assets/img/dj.jpeg" />
+                    <img alt="photo1 - Audience member photo" src="https://placedog.net/550/550" />
                 </figure>
                 <figure className={"b-hero__photo b-hero__photo--4"}>
-                    <img alt="photo1 - Audience member photo" src="/assets/img/stage.jpeg" />
+                    <img alt="photo1 - Audience member photo" src="https://placedog.net/550/550" />
                 </figure>
                 <figure className={"b-hero__shape b-hero__shape--1"} id="dots"></figure>
                 <figure className={"b-hero__shape b-hero__shape--2"} id="donut"></figure>
