@@ -67,8 +67,6 @@ export const getStaticProps: GetStaticProps = async ({ params }) => {
 
 export default function Post( post: IProps ) {
   const router = useRouter();
-  
-
   return (
     <Layout>
       <Head><title>{post ? post['title'] : 'Generic Post Title'}</title></Head>

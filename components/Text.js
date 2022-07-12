@@ -1,4 +1,6 @@
 const Text = ({ content }) => {
+
+    // console.log(content);
     const { heading, column1, column2 } = content;
    
     return(
