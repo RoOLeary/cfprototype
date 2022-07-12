@@ -10,12 +10,9 @@ import Speakers from './Speakers';
 import { any } from 'prop-types';
 // import Projects from './Projects';
 
-
-
 const PageBlocks = ({ content }: any): JSX.Element[] => {
 
     const pageBlocks = Array.from(content);
-  
     const pageBlocksList = pageBlocks.map((block, id) => {
            
         switch(block['blockType']) {
