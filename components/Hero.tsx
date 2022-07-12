@@ -1,6 +1,7 @@
 import React from 'react';
 import Link from 'next/link';
 import { useViewportScroll, useTransform, motion } from 'framer-motion';
+import { string } from 'prop-types';
 
 const variants = {
     visible: { opacity: 1, scale: 1, y: 0 },
@@ -11,8 +12,12 @@ const variants = {
     }
   };
 
+
+interface Hero {   
+    content: any
+}
   
-const Hero = ({ content }) => {
+const Hero = ({ content }: Hero): JSX.Element => {
 
     const { scrollY } = useViewportScroll();
     const y1 = useTransform(scrollY, [0, 300], [0, 200]);
