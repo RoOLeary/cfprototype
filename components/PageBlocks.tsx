@@ -6,6 +6,7 @@ import TextVisual from './TextVisual';
 import Slider from './Slider';
 import Faq from './Faq';
 import Video from './Video';
+import Signup from './Signup';
 import Speakers from './Speakers';
 import { any } from 'prop-types';
 // import Projects from './Projects';
@@ -36,6 +37,8 @@ const renderContent = ( content: PropsWithChildren ) => {
                 return <Video key={block[1]['uid']} content={blockContent} />
             case 'speakers':
                 return <Speakers key={block[1]['uid']} content={blockContent} />
+            case 'signup':
+                return <Signup key={block[1]['uid']} content={blockContent} />
             // case 'tickets':
             //     return <Tickets key={block[1]['uid']} content={blockContent} />
             default:
