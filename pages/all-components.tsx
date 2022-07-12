@@ -11,7 +11,6 @@ export default function AllComps({ entry }) {
   )
 }
 
-
 export const getStaticProps = async ({params}) => {
   const slug = params?.slug || "all-components";
   const response = await fetch(
