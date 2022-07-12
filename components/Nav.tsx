@@ -5,14 +5,22 @@ import styles from '../styles/Nav.module.css'
 
 const Nav = (): JSX.Element => {
     // const { data: session } = useSession();
-    let menuRef = useRef(null);
-    let unitRef = useRef(null);
+    const menuRef = useRef(null);
+    const unitRef = useRef(null);
+    const mobTogglRef = useRef(null); 
 
     const toggleMobileMenu = (e) => {
-        e.currentTarget.classList.toggle('mobile-menu-active');
+        mobTogglRef.current.classList.toggle('mobile-menu-active');
         menuRef.current.classList.toggle('show');
     }
-   
+
+    const closeOnChange = (e) => {
+        // e.preventDefault();
+        setTimeout(() => {
+            mobTogglRef.current.classList.toggle('mobile-menu-active');
+            menuRef.current.classList.toggle("show");
+        }, 500)
+    }
 
     const handleClick = (e) => {
         e.preventDefault();
@@ -42,16 +50,16 @@ const Nav = (): JSX.Element => {
                     </a>
                 </Link>
             </div>
-            <label className={'c-nav__mobileMenuToggle'} htmlFor="navMobileMenuToggle" onClick={toggleMobileMenu}>
+            <label className={'c-nav__mobileMenuToggle'} htmlFor="navMobileMenuToggle" ref={mobTogglRef} onClick={toggleMobileMenu}>
                 <div></div>
                 <div></div>
                 <div></div>
             </label>
             <div className="c-nav__mobileMenu c-nav__right" ref={menuRef}>
                 <ul className="c-nav__menu">
-                    <li className="c-nav__menuItem"><Link href={"/"}><a className="c-nav__menuLink" onClick={(e) => handleClick(e)}>Home</a></Link></li>
-                    <li className="c-nav__menuItem"><Link href={"/about"}><a className="c-nav__menuLink">About</a></Link></li>
-                    <li className="c-nav__menuItem"><Link href={"/conference"}><a className="c-nav__menuLink">Conference</a></Link></li>
+                    <li className="c-nav__menuItem"><Link href={"/"}><a className="c-nav__menuLink" onClick={(e) => closeOnChange(e)}>Home</a></Link></li>
+                    <li className="c-nav__menuItem"><Link href={"/about"}><a className="c-nav__menuLink" onClick={(e) => closeOnChange(e)}>About</a></Link></li>
+                    <li className="c-nav__menuItem"><Link href={"/conference"}><a className="c-nav__menuLink" onClick={(e) => closeOnChange(e)}>Conference</a></Link></li>
                     {/* {session ? <li className="c-nav__menuItem"><Link href={"/members"}><a className="c-nav__menuLink">Members</a></Link></li> : ''}
                     <li className="c-nav__menuItem">
                         {!session ? <>
