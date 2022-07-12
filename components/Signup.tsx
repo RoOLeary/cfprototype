@@ -19,14 +19,14 @@ const defaultForm = `<!--[if lte IE 8]>
 </script>`;
 
 const Signup = ({ content }: Signup): JSX.Element => {
-   
     const { signupHeading, signupText, hubspotEmbed } = content;
+    const [hbsptEmbed, setHbsptEmbed] = useState( defaultForm );
    
     useEffect(() => {
-        if(!hubspotEmbed){
-            console.log('form did not render');
-        }
-    })
+        if(!hbsptEmbed){
+            setHbsptEmbed(defaultForm);
+        };
+    },[hbsptEmbed])
 
 
     return(
@@ -36,7 +36,7 @@ const Signup = ({ content }: Signup): JSX.Element => {
                     <h2 className="b-textImage__heading">{signupHeading}</h2>
                     <p>{signupText.replace(/<[^>]+>/g, '')}</p>
                     <br />
-                    <div dangerouslySetInnerHTML={{ __html: hubspotEmbed ? hubspotEmbed : defaultForm }} />
+                    <div dangerouslySetInnerHTML={{ __html: (hubspotEmbed) ? hubspotEmbed : defaultForm }} />
                 </div>
             </div>
         </section>
