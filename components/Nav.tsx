@@ -37,6 +37,7 @@ const Nav = (): JSX.Element => {
 
     useEffect(() => {
         let height = unitRef.current.offsetHeight;
+        // eslint-disable-next-line @typescript-eslint/no-explicit-any
         unitRef.current.style.setProperty('--multiplier', 1)
         window.addEventListener('scroll', () => update(height)); 
     }, []);
