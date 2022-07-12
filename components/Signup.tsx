@@ -6,22 +6,25 @@ interface Signup {
 }
 
 
-const defaultForm = `<!--[if lte IE 8]>
-<script charset="utf-8" type="text/javascript" src="//js.hsforms.net/forms/v2-legacy.js"></script>
-<![endif]-->
-<script charset="utf-8" type="text/javascript" src="//js.hsforms.net/forms/v2.js"></script>
-<script>
-  hbspt.forms.create({
-	region: "na1",
-	portalId: "7066311",
-	formId: "1e199d02-9afe-411a-b290-4220c234d587"
-});
-</script>`;
+const defaultForm = () => {
+    return(
+        `<!--[if lte IE 8]>
+            <script charset="utf-8" type="text/javascript" src="//js.hsforms.net/forms/v2-legacy.js"></script>
+            <![endif]-->
+            <script charset="utf-8" type="text/javascript" src="//js.hsforms.net/forms/v2.js"></script>
+            <script>
+            hbspt.forms.create({
+                region: "na1",
+                portalId: "7066311",
+                formId: "1e199d02-9afe-411a-b290-4220c234d587"
+            });
+        </script>`
+    )
+};
 
 const Signup = ({ content }: Signup): JSX.Element => {
     const { signupHeading, signupText, hubspotEmbed } = content;
-    const [hbsptEmbed, setHbsptEmbed] = useState( defaultForm );
-   
+    const [hbsptEmbed, setHbsptEmbed] = useState( defaultForm());
     useEffect(() => {
         if(!hbsptEmbed){
             setHbsptEmbed(defaultForm);
