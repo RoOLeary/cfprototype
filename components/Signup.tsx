@@ -1,24 +1,24 @@
 import React from 'react';
 import { useEffect, useState } from 'react'; 
+import Script from 'next/script'
 
 interface Signup {     
    content: any
 }
 
-
 const defaultForm = () => {
     return(
         `<!--[if lte IE 8]>
-            <script charset="utf-8" type="text/javascript" src="//js.hsforms.net/forms/v2-legacy.js"></script>
+            <Script charset="utf-8" type="text/javascript" src="//js.hsforms.net/forms/v2-legacy.js"></Script>
             <![endif]-->
-            <script charset="utf-8" type="text/javascript" src="//js.hsforms.net/forms/v2.js"></script>
-            <script>
+            <Script charset="utf-8" type="text/javascript" src="//js.hsforms.net/forms/v2.js"></Script>
+            <Script>
             hbspt.forms.create({
                 region: "na1",
                 portalId: "7066311",
                 formId: "1e199d02-9afe-411a-b290-4220c234d587"
             });
-        </script>`
+        </Script>`
     )
 };
 
@@ -39,7 +39,7 @@ const Signup = ({ content }: Signup): JSX.Element => {
                     <h2 className="b-textImage__heading">{signupHeading}</h2>
                     <p>{signupText.replace(/<[^>]+>/g, '')}</p>
                     <br />
-                    <div dangerouslySetInnerHTML={{ __html: (hubspotEmbed) ? hubspotEmbed : defaultForm }} />
+                    <div dangerouslySetInnerHTML={{ __html: defaultForm() }} />
                 </div>
             </div>
         </section>
