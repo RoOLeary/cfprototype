@@ -1,6 +1,8 @@
 import Speaker from './Speaker';
 
 const Speakers = ({ content }) => { 
+
+    
     
     const { heading, speakersIntro, speakers } = content;
     let introText = speakersIntro ? speakersIntro : 'Holding text';
@@ -20,7 +22,6 @@ const Speakers = ({ content }) => {
                 </ul>
                 </div>
             </div>
-            
         </section>
     )
 }

@@ -59,6 +59,7 @@ const Nav = (): JSX.Element => {
             <div className="c-nav__mobileMenu c-nav__right" ref={menuRef}>
                 <ul className="c-nav__menu">
                     <li className="c-nav__menuItem"><Link href={"/"}><a className="c-nav__menuLink" onClick={(e) => closeOnChange(e)}>Home</a></Link></li>
+                    <li className="c-nav__menuItem"><Link href={"/all-components"}><a className="c-nav__menuLink" onClick={(e) => closeOnChange(e)}>All Comps</a></Link></li>
                     <li className="c-nav__menuItem"><Link href={"/about"}><a className="c-nav__menuLink" onClick={(e) => closeOnChange(e)}>About</a></Link></li>
                     <li className="c-nav__menuItem"><Link href={"/conference"}><a className="c-nav__menuLink" onClick={(e) => closeOnChange(e)}>Conference</a></Link></li>
                     {/* {session ? <li className="c-nav__menuItem"><Link href={"/members"}><a className="c-nav__menuLink">Members</a></Link></li> : ''}

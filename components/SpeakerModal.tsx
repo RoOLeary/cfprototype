@@ -1,7 +1,15 @@
+import { useEffect } from 'react'; 
 import ModalContainer from './ModalContainer';
 import ModalContent from './ModalContent';
 
-const SpeakerModal = ({ speaker, toggleVisibility, show }) => (
+
+interface SkrModal{
+    speaker: any,
+    toggleVisibility: any,
+    show: Boolean
+}
+
+const SpeakerModal = ({ speaker, toggleVisibility, show }: SkrModal) => (
     <ModalContainer display={show} hide={toggleVisibility}>
       <article className="modal-article">
         <ModalContent modalInfo={speaker} />
