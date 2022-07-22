@@ -56,7 +56,7 @@ const CardScrollerActivePanel = () => {
                 "id": "b2",
                 "title": "Molly's World",
                 "episodes": 12,
-                "product_image_url": "/assets/img/molly1.jpg"
+                "product_image_url": "/assets/img/molly.jpg"
             },
             {
                 "id": "c3",
@@ -74,7 +74,7 @@ const CardScrollerActivePanel = () => {
                 "id": "e6",
                 "title": "Dog Industries",
                 "episodes": 21,
-                "product_image_url": "/assets/img/molly1.jpg"
+                "product_image_url": "/assets/img/molly.jpg"
             },
             {
                 "id": "f7",
@@ -92,7 +92,7 @@ const CardScrollerActivePanel = () => {
                 "id": "b7",
                 "title": "Frenchie",
                 "episodes": 32,
-                "product_image_url": "/assets/img/molly1.jpg"
+                "product_image_url": "/assets/img/molly.jpg"
             },
             {
                 "id": "c8",

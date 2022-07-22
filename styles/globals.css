@@ -5,6 +5,20 @@
    License: none (public domain)
 */
 
+
+html, body{
+  margin: 0;
+  scrollbar-width: none;  /* Firefox */
+  overflow-x: scroll;
+}
+
+::-webkit-scrollbar {
+  display: none;
+}
+
+
+
+
 /* Your own custom utilities */
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@100;300&display=swap');
 
