@@ -179,7 +179,7 @@ const CardSelector = () => {
                
                 <CardScrollerMenu>  
                     {loading ? <Loading>Loading Shows...</Loading> : shows.shows.map((show, i) => {
-                        return <CardScrollerItem key={i} content={show.id} index={i} active={show.id} />;
+                        return <CardScrollerItem key={i} content={show.id} index={i} />;
                     })}
                 </CardScrollerMenu>
                 <HR />

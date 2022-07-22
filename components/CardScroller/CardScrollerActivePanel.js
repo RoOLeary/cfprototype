@@ -43,8 +43,6 @@ const Image = styled.img`
 const CardScrollerActivePanel = () => {
 
     const dataContext = useContext(DataContext);
-    console.log(dataContext.state.isActive);
-
     let isActive = dataContext.state.isActive;
     
     const [shows, setShows] = useState({
@@ -112,8 +110,8 @@ const CardScrollerActivePanel = () => {
         ]
     });
 
-    const show = shows ? shows.shows.filter(show => show.id === isActive) : 'a1';
-        console.log(show);
+    const show = shows ? shows.shows.filter(show => show.id === isActive) : '';
+        // console.log(show);
         const { title, episodes, product_image_url } = show[0];
         return ( 
             <MainStage className={`shows-main`}  key={title}>

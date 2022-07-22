@@ -37,13 +37,15 @@ const CardScrollerItem = styled.li`
 const ShowPanel = ( props ) => {
     const dataContext = useContext(DataContext);
     const { setIndex, setIsActive } = dataContext.handlers; 
-   
-    let isActive = props.isActive;
-    let id = props.content;
-    const activeSlide = (id === isActive) ? 'active' : '';
-    var idx = props.index;
+    const { isActive } = dataContext.state;
 
-    const triggers = (id, idx) => {
+    // let isActive = props.isActive;
+    let id = props.content;
+    let activeSlide = (id === isActive) ? 'active' : '';
+    console.log(activeSlide)
+    var idx = props.index;
+    const triggers = (e, id, idx) => {
+        
         setIndex({type: "setIndex", payload: idx }); 
         setIndex({type: "nextIndex", payload: ++idx  }); 
         setIndex({type: "prevtIndex", payload: --idx }); 
@@ -53,7 +55,7 @@ const ShowPanel = ( props ) => {
     return(
         <CardScrollerItem id={id} index={idx} className={activeSlide}>
             <>
-                <Box activeSlide={activeSlide} onClick={() => triggers(id, idx)} />
+                <Box activeSlide={activeSlide} onClick={(e) => triggers(e, id, idx)} />
                 <Indicator activeSlide={activeSlide}>{idx ? ++idx : 1}</Indicator>
             </>
         </CardScrollerItem>
