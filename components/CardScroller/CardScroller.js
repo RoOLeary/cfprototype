@@ -155,7 +155,7 @@ const CardSelector = () => {
    
     const checkForValue = useCallback(async(isActive) => {
         let slideToActive = document.querySelector(`#${isActive}`);
-        console.log(slideToActive);
+        // console.log(slideToActive);
         if(slideToActive){
             slideToActive.scrollIntoView({ block: "center", behavior: "smooth"  });
         } 
