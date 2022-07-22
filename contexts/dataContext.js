@@ -99,7 +99,7 @@ const DataContextProvider = (props) => {
 
             // otherwise - do update id, but also trigger pushState to update the url with the correct id param
                 sessionStorage.setItem('saveCurrentActive', isActive);
-                history.pushState({page: ''},'','/all-components/?id=' + isActive);
+                // history.pushState({page: ''},'','/all-components/?id=' + isActive);
                 
             }
         }

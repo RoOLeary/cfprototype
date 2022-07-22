@@ -45,8 +45,7 @@ const CardScrollerActivePanel = () => {
     const dataContext = useContext(DataContext);
     let isActive = dataContext.state.isActive;
     
-    const [shows, setShows] = useState({
-        shows: [
+    const shows = [
             {
                 "id": "a1",
                 "title": "Molly",
@@ -107,10 +106,9 @@ const CardScrollerActivePanel = () => {
                 "episodes": 18,
                 "product_image_url": "/assets/img/molly3.jpg"
             }
-        ]
-    });
+        ];
 
-    const show = shows ? shows.shows.filter(show => show.id === isActive) : '';
+    const show = shows ? shows.filter(show => show.id === isActive) : '';
         // console.log(show);
         const { title, episodes, product_image_url } = show[0];
         return ( 
