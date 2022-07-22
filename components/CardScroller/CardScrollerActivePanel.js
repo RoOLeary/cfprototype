@@ -54,55 +54,55 @@ const CardScrollerActivePanel = () => {
             },
             {
                 "id": "b2",
-                "title": "Huang's World",
+                "title": "Molly's World",
                 "episodes": 12,
-                "product_image_url": "/assets/img/molly.jpg"
-            },
-            {
-                "id": "c3",
-                "title": "King of The Road",
-                "episodes": 8,
-                "product_image_url": "/assets/img/molly.jpg"
-            },
-            {
-                "id": "d5",
-                "title": "Last Chance High",
-                "episodes": 15,
                 "product_image_url": "/assets/img/molly1.jpg"
             },
             {
-                "id": "e6",
-                "title": "Love Industries",
-                "episodes": 21,
+                "id": "c3",
+                "title": "Queen of The Frenchies",
+                "episodes": 8,
                 "product_image_url": "/assets/img/molly2.jpg"
             },
             {
-                "id": "f7",
-                "title": "pilotweek",
-                "episodes": 3,
+                "id": "d5",
+                "title": "Last Chance Dog School",
+                "episodes": 15,
                 "product_image_url": "/assets/img/molly3.jpg"
             },
             {
+                "id": "e6",
+                "title": "Dog Industries",
+                "episodes": 21,
+                "product_image_url": "/assets/img/molly1.jpg"
+            },
+            {
+                "id": "f7",
+                "title": "frenchieweek",
+                "episodes": 3,
+                "product_image_url": "/assets/img/molly2.jpg"
+            },
+            {
                 "id": "a8",
-                "title": "States of Undress",
+                "title": "States of Inattentiveness",
                 "episodes": 7,
-                "product_image_url": "/assets/img/molly.jpg"
+                "product_image_url": "/assets/img/molly3.jpg"
             },
             {
                 "id": "b7",
-                "title": "VICE",
+                "title": "Frenchie",
                 "episodes": 32,
                 "product_image_url": "/assets/img/molly1.jpg"
             },
             {
                 "id": "c8",
-                "title": "Woman",
+                "title": "Stubborn",
                 "episodes": 9,
                 "product_image_url": "/assets/img/molly2.jpg"
             },
             {
                 "id": "d9",
-                "title": "VICE World of Sports",
+                "title": "World of Frenchies",
                 "episodes": 18,
                 "product_image_url": "/assets/img/molly3.jpg"
             }

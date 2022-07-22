@@ -18,8 +18,6 @@ const Indicator = styled.span`
     display: ${props => props.activeSlide ? 'block' : 'none' };
     font-family: 'Space Grotesk', sans-serif;
 `
-
-
 const CardScrollerItem = styled.li`
     list-style: none;
     padding: 1em;
