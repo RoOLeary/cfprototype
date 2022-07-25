@@ -10,7 +10,7 @@ const PAGE_SIZE = 10;
 
 
 const Grid = styled.div`
-  display: grid;
+  margin-top: 2em;
 `;
 
 export default function Home() {
@@ -38,6 +38,7 @@ export default function Home() {
           {!data ? <h1 className={'b-text__heading'}>Loading...</h1> :
             <div>
             <h1 className={'b-text__heading'}>{title}</h1>
+
             <Grid className={'b-articleGrid'}>
               {Object.entries(posts).map((post, idx) => (
                   <Post {...post} key={idx} />

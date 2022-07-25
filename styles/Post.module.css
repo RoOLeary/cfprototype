@@ -1,23 +1,27 @@
 
-.articleStyles{
+/* .articleStyles{
     margin: 2em 0;
     padding: 1em 0;
     
 }
 
 .articleFlex{
-    display: flex;
-}
-
-.artMarg{
-
+    display: grid;
+    grid-auto-flow: column;  
+    @media screen and (max-width: 768px){
+        grid-auto-flow: none;  
+    } 
 }
 
 .innerFlex{
+    @media screen and (max-width: 768px){
+        margin-top: 1em;
+        margin-left: 0;
+    }
     flex-direction: column;
     margin-left: 1em;
 }
 
 .tags{
     padding-right: 5px; 
-}
+} */
