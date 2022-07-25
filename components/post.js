@@ -26,7 +26,6 @@ const RespImg = styled.img`
   }
 `;
 
-
 export default function Post( post ) {
   const imgSrc = post[1].media[0].media.attributes.url ? post[1].media[0].media.attributes.url : 'https://placedog.net/500/300';
   const { title, slug, tags } = post[1];
