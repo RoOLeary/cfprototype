@@ -9,7 +9,7 @@ export default function AllComps({ entry }) {
   return (
     <Layout>
       <PageBlocks content={content} />
-      <CardScroller />
+      {/* <CardScroller /> */}
     </Layout>
   )
 }
