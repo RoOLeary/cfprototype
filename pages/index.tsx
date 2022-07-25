@@ -3,9 +3,15 @@ import Layout from '../components/Layout';
 import React, { useState } from "react";
 import Post from '../components/post';
 import useSWRInfinite from "swr/infinite";
+import styled from 'styled-components';
 
 const fetcher = url => fetch(url).then(res => res.json())
 const PAGE_SIZE = 10;
+
+
+const Grid = styled.div`
+  display: grid;
+`;
 
 export default function Home() {
 
@@ -32,10 +38,11 @@ export default function Home() {
           {!data ? <h1 className={'b-text__heading'}>Loading...</h1> :
             <div>
             <h1 className={'b-text__heading'}>{title}</h1>
-            <br />
-            {Object.entries(posts).map((post, idx) => (
-                <Post {...post} key={idx} />
-            ))}
+            <Grid className={'b-articleGrid'}>
+              {Object.entries(posts).map((post, idx) => (
+                  <Post {...post} key={idx} />
+              ))}
+            </Grid>
             </div> }
         </div>
         <br />
