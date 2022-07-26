@@ -1,6 +1,6 @@
 import Layout from '../components/Layout'
 import PageBlocks from '../components/PageBlocks'
-import CardScroller from '../components/CardScroller/CardScroller';
+// import CardScroller from '../components/CardScroller/CardScroller';
 
 export default function AllComps({ entry }) {
   
