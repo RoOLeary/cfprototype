@@ -4199,3 +4199,9 @@ input[type=number] {
   visibility: visible;
   right: 0;
 }
+
+h1.b-text__heading.articleSingle{
+  text-align: center;
+  letter-spacing: -0.05em;
+  line-height: 1em;
+}
