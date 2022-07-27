@@ -10,7 +10,7 @@ const Speaker = ({ speaker }) => {
             <article className="b-speaker" itemType="http://schema.org/Person" itemProp="performer" itemScope="">
                 <a className="b-speaker__trigger js-xhrModal" onClick={toggleVisibility}></a>
                 <div className="b-speaker__photo">
-                    <img alt="Edward Snowden" className="b-speaker__photoImg" itemProp="image" loading="lazy" src="https://placedog.net/184/230" />
+                    <img alt={speakerName} className="b-speaker__photoImg" itemProp="image" loading="lazy" src="https://placedog.net/184/230" />
                 </div>
                 <div className="b-speaker__details">
                     <h3 className="b-speaker__name" itemProp="name">{speakerName}</h3>
