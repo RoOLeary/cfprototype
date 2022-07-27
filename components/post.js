@@ -26,6 +26,10 @@ const RespImg = styled.img`
   }
 `;
 
+const InnerTitle = styled.h2`
+  font-size: 24px;
+`;
+
 const InnerText = styled.div`
   text-decoration: none; 
 `;
