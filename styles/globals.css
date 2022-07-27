@@ -4205,3 +4205,10 @@ h1.b-text__heading.articleSingle{
   letter-spacing: -0.05em;
   line-height: 1em;
 }
+
+.articleSingle > p {
+  letter-spacing: -0.25px;
+  line-height: 35px;
+  font-size: 20px;
+  padding-bottom: 2em;
+}
