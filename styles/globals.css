@@ -4206,9 +4206,11 @@ h1.b-text__heading.articleSingle{
   line-height: 1em;
 }
 
-.articleSingle > p {
-  letter-spacing: -0.25px;
-  line-height: 35px;
-  font-size: 20px;
-  padding-bottom: 2em;
+.articleContent > p {
+    font-size: 1.125rem;
+    margin-bottom: 2rem;
+    line-height: 1.75;
+    -webkit-hyphens: auto;
+    hyphens: auto;
+  
 }
