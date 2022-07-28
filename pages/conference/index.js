@@ -20,7 +20,7 @@ const videoEmbedCode = `<iframe width="560" height="315" src="https://www.youtub
 export default function Index() {
   return (
     <Layout>
-      {/* <Hero content={ConfText} /> */}
+      <Hero content={ConfText} />
       <section className="b-text  c-section" id="learn-more">
         <div className="o-wrapper">
           <h1>Conference</h1>
@@ -39,9 +39,9 @@ export default function Index() {
           </p>
         </div>
       </section>
-      {/* <Text content={TextText} />
+      <Text content={TextText} />
       <Tickets />
-      <Video content={videoEmbedCode} /> */}
+      <Video content={videoEmbedCode} />
     </Layout>
   )
 }
