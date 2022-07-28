@@ -19,7 +19,8 @@ const Section = styled.section`
 `;
 
 const SingleContainer = styled.div`
-  padding: 2em 12em;
+  max-width: 1024px;
+  padding: 2em 4em;
   @media screen and (max-width: 768px){
    padding: 2em;
   }
