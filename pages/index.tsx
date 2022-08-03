@@ -36,7 +36,6 @@ export default function Home() {
         1}&limit=${PAGE_SIZE}`,
     fetcher,
   );
-      
   const posts = data ? [].concat(...data) : [];
   const isLoadingInitialData = !data && !error;
   const isLoadingMore = isLoadingInitialData || (size > 0 && data && typeof data[size - 1] === "undefined");
