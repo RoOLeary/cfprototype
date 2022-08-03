@@ -11,7 +11,20 @@ const PAGE_SIZE = 10;
 
 const Grid = styled.div`
   margin-top: 2em;
+  display: grid; 
+  @media screen and (max-width: 768px){
+    grid-template-columns: 1fr; 
+  }
+  grid-template-columns: 3fr 1fr;
+  grid-gap: 2em; 
 `;
+
+const Sidebar = styled.aside`
+  position: sticky;
+  top: 4rem;
+`;
+
+
 
 export default function Home() {
 
@@ -40,9 +53,14 @@ export default function Home() {
             <h1 className={'b-text__heading'}>{title}</h1>
 
             <Grid className={'b-articleGrid'}>
+              <div>
               {Object.entries(posts).map((post, idx) => (
                   <Post {...post} key={idx} />
               ))}
+              </div>
+              <Sidebar>
+                <img src="https://source.unsplash.com/350x1600/?ai,tech" />
+              </Sidebar>
             </Grid>
             </div> }
         </div>

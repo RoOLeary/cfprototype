@@ -15,6 +15,15 @@ interface IProps {
 
 const Section = styled.section`
   background: ${props => props.primary ? "white" : "teal"}
+  
+`;
+
+const SingleContainer = styled.div`
+  max-width: 1024px;
+  padding: 2em 4em;
+  @media screen and (max-width: 768px){
+   padding: 2em;
+  }
 `;
 
 export const getStaticPaths: GetStaticPaths = async () => {
@@ -72,26 +81,30 @@ export default function Post( post: IProps ) {
       <Head><title>{post ? post['title'] : 'Generic Post Title'}</title></Head>
       
       <Section primary className={'b-text c-section'}>
-        <div className={'o-wrapper'}>
-          <h1 className={'b-text__heading'} dangerouslySetInnerHTML={{__html: post['title']}} />
+        <SingleContainer className={'o-wrapper singleContainer'}>
+          <h1 className={'b-text__heading articleSingle'} dangerouslySetInnerHTML={{__html: post['title']}} />
           <br />
-          <Link href={{ pathname: `/authors/${post['authors'][0].slug}`, query: { name: post['authors'][0].name }}}><a>{post['authors'][0].name}</a></Link>
-          <br />
-          {post['properties'].published}<br />
-          {post['tags'] ? post['tags'].map((t, idx) => {
-              return <li className={styles.tags} key={idx}>
-                  <Link href={{ pathname: `/topic/${t.slug}`, query: { data: JSON.stringify(t.slug) } }}><a>{t.name}</a></Link>
-                </li>; 
-            }).slice(0,1) : '' }
-          <br />
+          <div>
+            <Link href={{ pathname: `/authors/${post['authors'][0].slug}`, query: { name: post['authors'][0].name }}}><a>{post['authors'][0].name}</a></Link>
+            <br />
+            <div>
+            {post['properties'].published}<br />
+            {post['tags'] ? post['tags'].map((t, idx) => {
+                return <li className={styles.tags} key={idx}>
+                    <Link href={{ pathname: `/topic/${t.slug}`, query: { data: JSON.stringify(t.slug) } }}><a>{t.name}</a></Link>
+                  </li>; 
+              }).slice(0,1) : '' }
+            <br />
+            </div>
+          </div>
           {router.isFallback ? <div><h1>Loading...</h1></div> :  
             <div>
-              <div dangerouslySetInnerHTML={{__html: post['content'][0].content }} />
+              <div className={'articleContent'} dangerouslySetInnerHTML={{__html: post['content'][0].content }} />
               <br />
               <Link href={'/'}><button className={'c-button'}>Back to Post Index</button></Link>
             </div>
           }
-        </div>
+        </SingleContainer>
       </Section>
     </Layout>
   )

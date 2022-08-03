@@ -1,12 +1,8 @@
 import React, { ReactNode } from 'react'
 import Head from 'next/head';
-import Nav from './Nav';
 import SEO from './SEO';
-import Text from './Text';
-import Video from './Video';
 import Footer from './Footer';
 import { motion } from 'framer-motion';
-import { useRouter } from 'next/router';
 
 const variants = {
     hidden: { opacity: 0, x: 0, y: 0 },

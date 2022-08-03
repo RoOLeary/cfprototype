@@ -4158,3 +4158,59 @@ input[type=number] {
     z-index: 5;
   }
 }
+
+
+.word {
+  display: block;
+}
+
+.word span {
+  color: #ff5252;
+  position: relative;
+}
+
+.word span::after {
+  content: '';
+  width: 8px;
+  height: 100%;
+  background: #ff5252;
+  display: block;
+  position: absolute;
+  right: -10px;
+  top: 0;
+  animation: blink 0.5s ease infinite alternate-reverse;
+}
+
+@keyframes blink {
+  from {
+    opacity: 100%;
+  }
+
+  to {
+    opacity: 0%;
+  }
+}
+
+.word.empty {
+  visibility: hidden;
+}
+
+.word.empty span::after {
+  visibility: visible;
+  right: 0;
+}
+
+h1.b-text__heading.articleSingle{
+  text-align: center;
+  letter-spacing: -0.05em;
+  line-height: 1em;
+}
+
+.articleContent > p {
+    font-size: 1.125rem;
+    margin-bottom: 1rem;
+    line-height: 1.75;
+    -webkit-hyphens: auto;
+    hyphens: auto;
+  
+}

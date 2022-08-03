@@ -2,6 +2,7 @@ import React from 'react';
 import Link from 'next/link';
 import { useViewportScroll, useTransform, motion } from 'framer-motion';
 import { string } from 'prop-types';
+import { useTypingText } from './../hooks/useTypingText'
 
 const variants = {
     visible: { opacity: 1, scale: 1, y: 0 },
@@ -18,7 +19,7 @@ interface Hero {
 }
   
 const Hero = ({ content }: Hero): JSX.Element => {
-
+    const { word } = useTypingText(['Learn More', 'Find Out', 'Go Away'], 250, 20);
     const { scrollY } = useViewportScroll();
     const y1 = useTransform(scrollY, [0, 300], [0, 200]);
     const y2 = useTransform(scrollY, [0, 300], [0, -100]);
@@ -65,7 +66,7 @@ const Hero = ({ content }: Hero): JSX.Element => {
                            <p>{subHeadline}</p>
                         </div>
                         <div className={"b-hero__cta"}>
-                            <Link href={"/all-components"}><a className={"c-button c-button--primary"}>All Components</a></Link>
+                            <Link href={"/all-components"}><a className={"c-button c-button--primary"}>{word}</a></Link>
                         </div>
                     </div>
                 </div>
