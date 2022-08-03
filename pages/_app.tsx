@@ -43,8 +43,8 @@ function Cfprototype({ Component, pageProps }: AppProps): JSX.Element {
             behavior: 'smooth',
           })}
         >
-          <Nav />
-          <DataContextProvider>
+          <Nav key="nav"/>
+          <DataContextProvider key="data-context-provider">
             <Component {...pageProps} />
           </DataContextProvider>
         </AnimatePresence>
