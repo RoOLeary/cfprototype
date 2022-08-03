@@ -45,7 +45,7 @@ export default function Post( post ) {
       <div className={styles.innerFlex}>
           <a href={`/posts/${slug}`} className={styles.artMarg}><h2 dangerouslySetInnerHTML={{__html: title.replace(/<[^>]+>/g, '')}} /></a>
           <div>
-            <p className={styles.artMarg}>{post[1].properties.published} - <Link href={{ pathname: `/authors/${post[1]['authors'][0].slug}`, query: { name: post[1]['authors'][0].name }}}><a>{post[1]['authors'][0].name}</a></Link><br/>
+            <div className={styles.artMarg}>{post[1].properties.published} - <Link href={{ pathname: `/authors/${post[1]['authors'][0].slug}`, query: { name: post[1]['authors'][0].name }}}><a>{post[1]['authors'][0].name}</a></Link><br/>
               <div>Tags:
               <ul>
                 {tags ? tags.map((t, id) => {
@@ -53,7 +53,7 @@ export default function Post( post ) {
                 }).slice(0, 1) : 'no tags' }
               </ul>
               </div>
-            </p>
+            </div>
           </div>
         </div>
     </Article>
