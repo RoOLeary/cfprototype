@@ -7,7 +7,7 @@ type Props = {
 }
 
 const TextVisual = ({ content }: Props): JSX.Element => {
-    console.log(content);
+    // console.log(content);
 
     const { textVisualHeading, textVisualContent, textVisualImage } = content;
 
