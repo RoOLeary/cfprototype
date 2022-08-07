@@ -1,8 +1,9 @@
-import Layout from '../../components/Layout'
-import Hero from '../../components/Hero'
-import Text from '../../components/Text'
-import Tickets from '../../components/Tickets'
-import Video from '../../components/Video'
+import Layout from './../components/Layout'
+import Hero from './../components/Hero'
+import Text from './../components/Text'
+import Tickets from './../components/Tickets'
+import Video from './../components/Video'
+import Link from 'next/link'
 
 const ConfText = {
     eyebrow: 'Eyebrow',
@@ -17,7 +18,7 @@ const TextText = {
 
 const videoEmbedCode = `<iframe width="560" height="315" src="https://www.youtube.com/embed/S1-wuoFsdT4" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>`;
 
-export default function Index() {
+export default function Conference() {
   return (
     <Layout>
       <Hero content={ConfText} />
@@ -37,6 +38,7 @@ export default function Index() {
               I got in one little fight and my mom got scared
               She said, "You're movin' with your auntie and uncle in Bel-Air"
           </p>
+          <Link href={`conference/about`}><a>About</a></Link>
         </div>
       </section>
       <Text content={TextText} />

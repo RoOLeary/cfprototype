@@ -16,12 +16,12 @@ interface IProps {
   }
 
 
-const renderContent = ( content: PropsWithChildren ) => {
+const renderContent = ( content: IProps ) => {
    
     const pageBlocksList = Object.entries(content).map((block: any, id: number) => {
     const blockContent = block[1];
         
-        switch(block[1]['blockType']) {
+        switch(blockContent['blockType']) {
             
             case 'header':
                 return <Header key={block[1]['uid']} content={blockContent} />
