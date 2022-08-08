@@ -1,4 +1,6 @@
 import Link from 'next/link'
+import Image from 'next/image'
+import imageLoader from './../imageLoader'
 import styles from '../styles/Post.module.css'
 import styled from 'styled-components';
 
@@ -40,7 +42,7 @@ export default function Post( post ) {
   return (
     <Article>
       <div className={styles.articleFlex}>
-        <RespImg src={imgSrc} width={250} height={300} />
+        <Image src={imgSrc} loader={imageLoader} width={"300"} height={"200px"} />
       </div>
       <div className={styles.innerFlex}>
           <a href={`/posts/${slug}`} className={styles.artMarg}><h2 dangerouslySetInnerHTML={{__html: title.replace(/<[^>]+>/g, '')}} /></a>

@@ -38,7 +38,7 @@ const renderContent = ( content: IProps ) => {
             case 'video':
                 return <Video key={block[1]['uid']} content={blockContent} />
             case 'speakers':
-                return <Speakers key={block[1]['uid']} content={blockContent} />
+                return <Speakers key={block[1]['uid']} speakers={blockContent['speakers']} />
             case 'signup':
                 return <Signup key={block[1]['uid']} content={blockContent} />
             // case 'tickets':
