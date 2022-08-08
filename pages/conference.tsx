@@ -6,9 +6,9 @@ import Video from './../components/Video'
 import Link from 'next/link'
 
 const ConfText = {
-    eyebrow: 'Eyebrow',
-    heading: 'Primary CTA will go here',
-    subHeadline: 'Your buddy is now your Guy',
+    eyebrow: 'TNW',
+    heading: 'Conference Index',
+    subHeadline: 'The Next Tech, Now',
 }
 
 const TextText = {
