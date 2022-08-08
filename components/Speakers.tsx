@@ -1,10 +1,14 @@
 import Speaker from './Speaker';
 
-const Speakers = ({ content }) => { 
+interface ISpeakers {
+    heading?: string
+    speakersIntro?: string   
+    speakers: Array<any>
+}
+
+const Speakers = ({ heading, speakersIntro, speakers }: ISpeakers) => { 
 
     
-    
-    const { heading, speakersIntro, speakers } = content;
     let introText = speakersIntro ? speakersIntro : 'Holding text';
     return(
         <section className="b-faq c-section speakers">
