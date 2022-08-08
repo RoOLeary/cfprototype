@@ -21,12 +21,8 @@ const Temp = () => {
     const shows = ctx[0].state.shows;
     const isActive = ctx[0].state.isActive;
 
-    
-    
     const clicky = (e) => {
-        console.log(isActive);
         ctx[0].handlers.setIsActive(e.target.id);
-        console.log(isActive);
         router.push(`/shows/?id=${e.target.id}`, undefined, { shallow: true })
     };
 
