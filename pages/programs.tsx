@@ -10,7 +10,7 @@ export default function Programs() {
 
     return (
         <Layout>
-             <Header content={HeroText} />
+            <Header headline={HeroText['headline']} />
             <section className={'b-text c-section'}>
                 <div className={'o-wrapper'}>
                 <h1>Programs Index</h1>
