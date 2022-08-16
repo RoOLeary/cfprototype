@@ -25,11 +25,23 @@ function renderContent(content: IBlocks[]){
             case 'header':
                 return <Header key={block[1]['uid']} headline={blockContent['header']}  />
             case 'hero':
-                return <Hero key={block[1]['uid']} content={blockContent} />
+                return (
+                    <Hero 
+                        key={block[1]['uid']} 
+                        eyebrow={blockContent['eyebrow']} 
+                        heading={blockContent['heading']}
+                        subHeading={blockContent['subHeading']} 
+                    />);
             case 'text':
                 return <Text key={block[1]['uid']} content={blockContent} />
             case 'textVisual':
-                return <TextVisual key={block[1]['uid']} content={blockContent} />
+                return (
+                    <TextVisual 
+                        key={block[1]['uid']}
+                        textVisualHeading={blockContent['textVisualHeading']}
+                        textVisualContent={blockContent['textVisualContent']}
+                        textVisualImage={blockContent['textVisualImage']} 
+                    />);
             case 'imageSlider':
                 return <Slider key={block[1]['uid']} content={blockContent} />
             case 'faq':

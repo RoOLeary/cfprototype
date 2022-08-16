@@ -21,7 +21,7 @@ const videoEmbedCode = `<iframe width="560" height="315" src="https://www.youtub
 export default function Conference() {
   return (
     <Layout>
-      <Hero content={ConfText} />
+      <Hero eyebrow={ConfText.eyebrow} heading={ConfText.heading} subHeading={ConfText.subHeadline} />
       <section className="b-text  c-section" id="learn-more">
         <div className="o-wrapper">
           <h1>Conference</h1>
