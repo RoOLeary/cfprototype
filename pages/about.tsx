@@ -11,7 +11,7 @@ export default function About({ entry }) {
 
   return (
     <Layout>
-      <Header content={HeroText} />
+      <Header headline={HeroText['headline']} />
       <PageBlocks content={content} />
     </Layout>
   )

@@ -23,7 +23,7 @@ function renderContent(content: IBlocks[]){
         switch(blockContent['blockType']) {
            
             case 'header':
-                return <Header key={block[1]['uid']} headline={blockContent['headline']}  />
+                return <Header key={block[1]['uid']} headline={blockContent['header']}  />
             case 'hero':
                 return <Hero key={block[1]['uid']} content={blockContent} />
             case 'text':
