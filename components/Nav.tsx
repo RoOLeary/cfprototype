@@ -1,10 +1,41 @@
 import Link from 'next/link'
 import { useRouter } from 'next/router'
 import { useRef, useEffect } from 'react'
+import { AnimateSharedLayout, motion } from 'framer-motion'
 import styles from '../styles/Nav.module.css'
+import { isActiveLink } from '../lib/utils';
+
+const links: { name: string; href: string }[] = [
+    {
+        name: 'Home',
+        href: '/',
+    },
+    {
+        name: 'All Comps',
+        href: '/all-components',
+    },
+    {
+        name: 'About',
+        href: '/about',
+    },
+    {
+        name: 'Conference',
+        href: '/conference',
+    },
+    {
+        name: 'Programs',
+        href: '/programs',
+    },
+    {
+        name: 'Spaces',
+        href: '/spaces',
+    },
+]
+
 
 const Nav = (): JSX.Element => {
     // const { data: session } = useSession();
+    const router = useRouter()
     const menuRef = useRef(null);
     const unitRef = useRef(null);
     const mobTogglRef = useRef(null); 
@@ -58,12 +89,22 @@ const Nav = (): JSX.Element => {
             </label>
             <div className="c-nav__mobileMenu c-nav__right" ref={menuRef}>
                 <ul className="c-nav__menu">
-                    <li className="c-nav__menuItem"><Link href={"/"}><a className="c-nav__menuLink" onClick={(e) => closeOnChange(e)}>Home</a></Link></li>
-                    <li className="c-nav__menuItem"><Link href={"/all-components"}><a className="c-nav__menuLink" onClick={(e) => closeOnChange(e)}>All Comps</a></Link></li>
-                    <li className="c-nav__menuItem"><Link href={"/about"}><a className="c-nav__menuLink" onClick={(e) => closeOnChange(e)}>About</a></Link></li>
-                    <li className="c-nav__menuItem"><Link href={"/conference"}><a className="c-nav__menuLink" onClick={(e) => closeOnChange(e)}>Conference</a></Link></li>
-                    <li className="c-nav__menuItem"><Link href={"/spaces"}><a className="c-nav__menuLink" onClick={(e) => closeOnChange(e)}>Spaces</a></Link></li>
-                    <li className="c-nav__menuItem"><Link href={"/programs"}><a className="c-nav__menuLink" onClick={(e) => closeOnChange(e)}>Programs</a></Link></li>
+                    {links.map(({ name, href }) => (
+                        <li key={name} className="c-nav__menuItem">
+                            <Link href={href}>
+                                <a className={'c-nav__menuLink'} onClick={(e) => closeOnChange(e)}>
+                                    {name}
+                                    {isActiveLink(href, router.pathname) && (
+                                        <motion.div
+                                            layoutId="navigation-underline"
+                                            className="navigation-underline"
+                                            animate
+                                        />
+                                    )}
+                                </a>
+                            </Link>
+                        </li>
+                    ))}
                     {/* {session ? <li className="c-nav__menuItem"><Link href={"/members"}><a className="c-nav__menuLink">Members</a></Link></li> : ''}
                     <li className="c-nav__menuItem">
                         {!session ? <>
