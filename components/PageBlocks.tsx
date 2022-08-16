@@ -37,7 +37,14 @@ function renderContent(content: IBlocks[]){
             case 'video':
                 return <Video key={block[1]['uid']} content={blockContent} />
             case 'speakers':
-                return <Speakers key={block[1]['uid']} speakers={blockContent['speakers']} />
+                return (
+                    <Speakers 
+                        key={block[1]['uid']} 
+                        heading={blockContent['heading']} 
+                        speakersIntro={blockContent['speakersIntro']} 
+                        speakers={blockContent['speakers']} 
+                    />
+                )
             case 'signup':
                 return <Signup key={block[1]['uid']} content={blockContent} />
             // case 'tickets':
