@@ -9,7 +9,7 @@ export default function About({ entry }) {
 
   return (
     <Layout>
-      <Header content={HeroText} />
+      <Header headline={HeroText['headline']} />
       <div>ABOOOT EVENT</div>
     </Layout>
   )
