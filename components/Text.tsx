@@ -1,11 +1,12 @@
 
 interface IProps {
-    heading: string
-    column1: string
-    column2: string
+    heading?: string
+    content?: any
 }
 
-const Text = ({ heading, column1, column2 }: IProps) => {
+const Text = ({ heading, content }: IProps) => {
+
+    let { column1, column2 } = content;
     
     return(
         <section className="b-text  c-section" id="learn-more">

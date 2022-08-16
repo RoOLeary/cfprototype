@@ -8,23 +8,22 @@ import Faq from './Faq';
 import Video from './Video';
 import Signup from './Signup';
 import Speakers from './Speakers';
-import { any } from 'prop-types';
-// import Projects from './Projects';
+import IBlocks from './../interfaces/IBlocks'
 
 interface IProps {
-    content: PropsWithChildren
-  }
+    content: IBlocks[];
+}
 
-
-const renderContent = ( content: IProps ) => {
+function renderContent(content: IBlocks[]){
    
     const pageBlocksList = Object.entries(content).map((block: any, id: number) => {
     const blockContent = block[1];
+
         
         switch(blockContent['blockType']) {
-            
+           
             case 'header':
-                return <Header key={block[1]['uid']} content={blockContent} />
+                return <Header key={block[1]['uid']} content={blockContent}  />
             case 'hero':
                 return <Hero key={block[1]['uid']} content={blockContent} />
             case 'text':
@@ -59,10 +58,7 @@ const renderContent = ( content: IProps ) => {
     return pageBlocksList;
 }
 
-
-
-
-const PageBlocks = ({ content }) => {
+const PageBlocks = ({ content }: IProps) => {
     return(
         <>
             {renderContent(content)}
