@@ -9,7 +9,7 @@ export default function SpacesPage({ entry }) {
 
   return (
     <Layout>
-      <Header content={HeroText} />
+      <Header headline={HeroText['headline']} />
       <section className="b-text  c-section" id="learn-more">
             <div className="o-wrapper">
                 <h3>Spaces Generic</h3>
