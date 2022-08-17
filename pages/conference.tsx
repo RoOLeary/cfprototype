@@ -38,7 +38,10 @@ export default function Conference() {
               I got in one little fight and my mom got scared
               She said, "You're movin' with your auntie and uncle in Bel-Air"
           </p>
+          <br />
           <Link href={`conference/about`}><a>About</a></Link>
+          <br />
+          <Link href={`conference/tickets`}><a>Tickets</a></Link>
         </div>
       </section>
       <Text content={TextText} />
