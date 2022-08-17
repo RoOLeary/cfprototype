@@ -4214,3 +4214,9 @@ h1.b-text__heading.articleSingle{
     hyphens: auto;
   
 }
+
+@media screen and (min-width: 960px) {
+  .navigation-underline{
+    border-top: 1px solid white;
+  }
+}
