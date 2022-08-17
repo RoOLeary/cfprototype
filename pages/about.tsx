@@ -1,6 +1,7 @@
 import Layout from '../components/Layout'
 import Header from '../components/Header'
 import PageBlocks from '../components/PageBlocks'
+import Search from '../components/Search';
 
 export default function About({ entry }) {
 
@@ -13,6 +14,7 @@ export default function About({ entry }) {
     <Layout>
       <Header headline={HeroText['headline']} />
       <PageBlocks content={content} />
+      <Search />
     </Layout>
   )
 }

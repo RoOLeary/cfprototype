@@ -26,34 +26,35 @@ const Sidebar = styled.aside`
 
 
 
-export default function Home() {
+export default function Home(posts) {
 
-  const [title, setPageTitle ] = useState('Latest Posts');
+  const title = 'Latest Posts';
+  console.log(posts);
   // some other crap in here I can do without for the moment. 
-  const { data, error, mutate, size, setSize, isValidating } = useSWRInfinite(
-    (index) =>
-      `https://api2.tnw-staging.com/v2/articles?page=${index +
-        1}&limit=${PAGE_SIZE}`,
-    fetcher,
-  );
-  const posts = data ? [].concat(...data) : [];
-  const isLoadingInitialData = !data && !error;
-  const isLoadingMore = isLoadingInitialData || (size > 0 && data && typeof data[size - 1] === "undefined");
-  const isEmpty = data?.[0]?.length === 0;
-  const isReachingEnd = isEmpty || (data && data[data.length - 1]?.length < PAGE_SIZE);
+  // const { data, error, mutate, size, setSize, isValidating } = useSWRInfinite(
+  //   (index) =>
+  //     `https://api2.tnw-staging.com/v2/articles?page=${index +
+  //       1}&limit=${PAGE_SIZE}`,
+  //   fetcher,
+  // );
+  // const posts = data ? [].concat(...data) : [];
+  // const isLoadingInitialData = !data && !error;
+  // const isLoadingMore = isLoadingInitialData || (size > 0 && data && typeof data[size - 1] === "undefined");
+  // const isEmpty = data?.[0]?.length === 0;
+  // const isReachingEnd = isEmpty || (data && data[data.length - 1]?.length < PAGE_SIZE);
   
   return (
     <Layout>
       <Head><title>Next JS/TNW</title></Head>
       <section className="b-text  c-section" id="learn-more">
         <div className="o-wrapper">
-          {!data ? <h1 className={'b-text__heading'}>Loading...</h1> :
+          {!posts ? <h1 className={'b-text__heading'}>Loading...</h1> :
             <div>
             <h1 className={'b-text__heading'}>{title}</h1>
 
             <Grid className={'b-articleGrid'}>
               <div>
-              {Object.entries(posts).map((post, idx) => (
+              {Object.entries(posts.posts).map((post, idx) => (
                   <Post {...post} key={idx} />
               ))}
               </div>
@@ -64,7 +65,7 @@ export default function Home() {
             </div> }
         </div>
         <br />
-        <div className="o-wrapper">
+        {/* <div className="o-wrapper">
           <button
             className={'c-button'}
             disabled={isLoadingMore || isReachingEnd}
@@ -75,8 +76,22 @@ export default function Home() {
                     ? 'No More Posts'
                     : 'Load More'}
           </button>
-        </div>
+        </div> */}
       </section>
     </Layout>
   )
+}
+
+
+export const getStaticProps = async ({params}) => {
+  // const slug = params?.slug || "all-components";
+  const response = await fetch(
+    `https://api2.tnw-staging.com/v2/articles`
+  )
+  const data = await response.json();
+  return {
+    props: { 
+      posts: data
+    },
+  }
 }

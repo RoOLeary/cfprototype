@@ -1,7 +1,7 @@
-import styles from '../styles/Footer.module.css'
+import styles from './../styles/Footer.module.css'
 
-const Footer = () => {
-    return(
+const Footer = () => (
+
         <footer className={"c-footer"}>
             <div className="o-wrapper">
                 <div className="c-footer__bio">
@@ -13,10 +13,7 @@ const Footer = () => {
                             Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent sit amet lacus in ante semper dictum. In eu sapien blandit, tincidunt nibh nec, pharetra nisi. Suspendisse ac ante rhoncus, tristique nibh ac, faucibus quam.
                             </p>
                         </div>
-                    
-
-                        
-                    
+                                    
                         <div className="o-grid__col l:o-grid__col--span-5">
                             <h3 className="u-m-m">Contact</h3>
                             <p className="c-footer__text">
@@ -51,7 +48,6 @@ const Footer = () => {
                 </div>
             </div>
         </footer>
-    )
-}
+)
 
 export default Footer;

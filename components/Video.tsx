@@ -1,7 +1,10 @@
+interface IProps {
+    content?: string
+}
 
-
-const Video = ({ content }) => {
+const Video = ({ content }: IProps) => {
     const videoEmbedCode = content;
+
     return(
         <section className="b-video">
             <div className="o-wrapper">

@@ -1,0 +1,1 @@
+// export const navElement = document.querySelector('#nav');

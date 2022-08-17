@@ -17,11 +17,8 @@ const Text = ({ heading, content }: IProps) => {
                     </div>
                     <div className="o-grid__col l:o-grid__col--span-8">
                         <div className={"c-formatted"} dangerouslySetInnerHTML={{__html: column1 ? column1 : 'Lorem upsum...'}} />        
-                        {column2 ? 
-                       <div className={"c-formatted"} dangerouslySetInnerHTML={{__html: column2 ? column2 : 'Lorem upsum...'}} />        
-                        : ''}
+                        {column2 && <div className={"c-formatted"} dangerouslySetInnerHTML={{__html: column2 ? column2 : 'Lorem upsum...'}} />}
                     </div>
-                    
                 </div>
             </div>
         </section>
