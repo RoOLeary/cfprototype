@@ -37,10 +37,10 @@ const InnerText = styled.div`
 `;
 
 export default function Post( props ) {
-  console.log(props);
-
-  const imgSrc = 'https://placedog.net/500/300';
-  const { title, slug, tags } = props;
+  
+  const { title, slug, tags, media } = props;
+  const imgSrc = media ? media[0].media.attributes.url : 'https://placedog.net/500/300';
+  
   return (
     <Article>
       <div className={styles.articleFlex}>
