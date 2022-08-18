@@ -77,7 +77,7 @@ export default function News(latest) {
 
 export const getServerSideProps: GetServerSideProps = async (context) => {
     const slug = context.query.category ? context.query.category : 'tech'
-    const res = await fetch(`https://api2.tnw-staging.com/v2/articles`);
+    const res = await fetch(`https://api2.tnw-staging.com/v2/articles?limit=10`);
     let data = await res.json();
     
     return {
