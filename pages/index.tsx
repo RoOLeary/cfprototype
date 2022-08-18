@@ -1,9 +1,11 @@
 import Head from 'next/head';
+import Image from 'next/image';
 import Layout from '../components/Layout';
 import React, { useState } from "react";
 import Post from '../components/post';
 import useSWRInfinite from "swr/infinite";
 import styled from 'styled-components';
+import imageLoader from './../imageLoader'
 
 const fetcher = url => fetch(url).then(res => res.json())
 const PAGE_SIZE = 10;
@@ -30,7 +32,7 @@ export default function Home() {
 
   const [title, setPageTitle ] = useState('Latest Posts');
   // some other crap in here I can do without for the moment. 
-  const { data, error, mutate, size, setSize, isValidating } = useSWRInfinite(
+  const { data, error, size, setSize } = useSWRInfinite(
     (index) =>
       `https://api2.tnw-staging.com/v2/articles?page=${index +
         1}&limit=${PAGE_SIZE}`,
@@ -58,7 +60,7 @@ export default function Home() {
               ))}
               </div>
               <Sidebar>
-                <img src="https://source.unsplash.com/350x1600/?ai,tech" />
+                <Image loader={imageLoader} src="https://source.unsplash.com/350x1600/?ai,tech" width="350" height="1600" />
               </Sidebar>
             </Grid>
             </div> }

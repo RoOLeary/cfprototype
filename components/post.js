@@ -36,18 +36,20 @@ const InnerText = styled.div`
   text-decoration: none; 
 `;
 
-export default function Post( post ) {
-  const imgSrc = post[1].media[0].media.attributes.url ? post[1].media[0].media.attributes.url : 'https://placedog.net/500/300';
-  const { title, slug, tags } = post[1];
+export default function Post( props ) {
+  console.log(props);
+
+  const imgSrc = 'https://placedog.net/500/300';
+  const { title, slug, tags } = props;
   return (
     <Article>
       <div className={styles.articleFlex}>
         <Image src={imgSrc} loader={imageLoader} width={"300"} height={"200px"} />
       </div>
       <div className={styles.innerFlex}>
-          <a href={`/posts/${slug}`} className={styles.artMarg}><h2 dangerouslySetInnerHTML={{__html: title.replace(/<[^>]+>/g, '')}} /></a>
+          <a href={`/posts/${slug}`} className={styles.artMarg}><h2 dangerouslySetInnerHTML={{__html: title ? title.replace(/<[^>]+>/g, '') : 'Article Title'}} /></a>
           <div>
-            <div className={styles.artMarg}>{post[1].properties.published} - <Link href={{ pathname: `/authors/${post[1]['authors'][0].slug}`, query: { name: post[1]['authors'][0].name }}}><a>{post[1]['authors'][0].name}</a></Link><br/>
+            <div className={styles.artMarg}><Link href={{ pathname: `/authors/}`, query: { name: 'cate' }}}><a>T Ester</a></Link><br/>
               <div>Tags:
               <ul>
                 {tags ? tags.map((t, id) => {
