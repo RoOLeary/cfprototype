@@ -11,6 +11,7 @@ interface IPost {
     published: string
     authors: string[]
     properties: string[]
+    media: string
 }
 
 export default IPost;
