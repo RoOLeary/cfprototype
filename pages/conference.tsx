@@ -49,7 +49,7 @@ export default function Conference() {
       </section>
       <Text content={TextText} />
       <Tickets />
-      <Video videoEmbedCode={video.videoEmbedCode} />
+      <Video heading={'IM\'M PICKLE RICK'} videoEmbedCode={video.videoEmbedCode} />
     </Layout>
   )
 }
