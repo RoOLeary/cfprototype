@@ -20,7 +20,7 @@ const Slider = ({ content }: ISlider ) => {
     const length = content.sliderMatrix.length;
 
     const elementRef = useRef();
-    const divElement: JSX.Element = elementRef.current;
+    const divElement: any = elementRef.current;
 
     const [activeSlide, setActiveSlide] = useState(initialState.activeSlide);
     const [isAutoPlay, setAutoPlay] = useState(initialState.isAutoPlay);
@@ -64,7 +64,7 @@ const Slider = ({ content }: ISlider ) => {
     }
 
     useEffect(() => {
-        const divElement = elementRef.current;
+        const divElement: any = elementRef.current;
         const current = document.querySelector('.flex--active') ? document.querySelector('.flex--active').getAttribute('data-slide') : initialState.defaultActive;    
         const autoFadeSl = divElement.querySelector('.flex__container[data-slide="' + activeSlide + '"]'); 
         const oldActive = divElement.querySelector('.flex__container[data-slide="' + current + '"]');
@@ -104,7 +104,6 @@ const Slider = ({ content }: ISlider ) => {
                                 <div className="flex__content">
                                     <p className="text--sub">{sl.textSub}</p>
                                     <h1 className="text--big font-serif">{sl.textHeading}</h1>
-                                    {/* <p className="text--normal"></p>  */}
                                 </div>
                                 <p className="text__background font-serif">{sl.textBackground}</p>
                                 </div>
