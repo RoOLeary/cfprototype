@@ -63,7 +63,7 @@ const SEO = (props) => {
   
   return (
     <>
-      <title>Next.Js CF Pages</title>
+      <title>Next.Js Vercel</title>
       <meta name="description" content={description} />
       <meta itemProp="name" content={title} />
       <meta itemProp="description" content={description} />
