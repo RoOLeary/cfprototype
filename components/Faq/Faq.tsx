@@ -1,6 +1,7 @@
 import React from 'react';
 import { useEffect } from 'react';
 import Link from 'next/link';
+import FaqItem from './FaqItem'; 
 
 const Faq = ({ content }) => { 
 
@@ -36,18 +37,11 @@ const Faq = ({ content }) => {
                     </div>
                     <div className="o-grid__col l:o-grid__col--span-8">
                         <ul className="b-faq__list">
-                        {faqs.map((faq, i) => {
-                            return(
-                                <li key={i} className="b-faq__listItem">
-                                    <div className="b-faq__question js-faqQuestion" onClick={(e) => onQuestionClick(e)}>{faq.question}</div>
-                                    <div className="b-faq__answer">
-                                        <div className="b-faq__answerInner c-formatted js-faqAnswerInner" dangerouslySetInnerHTML={{ __html: faq.answer }} />
-                                        
-                                    </div>
-                                </li>
-                                );
-                            }
-                        )}
+                            {faqs.map((faq, i) => {
+                                return(
+                                    <FaqItem key={i} faq={faq} onClick={(e) => onQuestionClick(e)} />
+                                )
+                            })}
                         </ul>
                     </div>
                 </div>

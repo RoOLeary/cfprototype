@@ -4,7 +4,7 @@ import Hero from './Hero';
 import Text from './Text';
 import TextVisual from './TextVisual';
 import Slider from './Slider';
-import Faq from './Faq';
+import Faq from './Faq/Faq';
 import Video from './Video';
 import Signup from './Signup';
 import Speakers from './Speakers';
