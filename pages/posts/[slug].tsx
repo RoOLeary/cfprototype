@@ -79,14 +79,13 @@ export const getStaticProps: GetStaticProps = async ({ params }) => {
 export default function Post( post: IProps ) {
   const router = useRouter();
 
-  // console.log(post[1].media[0].media.attributes.url);
   return (
     <Layout>
       <Head><title>{post ? post['title'] : 'Generic Post Title'}</title></Head>
       
       <Section primary className={'b-text c-section'}>
         <SingleContainer className={'o-wrapper singleContainer'}>
-          <Image loader={imageLoader} src={post['media'][0].media.attributes.url && post['media'][0].media.attributes.url} layout="intrinsic" width={1200} height={400} />
+          <Image alt={post['title']} loader={imageLoader} src={post['media'][0].media.attributes.url && post['media'][0].media.attributes.url} layout="intrinsic" width={1200} height={400} />
           <br /><br />
           <h1 className={'b-text__heading articleSingle'} dangerouslySetInnerHTML={{__html: post['title']}} />
           <br />
