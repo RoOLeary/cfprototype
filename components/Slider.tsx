@@ -8,14 +8,19 @@ let initialState = {
     defaultActive: 1,
 }
 
-export default function Slider({ content }) {
-    
+interface ISlider {
+    content: {
+        sliderMatrix?: Array<any>
+    }
+}
+
+const Slider = ({ content }: ISlider ) => {
     // console.log(content);
     
     const length = content.sliderMatrix.length;
 
     const elementRef = useRef();
-    const divElement = elementRef.current;
+    const divElement: JSX.Element = elementRef.current;
 
     const [activeSlide, setActiveSlide] = useState(initialState.activeSlide);
     const [isAutoPlay, setAutoPlay] = useState(initialState.isAutoPlay);
@@ -124,3 +129,5 @@ export default function Slider({ content }) {
             </>
         ); 
 }; 
+
+export default Slider;
