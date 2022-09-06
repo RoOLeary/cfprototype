@@ -1,6 +1,6 @@
 import React from 'react';
 import Link from 'next/link';
-import { useViewportScroll, useTransform, motion } from 'framer-motion';
+import { useScroll, useTransform, motion } from 'framer-motion';
 import { string } from 'prop-types';
 import { useTypingText } from './../hooks/useTypingText'
 
@@ -24,7 +24,7 @@ const variants = {
   
 const Hero = ({ eyebrow, heading, subHeading }: IHero ): JSX.Element => {
     const { word } = useTypingText(['Learn More', 'Find Out', 'Go Away'], 250, 20);
-    const { scrollY } = useViewportScroll();
+    const { scrollY } = useScroll();
     const y1 = useTransform(scrollY, [0, 300], [0, 200]);
     const y2 = useTransform(scrollY, [0, 300], [0, -100]);
     const y3 = useTransform(scrollY, [0, 300], [0, -50]);

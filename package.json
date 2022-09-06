@@ -18,7 +18,8 @@
     "export": "next export",
     "prestart": "npm run export",
     "start": "serve out",
-    "test": "jest"
+    "test": "jest",
+    "lint": "next run lint"
   },
   "devDependencies": {
     "@testing-library/dom": "^8.16.0",

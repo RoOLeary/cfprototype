@@ -41,9 +41,6 @@ export default function Post( props ) {
   const { title, slug, tags, media } = props[1];
   const imgSrc = media ? media[0].media.attributes.url : 'https://placedog.net/500/300';
   
-  console.log(props[1].authors[0].name);
-
-
   return (
     <Article className="post">
       <div className={styles.articleFlex}>
