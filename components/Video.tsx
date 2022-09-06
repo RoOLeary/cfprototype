@@ -1,6 +1,11 @@
 
 
-const Video = ({ content }) => {
+interface IVideo {
+    content?: string
+}
+
+const Video = ({ content }: IVideo ) => {
+
     const videoEmbedCode = content;
     return(
         <section className="b-video">
