@@ -38,18 +38,21 @@ const InnerText = styled.div`
 
 export default function Post( props ) {
   
-  const { title, slug, tags, media } = props;
+  const { title, slug, tags, media } = props[1];
   const imgSrc = media ? media[0].media.attributes.url : 'https://placedog.net/500/300';
   
+  console.log(props[1].authors[0].name);
+
+
   return (
-    <Article>
+    <Article className="post">
       <div className={styles.articleFlex}>
-        <Image src={imgSrc} loader={imageLoader} width={"300"} height={"200px"} />
+        <Image src={imgSrc} loader={imageLoader} width={"300"} height={"200"} unoptimized />
       </div>
       <div className={styles.innerFlex}>
           <a href={`/posts/${slug}`} className={styles.artMarg}><h2 dangerouslySetInnerHTML={{__html: title ? title.replace(/<[^>]+>/g, '') : 'Article Title'}} /></a>
           <div>
-            <div className={styles.artMarg}><Link href={{ pathname: `/authors/}`, query: { name: 'cate' }}}><a>T Ester</a></Link><br/>
+            <div className={styles.artMarg}><Link href={{ pathname: `/authors/}`, query: { name: 'cate' }}}><a>{props[1].authors[0].name}</a></Link><br/>
               <div>Tags:
               <ul>
                 {tags ? tags.map((t, id) => {

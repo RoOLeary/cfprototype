@@ -1,7 +1,9 @@
+import fetch from "node-fetch";
+
 import Head from 'next/head';
 import Layout from './../../components/Layout';
+import PostList from './../../components/PostList';
 import React, { useState } from "react";
-import Post from './../../components/post';
 import useSWRInfinite from "swr/infinite";
 import styled from 'styled-components';
 import { GetServerSideProps } from 'next'
@@ -27,33 +29,23 @@ const Sidebar = styled.aside`
 
 
 
-export default function News(latest) {
+export default function News( props ) {
+  console.log(props);
 
-  const posts = latest.latest;
+  const title = 'Latest Nuacht';
 
-  console.log(posts)
-  const [title, setPageTitle ] = useState('Latest Posts');
-  
-  
   return (
     <Layout>
       <Head><title>Next JS/TNW</title></Head>
       <section className="b-text  c-section" id="learn-more">
         <div className="o-wrapper">
-          {!posts ? <h1 className={'b-text__heading'}>Loading...</h1> :
+          {!props.data ? <h1 className={'b-text__heading'}>Loading...</h1> :
             <div>
             <h1 className={'b-text__heading'}>{title}</h1>
 
             <Grid className={'b-articleGrid'}>
-              <div>
-              {posts.map((post, idx) => (    
-                  <Post {...post} key={idx} />
-              ))}
-              </div>
-              {/* <Sidebar>
-                <img src="https://source.unsplash.com/350x1600/?ai,tech" />
-              </Sidebar> */}
-            </Grid>
+              <PostList postData={props.data} currentPage={props.currentPage} maxPage={10} />
+             </Grid>
             </div> }
         </div>
         <br />
@@ -75,14 +67,24 @@ export default function News(latest) {
 }
 
 
-export const getServerSideProps: GetServerSideProps = async (context) => {
-    const slug = context.query.category ? context.query.category : 'tech'
-    const res = await fetch(`https://api2.tnw-staging.com/v2/articles?limit=10`);
-    let data = await res.json();
+export const getServerSideProps: GetServerSideProps = async ({ query }) => {
+    const page = query.page || 1 
+    let postData = null; 
+    try{
+      const res = await fetch(`https://api2.tnw-staging.com/v2/articles?page={${page}&limit=10`);
+      if(res.status !== 200){
+        throw new Error('fetch failed');
+      }
+      postData = await res.json()
+    } catch (err){
+      postData = { error: { message: err.message }}
+    }
     
     return {
         props: { 
-            latest: data,
+          data: postData,
+          currentPage: page,
+          maxPage: Math.ceil(100 / 10) 
         }
     };
 }
