@@ -50,7 +50,12 @@ function renderContent(content: IBlocks[]){
                 return (
                     <Video 
                         key={block[1]['uid']} 
-                        content={blockContent['videoEmbedCode']} 
+                        heading={blockContent['heading']}
+                        text={blockContent['text']}
+                        hasCta={blockContent['hasCta']}
+                        ctaLabel={blockContent['ctaLabel']}
+                        ctaLink={blockContent['ctaLink']}
+                        videoEmbedCode={blockContent['videoEmbedCode']} 
                     />
                     );
             case 'speakers':
