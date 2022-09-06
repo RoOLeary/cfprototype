@@ -6,7 +6,7 @@ import FaqItem from './FaqItem';
 const Faq = ({ content }) => { 
 
     const { faqHeading, faqLeadtext, faqs } = content;
-    const selectorAnswerInner = '.js-faqAnswerInner';
+    const selectorAnswerInner:any = '.js-faqAnswerInner';
     
     const onQuestionClick = (e) => {
         const question = e.target;
