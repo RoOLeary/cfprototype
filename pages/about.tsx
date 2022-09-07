@@ -1,3 +1,4 @@
+import Head from 'next/head'
 import Layout from '../components/Layout'
 import Header from '../components/Header'
 import PageBlocks from '../components/PageBlocks'
@@ -11,6 +12,7 @@ export default function About({ entry }) {
 
   return (
     <Layout>
+      <Head><title>Next JS Prototype - {HeroText.headline}</title></Head>
       <Header headline={HeroText['headline']} />
       <PageBlocks content={content} />
     </Layout>

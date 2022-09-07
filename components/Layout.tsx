@@ -19,8 +19,7 @@ const Layout = ({ children }: Props): JSX.Element => (
        
         <>
             <Head>
-                <title>CF Vercel</title>
-            <SEO />
+                <SEO />
             </Head>            
             <motion.main
                 variants={variants} // Pass the variant object into Framer Motion 

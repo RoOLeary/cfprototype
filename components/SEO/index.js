@@ -59,11 +59,9 @@ const socialTags = ({
 const SEO = (props) => {
   const { url, title, description, image } = props;
 
-  // console.log(title);
-  
   return (
     <>
-      <title>Next.Js Vercel</title>
+      <title>{title ? title : 'CFPrototype'}</title>
       <meta name="description" content={description} />
       <meta itemProp="name" content={title} />
       <meta itemProp="description" content={description} />

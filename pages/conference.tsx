@@ -1,3 +1,4 @@
+import Head from 'next/head'
 import Layout from './../components/Layout'
 import Hero from './../components/Hero'
 import Text from './../components/Text'
@@ -24,6 +25,7 @@ const video = {
 export default function Conference() {
   return (
     <Layout>
+      <Head><title>Next JS Prototype - Conference</title></Head>
       <Hero eyebrow={ConfText.eyebrow} heading={ConfText.heading} subHeading={ConfText.subHeadline} />
       <section className="b-text  c-section" id="learn-more">
         <div className="o-wrapper">

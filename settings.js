@@ -1,6 +1,6 @@
 const settings = {
     meta: {
-      rootUrl: "https://cfprototype.pages.dev/",
+      rootUrl: "https://cfprototype.vercel.app",
       title: "App",
       description: "The app description goes here.",
       social: {

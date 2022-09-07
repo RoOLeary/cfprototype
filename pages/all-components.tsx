@@ -1,3 +1,4 @@
+import Head from 'next/head';
 import Layout from '../components/Layout'
 import PageBlocks from '../components/PageBlocks'
 // import CardScroller from '../components/CardScroller/CardScroller';
@@ -8,6 +9,7 @@ export default function AllComps({ entry }) {
   
   return (
     <Layout>
+      <Head><title>All Components</title></Head>
       <PageBlocks content={content} />
       {/* <CardScroller /> */}
     </Layout>
