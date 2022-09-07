@@ -1,6 +1,7 @@
 import Head from 'next/head';
 import Image from 'next/image';
 import Layout from '../components/Layout';
+import Signup from '../components/Signup';
 import React, { useState } from "react";
 import Post from '../components/post';
 import useSWRInfinite from "swr/infinite";
@@ -79,6 +80,7 @@ export default function Home() {
           </button>
         </div>
       </section>
+      <Signup signupHeading={'Sign Up'} signupText={'Sign the fuck up!'} />
     </Layout>
   )
 }

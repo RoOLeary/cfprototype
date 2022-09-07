@@ -68,7 +68,13 @@ function renderContent(content: IBlocks[]){
                     />
                 )
             case 'signup':
-                return <Signup key={block[1]['uid']} content={blockContent} />
+                return (
+                    <Signup key={block[1]['uid']} 
+                        signupHeading={blockContent['signupHeading']} 
+                        signupText={blockContent['signupText']} 
+                        hubspotEmbed={blockContent['hubspotEmbed']}
+                    />
+                ); 
             // case 'tickets':
             //     return <Tickets key={block[1]['uid']} content={blockContent} />
             default:

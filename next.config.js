@@ -3,6 +3,10 @@ const nextConfig = {
   reactStrictMode: false,
   trailingSlash: false,
   distDir: '/out',
+  i18n: {
+    locales: ['en', 'fr', 'de', 'es'],
+    defaultLocale: 'en',
+ },
   images: {
     loader: 'custom',
     path: '/',
