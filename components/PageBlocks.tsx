@@ -69,7 +69,8 @@ function renderContent(content: IBlocks[]){
                 )
             case 'signup':
                 return (
-                    <Signup key={block[1]['uid']} 
+                    <Signup 
+                        key={block[1]['uid']} 
                         signupHeading={blockContent['signupHeading']} 
                         signupText={blockContent['signupText']} 
                         hubspotEmbed={blockContent['hubspotEmbed']}
