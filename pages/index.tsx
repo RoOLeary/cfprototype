@@ -80,7 +80,7 @@ export default function Home() {
           </button>
         </div>
       </section>
-      <Signup signupHeading={'Sign Up'} signupText={'Sign the fuck up!'} />
+      <Signup signupHeading={'Sign Up'} signupText={'We said.....SIGN. UP!'} />
     </Layout>
   )
 }
