@@ -82,8 +82,7 @@ export default function Post( post: IProps ) {
   // console.log(post['content'][0].content);
 
   const filterBody = (el) => {
-    // console.log(el);
-    return 'ASS';
+    return el;
   } 
 
   let cnt = post['content'][0].content;
