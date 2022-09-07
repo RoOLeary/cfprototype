@@ -79,6 +79,15 @@ export const getStaticProps: GetStaticProps = async ({ params }) => {
 export default function Post( post: IProps ) {
   const router = useRouter();
 
+  // console.log(post['content'][0].content);
+
+  const filterBody = (el) => {
+    // console.log(el);
+    return 'ASS';
+  } 
+
+  let cnt = post['content'][0].content;
+  
   return (
     <Layout>
       <Head><title>{post ? post['title'] : 'Generic Post Title'}</title></Head>
@@ -104,7 +113,7 @@ export default function Post( post: IProps ) {
           </div>
           {router.isFallback ? <div><h1>Loading...</h1></div> :  
             <div>
-              <div className={'articleContent'} dangerouslySetInnerHTML={{__html: post['content'][0].content }} />
+              <div className={'articleContent'} dangerouslySetInnerHTML={{__html: filterBody(cnt) }} />
               <br />
               <Link href={'/'}><button className={'c-button'}>Back to Post Index</button></Link>
             </div>
