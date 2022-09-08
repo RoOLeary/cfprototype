@@ -91,33 +91,35 @@ export default function Post( post: IProps ) {
     <Layout>
       <Head><title>{post ? post['title'] : 'Generic Post Title'}</title></Head>
       
-      <Section primary className={'b-text c-section'}>
-        <SingleContainer className={'o-wrapper singleContainer'}>
-          <Image alt={post['title']} className={'articleFtImg'} loader={imageLoader} src={post['media'][0].media.attributes.url && post['media'][0].media.attributes.url} layout="intrinsic" width={1200} height={400} />
-          <br /><br />
-          <h1 className={'b-text__heading articleSingle'} dangerouslySetInnerHTML={{__html: post['title']}} />
-          <br />
-          <div>
-            <Link href={{ pathname: `/authors/${post['authors'][0].slug}`, query: { name: post['authors'][0].name }}}><a>{post['authors'][0].name}</a></Link>
+      <Section primary className={'b-section'}>
+        <div>
+        <Image alt={post['title']} className={'articleFtImg'} loader={imageLoader} src={post['media'][0].media.attributes.url && post['media'][0].media.attributes.url} layout="responsive" width={1200} height={400} />
+          <SingleContainer className={'o-wrapper singleContainer'}>
+            <br /><br />
+            <h1 className={'b-text__heading articleSingle'} dangerouslySetInnerHTML={{__html: post['title']}} />
             <br />
             <div>
-            {post['properties'].published}<br />
-            {post['tags'] ? post['tags'].map((t, idx) => {
-                return <li className={styles.tags} key={idx}>
-                    <Link href={{ pathname: `/topic/${t.slug}`, query: { data: JSON.stringify(t.slug) } }}><a>{t.name}</a></Link>
-                  </li>; 
-              }).slice(0,1) : '' }
-            <br />
-            </div>
-          </div>
-          {router.isFallback ? <div><h1>Loading...</h1></div> :  
-            <div>
-              <div className={'articleContent'} dangerouslySetInnerHTML={{__html: filterBody(cnt) }} />
+              <Link href={{ pathname: `/authors/${post['authors'][0].slug}`, query: { name: post['authors'][0].name }}}><a>{post['authors'][0].name}</a></Link>
               <br />
-              <Link href={'/'}><button className={'c-button'}>Back to Post Index</button></Link>
+              <div>
+              {post['properties'].published}<br />
+              {post['tags'] ? post['tags'].map((t, idx) => {
+                  return <li className={styles.tags} key={idx}>
+                      <Link href={{ pathname: `/topic/${t.slug}`, query: { data: JSON.stringify(t.slug) } }}><a>{t.name}</a></Link>
+                    </li>; 
+                }).slice(0,1) : '' }
+              <br />
+              </div>
             </div>
-          }
-        </SingleContainer>
+            {router.isFallback ? <div><h1>Loading...</h1></div> :  
+              <div>
+                <div className={'articleContent'} dangerouslySetInnerHTML={{__html: filterBody(cnt) }} />
+                <br />
+                <Link href={'/'}><button className={'c-button'}>Back to Post Index</button></Link>
+              </div>
+            }
+          </SingleContainer>
+        </div>
       </Section>
     </Layout>
   )
