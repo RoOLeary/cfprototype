@@ -4207,7 +4207,7 @@ h1.b-text__heading.articleSingle{
 }
 
 .articleContent > h2 {
-  padding-bottom: 0.5em;
+  padding: 0.5em 0;
 }
 
 .articleContent > p {
