@@ -10,13 +10,17 @@ let initialState = {
 
 interface ISlider {
     content: {
-        sliderMatrix?: Array<any>
+        sliderMatrix: Array<{
+            sliderColor: string
+            textSub: string
+            textHeading: string
+            textBackground: string
+            slideImage: string
+        }>
     }
 }
 
-const Slider = ({ content }: ISlider ) => {
-    // console.log(content);
-    
+const Slider = ({ content }: ISlider ) => {    
     const length = content.sliderMatrix.length;
 
     const elementRef = useRef();
@@ -37,7 +41,6 @@ const Slider = ({ content }: ISlider ) => {
 
             wrapper = divElement;
             
-            // console.log(wrapper);
             currentSlide = document.querySelector('.flex--active');
             current = document.querySelector('.flex--active') ? document.querySelector('.flex--active').getAttribute('data-slide') : initialState.defaultActive;  
             clickToSlide = e.currentTarget.getAttribute('data-slide');
@@ -117,7 +120,7 @@ const Slider = ({ content }: ISlider ) => {
                         {content.sliderMatrix.map((sl, i) => {
                             const current = ++i;
                             return(
-                                <a key={++i} href="#" onClick={(e) => transitionSlide(e)} className={`slide-nav ${activeSlide == current ? `active` : '' }`} data-slide={current}>{sl.slideColor}</a>
+                                <a key={++i} href="#" onClick={(e) => transitionSlide(e)} className={`slide-nav ${activeSlide == current ? `active` : '' }`} data-slide={current}>{sl.sliderColor}</a>
                             ) 
                         })} 
                     </div>

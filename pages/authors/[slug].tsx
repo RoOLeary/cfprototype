@@ -1,7 +1,7 @@
 import Link from 'next/link'
 import Layout from '../../components/Layout'
 import { useRouter } from 'next/router';
-import IAuthor from '../../interfaces/IAuthor'
+import { IAuthor } from '../../interfaces/IAuthor'
 import useSWRInfinite from "swr/infinite";
 
 const fetcher = url => fetch(url).then(res => res.json())

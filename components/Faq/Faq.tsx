@@ -2,13 +2,14 @@ import React from 'react';
 import { useEffect } from 'react';
 import Link from 'next/link';
 import FaqItem from './FaqItem'; 
+import { IFaqs } from '../../interfaces/IFaq'
 
-const Faq = ({ content }) => { 
+const Faq = ({ content }: IFaqs ) => {
 
     const { faqHeading, faqLeadtext, faqs } = content;
-    const selectorAnswerInner:any = '.js-faqAnswerInner';
+    const selectorAnswerInner: any = '.js-faqAnswerInner';
     
-    const onQuestionClick = (e) => {
+    const onQuestionClick = (e: any) => {
         const question = e.target;
         const classNameIsExpanded = 'is-expanded';
         question.parentElement.classList.toggle(classNameIsExpanded);
@@ -19,7 +20,6 @@ const Faq = ({ content }) => {
             answerInner.parentElement.style.setProperty('--height', answerInner.offsetHeight + 'px')
         })
     },[]);
-
     return(
         <section className="b-faq c-section js-faq">
             <div className="o-wrapper">
@@ -39,7 +39,7 @@ const Faq = ({ content }) => {
                         <ul className="b-faq__list">
                             {faqs.map((faq, i) => {
                                 return(
-                                    <FaqItem key={i} faq={faq} onClick={(e) => onQuestionClick(e)} />
+                                    <FaqItem key={i} faq={faq} onClick={(e: any) => onQuestionClick(e)} />
                                 )
                             })}
                         </ul>

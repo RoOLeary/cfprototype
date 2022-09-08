@@ -2,14 +2,14 @@ import React from 'react';
 import { useEffect, useState } from 'react'; 
 import Script from 'next/script'
 
-interface Signup {     
+interface ISignup {     
     signupHeading?: string, 
     signupText?: string, 
     hubspotEmbed?: any
 }
 
 
-const Signup = ({ signupHeading, signupText, hubspotEmbed }: Signup): JSX.Element => {
+const Signup = ({ signupHeading, signupText, hubspotEmbed }: ISignup): JSX.Element => {
     
     const defaultForm = () => {
         return(

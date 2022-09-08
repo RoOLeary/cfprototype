@@ -1,12 +1,6 @@
-
-
-interface IFaq {   
-    faq?: object
-    onClick?: any
-}
+import { IFaq } from '../../interfaces/IFaq'
 
 const FaqItem = ({ faq, onClick }: IFaq): JSX.Element => {
-
     return(
         <li className="b-faq__listItem">
             <div className="b-faq__question js-faqQuestion" onClick={(e) => onClick(e)}>{faq['question']}</div>

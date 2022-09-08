@@ -1,14 +1,7 @@
 import Speaker from './Speaker';
-
-interface ISpeakers {
-    heading?: string
-    speakersIntro?: string   
-    speakers: Array<any>
-}
+import { ISpeakers } from '../interfaces/ISpeaker'
 
 const Speakers = ({ heading, speakersIntro, speakers }: ISpeakers) => { 
-
-    
     let introText = speakersIntro ? speakersIntro : 'Holding text';
     return(
         <section className="b-faq c-section speakers">

@@ -6,14 +6,10 @@ import { useRouter } from 'next/router';
 import Layout from '../../components/Layout'
 import FlexGrid from '../../components/FlexGrid'
 import styles from '../../styles/Home.module.css'
-import IPost from '../../interfaces/IPost'
+import { IPost } from '../../interfaces/IPost'
 import { GetStaticPaths, GetStaticProps } from 'next';
 import styled from "styled-components";
 import imageLoader from './../../imageLoader'
-
-interface IProps {
-  post: IPost
-}
 
 const Section = styled.section`
   background: ${props => props.primary ? "white" : "teal"}
@@ -88,7 +84,7 @@ export const getStaticProps: GetStaticProps = async ({ params }) => {
 
 
 
-export default function Post( post: IProps ) {
+export default function Post( post: IPost ) {
   const router = useRouter();
 
   // console.log(post['content'][0].content);
