@@ -12,7 +12,7 @@ interface Props {
 }
 
 export default function Author ( author: Props ) {
-    // console.log(author);
+    console.log(author);
     const router = useRouter(); 
     const authorName = router.query.name ? router.query.name : 'Callum Booth';
     const authorSlug = router.query.slug ? router.query.slug : 'callum-booth';

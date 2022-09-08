@@ -1,6 +1,6 @@
 import Link from 'next/link'
 import Image from 'next/image'
-import imageLoader from './../imageLoader'
+import imageLoader from '../imageLoader'
 import styles from '../styles/Post.module.css'
 import styled from 'styled-components';
 
@@ -36,12 +36,20 @@ const InnerText = styled.div`
   text-decoration: none; 
 `;
 
-export default function Post( props ) {
+
+interface IPost {
+  title?: string, 
+  slug?: string, 
+  tags?: Array<any>, 
+  media?: Array<any>, 
+  authors?: Array<any>
+}
+
+
+
+const Post = (props : IPost) => {
   
   const { title, slug, tags, media, authors } = props[1];
-
-  console.log(authors[0].slug);
-
   const imgSrc = media ? media[0].media.attributes.url : 'https://placedog.net/500/300';
   
   return (
@@ -52,7 +60,7 @@ export default function Post( props ) {
       <div className={styles.innerFlex}>
           <a href={`/posts/${slug}`} className={styles.artMarg}><h3 dangerouslySetInnerHTML={{__html: title ? title.replace(/<[^>]+>/g, '') : 'Article Title'}} /></a>
           <div>
-            <div className={styles.artMarg}><Link href={{ pathname: `/authors/${authors[0].slug}`, query: { name: `${authors[0].slug}` }}}><a>{props[1].authors[0].name}</a></Link><br/>
+            <div className={styles.artMarg}><Link href={{ pathname: `/authors/${authors[0].slug}`, query: { name: `${authors[0].name}` }}}><a>{authors[0].name}</a></Link><br/>
               <div>Tags:
               <ul>
                 {tags ? tags.map((t, id) => {
@@ -66,3 +74,5 @@ export default function Post( props ) {
     </Article>
   )
 }
+
+export default Post; 
