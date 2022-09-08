@@ -1,17 +1,13 @@
 import Link from 'next/link'
 import Layout from '../../components/Layout'
 import { useRouter } from 'next/router';
-import IAuthor from '../../interfaces/IAuthor'
+import { IAuthor } from '../../interfaces/IAuthor'
 import useSWRInfinite from "swr/infinite";
 
 const fetcher = url => fetch(url).then(res => res.json())
 const PAGE_SIZE = 10;
 
-interface IProps {
-    author: IAuthor
-}
-
-export default function Author ( author: IProps ) {
+export default function Author ( author: IAuthor ) {
     // console.log(author);
     const router = useRouter(); 
     const authorName = router.query.name ? router.query.name : 'Callum Booth';

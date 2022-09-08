@@ -1,4 +1,4 @@
-interface IAuthor {
+interface IAuthorData {
     id: string, 
     slug: string,
     authorName: string,
@@ -6,4 +6,7 @@ interface IAuthor {
     posts: string[]
 }
 
-export default IAuthor;
+export interface IAuthor {
+    author: IAuthorData
+}
+

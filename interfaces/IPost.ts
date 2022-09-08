@@ -1,4 +1,4 @@
-interface IPost {
+interface IPostData {
     id: number
     title: string
     subtitle: string
@@ -14,4 +14,6 @@ interface IPost {
     media: string
 }
 
-export default IPost;
+export interface IPost {
+    post: IPostData
+}
