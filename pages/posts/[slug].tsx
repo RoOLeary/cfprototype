@@ -31,6 +31,12 @@ const SingleContainer = styled.div`
 const SingleArticleGrid = styled.div`
   display: grid; 
   grid-template-columns: 1fr 3fr; 
+  padding: 2em 0; 
+  @media screen and (max-width: 768px){
+    grid-template-columns: 1fr; 
+    
+  }
+  
 `;
 
 export const getStaticPaths: GetStaticPaths = async () => {

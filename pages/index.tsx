@@ -61,7 +61,7 @@ export default function Home() {
               ))}
               </div>
               <Sidebar>
-                <Image loader={imageLoader} src="https://source.unsplash.com/350x1600/?ai,tech" width="350" height="1600" />
+                <Image loader={imageLoader} src="https://source.unsplash.com/350x1600/?ai,tech" width="350" height="1600" layout="fixed"/>
               </Sidebar>
             </Grid>
             </div> }
