@@ -15,7 +15,7 @@ interface IProps {
 }
 
 function renderContent(content: IBlocks[]){
-   
+   console.log('content', content)
     const pageBlocksList = Object.entries(content).map((block: any, id: number) => {
     const blockContent = block[1];
         

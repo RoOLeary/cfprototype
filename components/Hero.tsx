@@ -1,7 +1,6 @@
 import React from 'react';
 import Link from 'next/link';
 import { useScroll, useTransform, motion } from 'framer-motion';
-import { string } from 'prop-types';
 import { useTypingText } from './../hooks/useTypingText'
 
 const variants = {
@@ -12,15 +11,11 @@ const variants = {
       y: 50
     }
   };
-
-
   interface IHero {   
     eyebrow?: string
     heading: string
     subHeading: string
 }
-  
-
   
 const Hero = ({ eyebrow, heading, subHeading }: IHero ): JSX.Element => {
     const { word } = useTypingText(['Learn More', 'Find Out', 'Go Away'], 250, 20);

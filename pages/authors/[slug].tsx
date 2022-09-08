@@ -7,11 +7,11 @@ import useSWRInfinite from "swr/infinite";
 const fetcher = url => fetch(url).then(res => res.json())
 const PAGE_SIZE = 10;
 
-interface Props {
+interface IProps {
     author: IAuthor
 }
 
-export default function Author ( author: Props ) {
+export default function Author ( author: IProps ) {
     // console.log(author);
     const router = useRouter(); 
     const authorName = router.query.name ? router.query.name : 'Callum Booth';

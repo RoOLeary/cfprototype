@@ -1,10 +1,13 @@
 
-interface IProps {
+interface IText {
     heading?: string
-    content?: any
+    content?: {
+        column1?: string
+        column2?: string
+    }
 }
 
-const Text = ({ heading, content }: IProps) => {
+const Text = ({ heading, content }: IText) => {
 
     let { column1, column2 } = content;
     

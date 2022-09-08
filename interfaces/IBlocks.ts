@@ -1,6 +1,6 @@
 interface IBlocks {
     blockType: Element,
-    content: any,
+    content: [{}],
     pageBlocks: []
 }
 

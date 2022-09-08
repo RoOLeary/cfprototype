@@ -5,13 +5,11 @@ export interface IFaqs {
     faqs: IQandA[]
   }
 }
-
 export interface IFaq {
   faq: IQandA 
   onClick?: Function
 }
-
-export interface IQandA {
+interface IQandA {
   question: string
   answer: string
 }

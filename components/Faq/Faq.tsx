@@ -20,7 +20,6 @@ const Faq = ({ content }: IFaqs ) => {
             answerInner.parentElement.style.setProperty('--height', answerInner.offsetHeight + 'px')
         })
     },[]);
-console.log('faqs', faqs)
     return(
         <section className="b-faq c-section js-faq">
             <div className="o-wrapper">

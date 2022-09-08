@@ -1,12 +1,9 @@
 export interface IHeader {
-    headline?: string | 'Header Component'
+    headline?: string
 }
 
-
 const Header = ( props: IHeader ): JSX.Element => {
-   
     const { headline } = props;
-   
     return(
         <header className="b-header js-equinoxNode t-dark">
             <div className="b-header__backdrop">
@@ -21,7 +18,7 @@ const Header = ( props: IHeader ): JSX.Element => {
                 <div className="b-header__shape b-header__shape--3" id="lines">
                 </div>
                 <div className="b-header__content">
-                    <h2 className="b-header__title">{headline}</h2>
+                    <h2 className="b-header__title">{headline ? headline : 'Header Component'}</h2>
                 </div>
             </div>
         </header>

@@ -1,13 +1,6 @@
 import useModal from '../hooks/useModal';
 import SpeakerModal from './SpeakerModal';
-  
-
-interface ISpeaker {
-    speaker: any
-    speakerName?: string
-    speakerBio?: string
-    speakerCompany?: string
-}
+import { ISpeaker } from '../interfaces/ISpeaker'
 
   
 const Speaker = ({ speaker }: ISpeaker ) => {
