@@ -23,7 +23,7 @@ const Section = styled.section`
 const SingleContainer = styled.div`
   max-width: 1024px;
   padding: 2em 0;
-  @media screen and (max-width: 768px){
+  @media screen and (max-width: 1024px){
    padding: 2em;
   }
 `;
@@ -32,8 +32,9 @@ const SingleArticleGrid = styled.div`
   display: grid; 
   grid-template-columns: 1fr 3fr; 
   padding: 2em 0; 
-  @media screen and (max-width: 768px){
+  @media screen and (max-width: 1024px){
     grid-template-columns: 1fr; 
+    padding: 2em 0;
     
   }
   
