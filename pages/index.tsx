@@ -61,7 +61,7 @@ export default function Home() {
               ))}
               </div>
               <Sidebar>
-                <Image loader={imageLoader} src="https://source.unsplash.com/350x1600/?ai,tech" width="350" height="1600" />
+                <Image loader={imageLoader} src="https://source.unsplash.com/350x1600/?ai,tech" width="350" height="1600" layout="fixed"/>
               </Sidebar>
             </Grid>
             </div> }
@@ -80,7 +80,7 @@ export default function Home() {
           </button>
         </div>
       </section>
-      <Signup signupHeading={'Sign Up'} signupText={'Sign the fuck up!'} />
+      <Signup signupHeading={'Sign Up'} signupText={'We said.....SIGN. UP!'} />
     </Layout>
   )
 }
