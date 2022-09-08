@@ -117,14 +117,15 @@ export default function Post( post: IProps ) {
                         <br />
                     </div>
                 </div>
-              
-                {router.isFallback ? <div><h1>Loading...</h1></div> :  
-                  <div>
-                    <div className={'articleContent'} dangerouslySetInnerHTML={{__html: filterBody(cnt) }} />
-                    <br />
-                    <Link href={'/'}><button className={'c-button'}>Back to Post Index</button></Link>
-                  </div>
+                <div>
+                {cnt &&   
+                    <>
+                      <div className={'articleContent'} dangerouslySetInnerHTML={{__html: filterBody(cnt) }} />
+                      <br />
+                      <Link href={'/'}><button className={'c-button'}>Back to Post Index</button></Link>
+                    </>
                 }
+                </div>
             </SingleArticleGrid>
            
             
