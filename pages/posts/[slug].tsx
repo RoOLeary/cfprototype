@@ -22,7 +22,7 @@ const Section = styled.section`
 
 const SingleContainer = styled.div`
   max-width: 1024px;
-  padding: 2em 4em;
+  padding: 2em 0;
   @media screen and (max-width: 768px){
    padding: 2em;
   }
@@ -104,29 +104,30 @@ export default function Post( post: IProps ) {
             <h1 className={'b-text__heading articleSingle'} dangerouslySetInnerHTML={{__html: post['title']}} />
             <br />
             <SingleArticleGrid>
-              <div>
-                <Link href={{ pathname: `/authors/${post['authors'][0].slug}`, query: { name: post['authors'][0].name }}}><a>{post['authors'][0].name}</a></Link>
-                <br />
                 <div>
-                {post['properties'].published}<br />
-                {post['tags'] ? post['tags'].map((t, idx) => {
-                    return <li className={styles.tags} key={idx}>
-                        <Link href={{ pathname: `/topic/${t.slug}`, query: { data: JSON.stringify(t.slug) } }}><a>{t.name}</a></Link>
-                      </li>; 
-                    }).slice(0,1) : '' }
-                  <br />
+                    <Link href={{ pathname: `/authors/${post['authors'][0].slug}`, query: { name: post['authors'][0].name }}}><a>{post['authors'][0].name}</a></Link>
+                    <br />
+                    <div>
+                        {post['properties'].published}<br />
+                        {post['tags'] ? post['tags'].map((t, idx) => {
+                          return <li className={styles.tags} key={idx}>
+                              <Link href={{ pathname: `/topic/${t.slug}`, query: { data: JSON.stringify(t.slug) } }}><a>{t.name}</a></Link>
+                            </li>; 
+                          }).slice(0,1) : '' }
+                        <br />
+                    </div>
+                </div>
+              
+                {router.isFallback ? <div><h1>Loading...</h1></div> :  
+                  <div>
+                    <div className={'articleContent'} dangerouslySetInnerHTML={{__html: filterBody(cnt) }} />
+                    <br />
+                    <Link href={'/'}><button className={'c-button'}>Back to Post Index</button></Link>
                   </div>
-              </div>
-
+                }
             </SingleArticleGrid>
            
-            {router.isFallback ? <div><h1>Loading...</h1></div> :  
-              <div>
-                <div className={'articleContent'} dangerouslySetInnerHTML={{__html: filterBody(cnt) }} />
-                <br />
-                <Link href={'/'}><button className={'c-button'}>Back to Post Index</button></Link>
-              </div>
-            }
+            
           </SingleContainer>
         </div>
       </Section>
