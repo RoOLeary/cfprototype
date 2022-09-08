@@ -28,6 +28,11 @@ const SingleContainer = styled.div`
   }
 `;
 
+const SingleArticleGrid = styled.div`
+  display: grid; 
+  grid-template-columns: 1fr 3fr; 
+`;
+
 export const getStaticPaths: GetStaticPaths = async () => {
   const response = await fetch(
     'https://api2.tnw-staging.com/v2/articles?limit=500',
@@ -98,19 +103,23 @@ export default function Post( post: IProps ) {
             <br /><br />
             <h1 className={'b-text__heading articleSingle'} dangerouslySetInnerHTML={{__html: post['title']}} />
             <br />
-            <div>
-              <Link href={{ pathname: `/authors/${post['authors'][0].slug}`, query: { name: post['authors'][0].name }}}><a>{post['authors'][0].name}</a></Link>
-              <br />
+            <SingleArticleGrid>
               <div>
-              {post['properties'].published}<br />
-              {post['tags'] ? post['tags'].map((t, idx) => {
-                  return <li className={styles.tags} key={idx}>
-                      <Link href={{ pathname: `/topic/${t.slug}`, query: { data: JSON.stringify(t.slug) } }}><a>{t.name}</a></Link>
-                    </li>; 
-                }).slice(0,1) : '' }
-              <br />
+                <Link href={{ pathname: `/authors/${post['authors'][0].slug}`, query: { name: post['authors'][0].name }}}><a>{post['authors'][0].name}</a></Link>
+                <br />
+                <div>
+                {post['properties'].published}<br />
+                {post['tags'] ? post['tags'].map((t, idx) => {
+                    return <li className={styles.tags} key={idx}>
+                        <Link href={{ pathname: `/topic/${t.slug}`, query: { data: JSON.stringify(t.slug) } }}><a>{t.name}</a></Link>
+                      </li>; 
+                    }).slice(0,1) : '' }
+                  <br />
+                  </div>
               </div>
-            </div>
+
+            </SingleArticleGrid>
+           
             {router.isFallback ? <div><h1>Loading...</h1></div> :  
               <div>
                 <div className={'articleContent'} dangerouslySetInnerHTML={{__html: filterBody(cnt) }} />
