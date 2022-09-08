@@ -47,7 +47,7 @@ export default function Post( props ) {
         <Image src={imgSrc} loader={imageLoader} width={"300"} height={"200"} unoptimized />
       </div>
       <div className={styles.innerFlex}>
-          <a href={`/posts/${slug}`} className={styles.artMarg}><h2 dangerouslySetInnerHTML={{__html: title ? title.replace(/<[^>]+>/g, '') : 'Article Title'}} /></a>
+          <a href={`/posts/${slug}`} className={styles.artMarg}><h3 dangerouslySetInnerHTML={{__html: title ? title.replace(/<[^>]+>/g, '') : 'Article Title'}} /></a>
           <div>
             <div className={styles.artMarg}><Link href={{ pathname: `/authors/}`, query: { name: 'cate' }}}><a>{props[1].authors[0].name}</a></Link><br/>
               <div>Tags:
