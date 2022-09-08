@@ -41,7 +41,6 @@ const Slider = ({ content }: ISlider ) => {
 
             wrapper = divElement;
             
-            // console.log(wrapper);
             currentSlide = document.querySelector('.flex--active');
             current = document.querySelector('.flex--active') ? document.querySelector('.flex--active').getAttribute('data-slide') : initialState.defaultActive;  
             clickToSlide = e.currentTarget.getAttribute('data-slide');
