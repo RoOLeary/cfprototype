@@ -18,7 +18,6 @@ function renderContent(content: IBlocks[]){
    
     const pageBlocksList = Object.entries(content).map((block: any, id: number) => {
     const blockContent = block[1];
-
         
         switch(blockContent['blockType']) {
            
@@ -69,7 +68,8 @@ function renderContent(content: IBlocks[]){
                 )
             case 'signup':
                 return (
-                    <Signup key={block[1]['uid']} 
+                    <Signup 
+                        key={block[1]['uid']} 
                         signupHeading={blockContent['signupHeading']} 
                         signupText={blockContent['signupText']} 
                         hubspotEmbed={blockContent['hubspotEmbed']}

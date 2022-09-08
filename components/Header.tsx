@@ -1,6 +1,5 @@
 export interface IHeader {
-    key?: any,
-    headline?: string 
+    headline?: string | 'Header Component'
 }
 
 
@@ -22,7 +21,7 @@ const Header = ( props: IHeader ): JSX.Element => {
                 <div className="b-header__shape b-header__shape--3" id="lines">
                 </div>
                 <div className="b-header__content">
-                    <h2 className="b-header__title">{headline ? headline : 'Header Component'}</h2>
+                    <h2 className="b-header__title">{headline}</h2>
                 </div>
             </div>
         </header>
