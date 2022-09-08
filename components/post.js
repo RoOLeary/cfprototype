@@ -47,7 +47,7 @@ export default function Post( props ) {
   return (
     <Article className="post">
       <div className={styles.articleFlex}>
-        <Image src={imgSrc} loader={imageLoader} width={"300"} height={"200"} unoptimized />
+        <Image src={imgSrc} loader={imageLoader} width={"300"} height={"200"} layout="responsive" />
       </div>
       <div className={styles.innerFlex}>
           <a href={`/posts/${slug}`} className={styles.artMarg}><h3 dangerouslySetInnerHTML={{__html: title ? title.replace(/<[^>]+>/g, '') : 'Article Title'}} /></a>
