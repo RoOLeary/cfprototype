@@ -10,7 +10,7 @@ const nextConfig = {
   images: {
     loader: 'custom',
     path: '/',
-    domains: ['placedog.net', 'cdn0.tnwcdn.com', 'cfprototype.pages.dev', 'cfprototype.vercel.app'],
+    domains: ['placedog.net', 'cdn0.tnwcdn.com', 'cfprototype.pages.dev', 'cfprototype.vercel.app', 'cities.tnwcdn.com'],
   }
 }
 
