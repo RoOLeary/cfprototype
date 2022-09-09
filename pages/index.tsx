@@ -27,7 +27,9 @@ const Sidebar = styled.aside`
   top: 4rem;
 `;
 
-
+const LatestHeader = styled.h1`
+  margin-top: 1em; 
+`
 
 export default function Home() {
 
@@ -52,7 +54,7 @@ export default function Home() {
         <div className="o-wrapper">
           {!data ? <h1 className={'b-text__heading'}>Loading...</h1> :
             <div>
-            <h1 className={'b-text__heading'}>{title}</h1>
+            <LatestHeader className={'b-text__heading'}>{title}</LatestHeader>
 
             <Grid className={'b-articleGrid'}>
               <div>
