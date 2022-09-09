@@ -44,7 +44,7 @@ const Blocks = ({ image1, heading1, text1, ctas1, image2, heading2, text2, ctas2
                                 </div>
                                 {ctas1 ?
                                 <div className="b-blocks__ctas">
-                                    <a className="c-button c-button--inverted" href={ctas1[0].link}  target="_blank" >{ctas1[0].label}</a>
+                                    <a className="c-button c-button--inverted" href={ctas1[0].link}  target="_blank" rel="noreferrer">{ctas1[0].label}</a>
                                 </div> : ''}
                             </div>
                         </div>
@@ -67,7 +67,7 @@ const Blocks = ({ image1, heading1, text1, ctas1, image2, heading2, text2, ctas2
                                 </div>
                                 {ctas2 ?
                                 <div className="b-blocks__ctas">
-                                    <a className="c-button c-button--inverted" href={ctas2[0].link}  target="_blank" >{ctas2[0].label}</a>
+                                    <a className="c-button c-button--inverted" href={ctas2[0].link}  target="_blank" rel="noreferrer">{ctas2[0].label}</a>
                                 </div> : ''}
                             </div>
                         </div>

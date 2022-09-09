@@ -20,7 +20,7 @@
     "prestart": "npm run export",
     "start": "serve out",
     "test": "jest",
-    "lint": "next run lint"
+    "lint": "next lint"
   },
   "devDependencies": {
     "@testing-library/dom": "^8.16.0",
@@ -31,6 +31,8 @@
     "@types/node": "^18.0.3",
     "@types/react": "^18.0.15",
     "babel-jest": "^28.1.3",
+    "eslint": "8.23.0",
+    "eslint-config-next": "12.3.0",
     "identity-obj-proxy": "^3.0.0",
     "jest": "^28.1.3",
     "jest-environment-jsdom": "^28.1.3",

@@ -64,13 +64,11 @@ const Nav = (): JSX.Element => {
     const update = (height) => {
         const num = window.scrollY / height
         const multiplier = Math.min(Math.max(num, 0), 1)
-        // eslint-disable-next-line @typescript-eslint/no-explicit-any
         unitRef.current.style.setProperty('--multiplier', 1)
     }
 
     useEffect(() => {
         let height = unitRef.current.offsetHeight;
-        // eslint-disable-next-line @typescript-eslint/no-explicit-any
         unitRef.current.style.setProperty('--multiplier', 1)
         window.addEventListener('scroll', () => update(height)); 
     }, []);

@@ -32,17 +32,17 @@ export default function Conference() {
         <div className="o-wrapper">
           <h1>Conference</h1>
           <br/>
-          <p>Now, this is a story all about how, My life got flipped-turned upside down, And I'd like to take a minute
-          Just sit right there, I'll tell you how I became the prince of a town called Bel-Air.</p>
+          <p>Now, this is a story all about how, My life got flipped-turned upside down, And I&#39;d like to take a minute
+          Just sit right there, I&#39;ll tell you how I became the prince of a town called Bel-Air.</p>
           <br />
           <p>In West Philadelphia born and raised
               On the playground was where I spent most of my days
-              Chillin' out, maxin', relaxin', all cool
-              And all shootin' some b-ball outside of the school
+              Chillin&#39; out, maxin&#39;, relaxin&#39;, all cool
+              And all shootin&#39; some b-ball outside of the school
               When a couple of guys who were up to no good
               Started making trouble in my neighborhood
               I got in one little fight and my mom got scared
-              She said, "You're movin' with your auntie and uncle in Bel-Air"
+              She said, &#39;You&#39;re movin&#39; with your auntie and uncle in Bel-Air&#39;
           </p>
           <br />
           <Link href={`conference/about`}><a>About</a></Link>
@@ -63,7 +63,7 @@ export default function Conference() {
       
       />
       <Tickets />
-      <Video heading={'IM\'M PICKLE RICK'} videoEmbedCode={video.videoEmbedCode} />
+      <Video heading={'IM&#39;M PICKLE RICK'} videoEmbedCode={video.videoEmbedCode} />
     </Layout>
   )
 }
