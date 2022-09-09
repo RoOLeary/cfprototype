@@ -9,7 +9,6 @@ export default function About({ entry }) {
   const HeroText = {
     headline: 'About',
   }
-
   return (
     <Layout>
       <Head><title>Next JS Prototype - {HeroText.headline}</title></Head>
