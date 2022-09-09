@@ -8,6 +8,7 @@ import Faq from './Faq/Faq';
 import Video from './Video';
 import Signup from './Signup';
 import Speakers from './Speakers';
+import Blocks from './Blocks';
 import IBlocks from './../interfaces/IBlocks'
 
 interface IProps {
@@ -17,9 +18,8 @@ interface IProps {
 function renderContent(content: IBlocks[]){
     const pageBlocksList = Object.entries(content).map((block: any, id: number) => {
     const blockContent = block[1];
-        
+
         switch(blockContent['blockType']) {
-           
             case 'header':
                 return <Header key={block[1]['uid']} headline={blockContent['header']}  />
             case 'hero':
@@ -74,6 +74,10 @@ function renderContent(content: IBlocks[]){
                         hubspotEmbed={blockContent['hubspotEmbed']}
                     />
                 ); 
+            case 'blocks':
+                return (
+                    <Blocks key={block[1]['uid']}/>
+                ); 
             // case 'tickets':
             //     return <Tickets key={block[1]['uid']} content={blockContent} />
             default:
@@ -93,6 +97,7 @@ function renderContent(content: IBlocks[]){
 }
 
 const PageBlocks = ({ content }: IProps) => {
+    console.log('content', content)
     return(
         <>
             {renderContent(content)}
