@@ -1,5 +1,6 @@
+import { IImageBlocks } from '../interfaces/IImageBlocks'
 
-const Blocks = ({ content }: any) => {
+const Blocks = ({ content }: IImageBlocks) => {
   const { ctas1, ctas2, heading1, heading2, image1, image2, text1, text2 } = content;
 
   return(
@@ -22,15 +23,16 @@ const Blocks = ({ content }: any) => {
                 </div>
                 {ctas1 && ctas1?.length &&
                   <div className="b-blocks__ctas">
-                    {ctas1.map((cta) => {
+                    {ctas1.map((cta, i) => (
                       <a
                         className="c-button c-button--inverted"
                         href={cta.link}
+                        key={i}
                         target={cta.isBlank && '_blank'}
                       >
                         {cta.label}
                       </a>
-                    })}
+                    ))}
                   </div>
                 }
               </div>
@@ -50,19 +52,20 @@ const Blocks = ({ content }: any) => {
               <div className="b-blocks__content">
                 <h3 className="b-blocks__heading">{heading2}</h3>
                 <div className="b-blocks__text c-formatted">
-                    {text2}
+                  {text2}
                 </div>
                 {ctas2 && ctas2?.length &&
                   <div className="b-blocks__ctas">
-                    {ctas2.map((cta) => {
+                    {ctas2.map((cta, i) => (
                       <a
+                        key={i}
                         className="c-button c-button--inverted"
                         href={ cta.link}
                         target={cta.isBlank && '_blank'}
                         >
                           {cta.label}
                         </a>
-                    })}
+                    ))}
                   </div>
                 }
               </div>
