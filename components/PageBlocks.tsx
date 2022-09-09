@@ -76,7 +76,7 @@ function renderContent(content: IBlocks[]){
                 ); 
             case 'blocks':
                 return (
-                    <Blocks key={block[1]['uid']}/>
+                    <Blocks key={block[1]['uid']} content={blockContent}/>
                 ); 
             // case 'tickets':
             //     return <Tickets key={block[1]['uid']} content={blockContent} />
@@ -97,7 +97,6 @@ function renderContent(content: IBlocks[]){
 }
 
 const PageBlocks = ({ content }: IProps) => {
-    console.log('content', content)
     return(
         <>
             {renderContent(content)}
