@@ -4,6 +4,7 @@ import Hero from './../components/Hero'
 import Text from './../components/Text'
 import Tickets from './../components/Tickets'
 import Video from './../components/Video'
+import Blocks from './../components/Blocks'
 import Link from 'next/link'
 
 const ConfText = {
@@ -50,6 +51,17 @@ export default function Conference() {
         </div>
       </section>
       <Text content={TextText} />
+      <Blocks 
+        image1={'https://placedog.net/500/300'} 
+        heading1={'Conf Heading 1'} 
+        text1={'Conf Text 1'}
+        ctas1={''}
+        image2={'https://placedog.net/501/301'} 
+        heading2={'Heading 2'} 
+        text2={'text 2'}
+        ctas2={''}
+      
+      />
       <Tickets />
       <Video heading={'IM\'M PICKLE RICK'} videoEmbedCode={video.videoEmbedCode} />
     </Layout>

@@ -5,11 +5,11 @@ interface IBlocks{
     image1?: string,
     heading1?: string,
     text1?: string,
-    ctas1?: ctas,
+    ctas1?: any,
     image2?: string,
     heading2?: string,
     text2?: string,
-    ctas2?: ctas
+    ctas2?: any
 }
 
 interface ctas{
@@ -23,7 +23,6 @@ interface ctas{
 
 const Blocks = ({ image1, heading1, text1, ctas1, image2, heading2, text2, ctas2 }: IBlocks ): JSX.Element => {
    
-   console.log(ctas1[0].col1);
    
     return(
         <section className="b-blocks t-dark">
