@@ -1,3 +1,5 @@
+import Image from 'next/image';
+
 interface IBlocks{
     image1?: string,
     heading1?: string,
@@ -30,7 +32,7 @@ const Blocks = ({ image1, heading1, text1, ctas1, image2, heading2, text2, ctas2
                        
                             <div className="o-grid__col m:o-grid__col--span-6">
                                 <figure className="b-blocks__image">
-                                    {/* <img alt="{{ block.heading1 }}" loading="lazy" src="{{ image1.url }}"> */}
+                                    <Image alt={heading1} layout="responsive" src={image1} width={600} height={350}/>
                                 </figure>
                             </div>
                         
