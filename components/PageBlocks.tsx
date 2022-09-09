@@ -8,6 +8,7 @@ import Faq from './Faq/Faq';
 import Video from './Video';
 import Signup from './Signup';
 import Speakers from './Speakers';
+import Blocks from './Blocks';
 import IBlocks from './../interfaces/IBlocks'
 
 interface IProps {
@@ -72,6 +73,20 @@ function renderContent(content: IBlocks[]){
                         signupHeading={blockContent['signupHeading']} 
                         signupText={blockContent['signupText']} 
                         hubspotEmbed={blockContent['hubspotEmbed']}
+                    />
+                ); 
+            case 'blocks':
+                return (
+                    <Blocks 
+                        key={block[1]['uid']} 
+                        image1={blockContent['image1']} 
+                        heading1={blockContent['heading1']} 
+                        text1={blockContent['text1']}
+                        ctas1={blockContent['ctas1']}
+                        image2={blockContent['image2']} 
+                        heading2={blockContent['heading2']} 
+                        text2={blockContent['text2']}
+                        ctas2={blockContent['ctas2']}
                     />
                 ); 
             // case 'tickets':
