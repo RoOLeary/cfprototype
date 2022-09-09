@@ -1,4 +1,5 @@
 import Image from 'next/image';
+import imageLoader from './../imageLoader'
 
 interface IBlocks{
     image1?: string,
@@ -22,7 +23,7 @@ interface ctas{
 
 const Blocks = ({ image1, heading1, text1, ctas1, image2, heading2, text2, ctas2 }: IBlocks ): JSX.Element => {
    
-   console.log(heading1);
+   console.log(ctas1[0].col1);
    
     return(
         <section className="b-blocks t-dark">
@@ -32,23 +33,20 @@ const Blocks = ({ image1, heading1, text1, ctas1, image2, heading2, text2, ctas2
                        
                             <div className="o-grid__col m:o-grid__col--span-6">
                                 <figure className="b-blocks__image">
-                                    <Image alt={heading1} layout="responsive" src={image1} width={600} height={350}/>
+                                    <Image loader={imageLoader} alt={heading1} layout="responsive" src={image1} width={650} height={450}/> 
                                 </figure>
                             </div>
                         
-                        <div className="o-grid__col {{ image1 ? 'm:o-grid__col--span-6' : '' }}">
+                        <div className={`o-grid__col ${image1 ? 'm:o-grid__col--span-6' : '' }`}>
                             <div className="b-blocks__content">
                                 <h3 className="b-blocks__heading">{heading1}</h3>
                                 <div className="b-blocks__text c-formatted">
-                                    {/* {{ block.text1 }} */}
+                                    {text1}
                                 </div>
-                                {/* {% if block.ctas1|length %}
-                                    <div className="b-blocks__ctas">
-                                        {% for cta in block.ctas1 %}
-                                            <a className="c-button c-button--inverted" href="{{ cta.link }}" {{ cta.isBlank ? 'target="_blank"' : '' }}>{{ cta.label }}</a>
-                                        {% endfor %}
-                                    </div>
-                                {% endif %} */}
+                                {ctas1 ?
+                                <div className="b-blocks__ctas">
+                                    <a className="c-button c-button--inverted" href={ctas1[0].link}  target="_blank" >{ctas1[0].label}</a>
+                                </div> : ''}
                             </div>
                         </div>
                     </div>
@@ -58,23 +56,20 @@ const Blocks = ({ image1, heading1, text1, ctas1, image2, heading2, text2, ctas2
                         
                             <div className="o-grid__col m:o-grid__col--span-6">
                                 <figure className="b-blocks__image">
-                                    {/* <img alt="{{ block.heading2 }}" loading="lazy" src="{{ image2.url }}"> */}
+                                    <Image loader={imageLoader} alt={heading2} layout="responsive" src={image2} width={650} height={450}/>
                                 </figure>
                             </div>
                        
-                        <div className="o-grid__col {{ image2 ? 'm:o-grid__col--span-6' : '' }}">
+                        <div className={`o-grid__col ${image2 ? 'm:o-grid__col--span-6' : '' }`}>
                             <div className="b-blocks__content">
                                 <h3 className="b-blocks__heading">{ heading2 }</h3>
                                 <div className="b-blocks__text c-formatted">
                                     { text2 }
                                 </div>
-                                {/* {% if block.ctas2|length %}
-                                    <div className="b-blocks__ctas">
-                                        {% for cta in block.ctas2 %}
-                                            <a className="c-button c-button--inverted" href="{{ cta.link }}" {{ cta.isBlank ? 'target="_blank"' : '' }}>{{ cta.label }}</a>
-                                        {% endfor %}
-                                    </div>
-                                {% endif %} */}
+                                {ctas2 ?
+                                <div className="b-blocks__ctas">
+                                    <a className="c-button c-button--inverted" href={ctas2[0].link}  target="_blank" >{ctas2[0].label}</a>
+                                </div> : ''}
                             </div>
                         </div>
                     </div>
