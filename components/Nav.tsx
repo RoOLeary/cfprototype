@@ -1,4 +1,6 @@
 import Link from 'next/link'
+import Image from 'next/image'
+import imageLoader from './../imageLoader'
 import { useRouter } from 'next/router'
 import { useRef, useEffect } from 'react'
 import { AnimateSharedLayout, motion } from 'framer-motion'
@@ -78,7 +80,7 @@ const Nav = (): JSX.Element => {
             <div className={'c-nav__left'}>
                 <Link href={`/`}>
                     <a className={"c-nav__logoLink"}>
-                        LOGO
+                        <Image src={'https://cities.tnwcdn.com/assets/img/tnw.svg'} width={100} height={75} loader={imageLoader} />
                     </a>
                 </Link>
             </div>
