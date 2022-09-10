@@ -7,6 +7,8 @@ import Video from './../components/Video'
 import Blocks from './../components/Blocks'
 import Link from 'next/link'
 
+import { IImageBlocks } from '../interfaces/IImageBlocks'
+
 const ConfText = {
     eyebrow: 'TNW',
     heading: 'Conference Index',
@@ -24,18 +26,28 @@ const video = {
 }
 
 
-const confBlockContent = {
+const confBlockContent:any = {
+
 	blockType: 'blocks',
-	uid: 11111111,
+	uid: 123456789,
 	image1: 'https://placedog.net/500/300', 
 	heading1: 'Conf Heading 1', 
 	text1: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit',
-	ctas1: [],
+	ctas1: [{
+		link: '#',
+		label: 'Learn More',
+		isBlank: false
+	}],
 	image2: 'https://placedog.net/501/301', 
 	heading2: 'Conf Heading 2', 
 	text2: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit',
-	ctas2: []
+	ctas2: [{
+		link: '#',
+		label: 'Testing',
+		isBlank: false
+	}]
 }
+
 
 
 
