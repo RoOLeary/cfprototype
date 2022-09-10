@@ -23,6 +23,22 @@ const video = {
   videoEmbedCode: `<iframe width="560" height="315" src="https://www.youtube.com/embed/S1-wuoFsdT4" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>`
 }
 
+
+const confBlockContent = {
+	blockType: 'blocks',
+	uid: 11111111,
+	image1: 'https://placedog.net/500/300', 
+	heading1: 'Conf Heading 1', 
+	text1: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit',
+	ctas1: [],
+	image2: 'https://placedog.net/501/301', 
+	heading2: 'Conf Heading 2', 
+	text2: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit',
+	ctas2: []
+}
+
+
+
 export default function Conference() {
   return (
     <Layout>
@@ -51,15 +67,7 @@ export default function Conference() {
         </div>
       </section>
       <Text content={TextText} />
-      <Blocks 
-        image1={'https://placedog.net/500/300'} 
-        heading1={'Conf Heading 1'} 
-        text1={'Conf Text 1'}
-        ctas1={''}
-        image2={'https://placedog.net/501/301'} 
-        heading2={'Heading 2'} 
-        text2={'text 2'}
-        ctas2={''}
+      <Blocks content={confBlockContent}
       
       />
       <Tickets />
