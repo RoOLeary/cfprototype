@@ -2,7 +2,6 @@ import type { AppProps, NextWebVitalsMetric } from 'next/app';
 import { AnimatePresence } from 'framer-motion';
 import { useEffect } from 'react';
 import Nav from './../components/Nav';
-import DataContextProvider from './../contexts/dataContext';
 import '../styles/globals.css'
 
 declare const window: any
@@ -42,9 +41,7 @@ function Cfprototype({ Component, pageProps }: AppProps): JSX.Element {
           })}
         >
           <Nav key="nav"/>
-          <DataContextProvider key="data-context-provider">
-            <Component {...pageProps} />
-          </DataContextProvider>
+          <Component {...pageProps} />
         </AnimatePresence>
     );
   }
