@@ -79,7 +79,15 @@ function renderContent(content: IBlocks[]){
                 return (
                     <Blocks 
                         key={block[1]['uid']} 
-                        content={blockContent}
+                        uid={blockContent['uid']} 
+                        text1={blockContent['text1']}
+                        text2={blockContent['text2']}
+                        heading1={blockContent['heading1']}
+                        heading2={blockContent['heading2']}
+                        ctas1={blockContent['ctas1']}
+                        ctas2={blockContent['ctas2']}
+                        image1={blockContent['image1']}
+                        image2={blockContent['image2']}
                     />
                 ); 
             // case 'tickets':

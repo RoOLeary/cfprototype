@@ -1,8 +1,11 @@
 import { IImageBlocks } from '../interfaces/IImageBlocks'
 
-const Blocks = ({ content }: IImageBlocks) => {
-  const { ctas1, ctas2, heading1, heading2, image1, image2, text1, text2 } = content;
-
+/* reason for destructuring here for the moment is to ensure only relevant block variables are 
+   being passed. There's a further refactor in here, but is also for consistencies sake as the 
+   latter method was already being implemented. 
+*/
+const Blocks = ({ ctas1, ctas2, heading1, heading2, image1, image2, text1, text2 }: IImageBlocks) => {
+ 
   return(
     <section className="b-blocks t-dark">
       <div className="o-grid">

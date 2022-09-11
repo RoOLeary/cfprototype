@@ -79,9 +79,18 @@ export default function Conference() {
         </div>
       </section>
       <Text content={TextText} />
-      <Blocks content={confBlockContent}
-      
+      <Blocks 
+        uid={confBlockContent['uid']} 
+        text1={confBlockContent['text1']}
+        text2={confBlockContent['text2']}
+        heading1={confBlockContent['heading1']}
+        heading2={confBlockContent['heading2']}
+        ctas1={confBlockContent['ctas1']}
+        ctas2={confBlockContent['ctas2']}
+        image1={confBlockContent['image1']}
+        image2={confBlockContent['image2']}
       />
+    
       <Tickets />
       <Video heading={'IM&#39;M PICKLE RICK'} videoEmbedCode={video.videoEmbedCode} />
     </Layout>
