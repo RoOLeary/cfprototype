@@ -9,6 +9,7 @@ import Video from './Video';
 import Signup from './Signup';
 import Speakers from './Speakers';
 import Blocks from './Blocks';
+import Sessions from './Sessions'
 import IBlocks from './../interfaces/IBlocks'
 
 interface IProps {
@@ -18,7 +19,7 @@ interface IProps {
 function renderContent(content: IBlocks[]){
     const pageBlocksList = Object.entries(content).map((block: any, id: number) => {
     const blockContent = block[1];
-        
+        console.log('blockType', blockContent)
         switch(blockContent['blockType']) {
            
             case 'header':
@@ -89,6 +90,10 @@ function renderContent(content: IBlocks[]){
                         image1={blockContent['image1']}
                         image2={blockContent['image2']}
                     />
+                ); 
+            case 'sessions':
+                return (
+                    <Sessions key={block[1]['uid']}/>
                 ); 
             // case 'tickets':
             //     return <Tickets key={block[1]['uid']} content={blockContent} />
