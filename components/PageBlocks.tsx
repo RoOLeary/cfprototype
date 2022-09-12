@@ -19,7 +19,6 @@ interface IProps {
 function renderContent(content: IBlocks[]){
     const pageBlocksList = Object.entries(content).map((block: any, id: number) => {
     const blockContent = block[1];
-        console.log('blockType', blockContent)
         switch(blockContent['blockType']) {
            
             case 'header':
@@ -93,7 +92,7 @@ function renderContent(content: IBlocks[]){
                 ); 
             case 'sessions':
                 return (
-                    <Sessions key={block[1]['uid']}/>
+                    <Sessions key={block[1]['uid']} content={blockContent}/>
                 ); 
             // case 'tickets':
             //     return <Tickets key={block[1]['uid']} content={blockContent} />
