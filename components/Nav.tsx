@@ -56,10 +56,10 @@ const Nav = (): JSX.Element => {
         }, 500)
     }
 
-    const handleClick = (e) => {
-        e.preventDefault();
-        console.log(e); 
-    } 
+    // const handleClick = (e) => {
+    //     e.preventDefault();
+    //     console.log(e); 
+    // } 
 
 
     const update = (height) => {
@@ -109,10 +109,10 @@ const Nav = (): JSX.Element => {
                     {session ? <li className="c-nav__menuItem"><Link href={"/members"}><a className="c-nav__menuLink">Members</a></Link></li> : ''}
                     <li className="c-nav__menuItem">
                         {!session ? <>
-                        <a className="c-button c-button--primary" onClick={signIn}>Sign In</a></>
+                        <a className="c-button c-button--primary" onClick={() => signIn()}>Sign In</a></>
                         :
                         <>
-                        <a className="c-button c-button--primary" onClick={signOut}>Sign Out</a>
+                        <a className="c-button c-button--primary" onClick={() => signOut()}>Sign Out</a>
                         </>}
                     </li> 
                 </ul>
