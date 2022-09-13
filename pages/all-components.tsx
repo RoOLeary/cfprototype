@@ -20,7 +20,7 @@ export default function AllComps({ entry }) {
 export const getStaticProps = async ({params}) => {
   const slug = params?.slug || "all-components";
   const response = await fetch(
-    `https://cities.local.tnw.dev/api/pages/${slug}.json`
+    `https://cities.thenextweb.com/api/pages/${slug}.json`
   )
   const entry = await response.json();
   console.log('entry', entry.data[0])
