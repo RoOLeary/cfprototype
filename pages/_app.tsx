@@ -6,6 +6,7 @@ import '../styles/globals.css'
 import { SessionProvider } from "next-auth/react";
 
 declare const window: any
+
 // export function reportWebVitals({ id, name, label, value }: NextWebVitalsMetric): void {
 //     window.gtag('event', name, {
 //         event_category: label === 'web-vital' ? 'Web Vitals' : 'Next.js custom metric',
