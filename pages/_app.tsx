@@ -15,7 +15,12 @@ declare const window: any
 //     })
 // }
 
-function Cfprototype({ Component, pageProps }: AppProps): JSX.Element {
+// export interface CustomAppProps extends AppProps {
+//   Component: NextComponentType;
+//   pageProps: { auth?: boolean; session?: Session }
+// }
+
+function Cfprototype({ Component, pageProps:  { session, ...pageProps }}: AppProps): JSX.Element {
 
   useEffect(() => {
     // On page load or when changing themes, best to add inline in `head` to avoid FOUC
@@ -31,7 +36,7 @@ function Cfprototype({ Component, pageProps }: AppProps): JSX.Element {
   })
 
   return (
-    <SessionProvider session={pageProps.session}>  
+    <SessionProvider session={session}>  
         <AnimatePresence
           exitBeforeEnter
           initial={false}
