@@ -117,7 +117,7 @@ const Nav = (): JSX.Element => {
                     </li> 
                 </ul>
             </div>
-            {session ? <div>Signed in as {session.user.name}</div> : '' }
+            {session && <div>Signed in as {session.user.name}</div>}
         </nav>
     )
 }
