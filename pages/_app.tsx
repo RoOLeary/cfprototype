@@ -3,6 +3,7 @@ import { AnimatePresence } from 'framer-motion';
 import { useEffect } from 'react';
 import Nav from './../components/Nav';
 import '../styles/globals.css'
+import { SessionProvider } from "next-auth/react";
 
 declare const window: any
 // export function reportWebVitals({ id, name, label, value }: NextWebVitalsMetric): void {
@@ -30,7 +31,7 @@ function Cfprototype({ Component, pageProps }: AppProps): JSX.Element {
   })
 
   return (
-
+    <SessionProvider session={pageProps.session}>  
         <AnimatePresence
           exitBeforeEnter
           initial={false}
@@ -43,6 +44,7 @@ function Cfprototype({ Component, pageProps }: AppProps): JSX.Element {
           <Nav key="nav"/>
           <Component {...pageProps} />
         </AnimatePresence>
+      </SessionProvider>
     );
   }
 
