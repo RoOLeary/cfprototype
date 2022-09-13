@@ -2,6 +2,7 @@ import Link from 'next/link'
 import Image from 'next/image'
 import imageLoader from './../imageLoader'
 import { useRouter } from 'next/router'
+import { useSession, signIn, signOut } from "next-auth/react"
 import { useRef, useEffect } from 'react'
 import { AnimateSharedLayout, motion } from 'framer-motion'
 import styles from '../styles/Nav.module.css'
@@ -36,7 +37,7 @@ const links: { name: string; href: string }[] = [
 
 
 const Nav = (): JSX.Element => {
-    // const { data: session } = useSession();
+    const { data: session } = useSession();
     const router = useRouter()
     const menuRef = useRef(null);
     const unitRef = useRef(null);
@@ -105,7 +106,7 @@ const Nav = (): JSX.Element => {
                             </Link>
                         </li>
                     ))}
-                    {/* {session ? <li className="c-nav__menuItem"><Link href={"/members"}><a className="c-nav__menuLink">Members</a></Link></li> : ''}
+                    {session ? <li className="c-nav__menuItem"><Link href={"/members"}><a className="c-nav__menuLink">Members</a></Link></li> : ''}
                     <li className="c-nav__menuItem">
                         {!session ? <>
                         <a className="c-button c-button--primary" onClick={signIn}>Sign In</a></>
@@ -113,10 +114,10 @@ const Nav = (): JSX.Element => {
                         <>
                         <a className="c-button c-button--primary" onClick={signOut}>Sign Out</a>
                         </>}
-                    </li> */}
-                    {/* <li className="c-nav__menuItem"><a className="c-button c-button--primary">Login</a></li> */}
+                    </li> 
                 </ul>
             </div>
+            {session ? <div>Signed in as {session.user.name}</div> : '' }
         </nav>
     )
 }
