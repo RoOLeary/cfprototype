@@ -3,8 +3,9 @@
     "background_color": "#f69435",
     "display": "standalone",
     "start_url": "/",
+    "scope": "/",
     "name": "CFprototype",
-    "short_name": "pwa",
+    "short_name": "cfp",
     "icons": [
         {
             "src": "icons/maskable.png",
