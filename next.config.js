@@ -3,7 +3,7 @@ const withPWA  = require("next-pwa");
 const nextConfig = {
   reactStrictMode: false,
   trailingSlash: false,
-  distDir: '/out',
+  distDir: '/dist',
   i18n: {
     locales: ['en', 'fr', 'de', 'es'],
     defaultLocale: 'en',
@@ -13,14 +13,9 @@ const nextConfig = {
     path: '/',
     domains: ['placedog.net', 'cdn0.tnwcdn.com', 'cfprototype.vercel.app', 'cities.tnwcdn.com'],
   },
-  
-}
-
-module.exports = nextConfig
-
-module.exports = withPWA({
   pwa: {
     dest: "public",
+    swSrc: 'service-worker.js',
     register: true,
     skipWaiting: true,
     publicExcludes: [
@@ -28,8 +23,9 @@ module.exports = withPWA({
       '!sitemap.xml.gz',
     ],
   },
-});
+}
 
+module.exports = nextConfig
 
 module.exports = {
   exportPathMap: async function (

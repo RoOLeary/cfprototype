@@ -40,7 +40,7 @@ import Document, {
           <meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
           <meta name="theme-color" content="#000" />
           <link rel="manifest" href="/manifest.json" />
-          <script async src="/service-worker.js"></script>
+          <script src="/service-worker.js" async></script>
           <link rel="shortcut icon" href="/favicon.ico" />
           <link rel="apple-touch-icon" href="/apple-icon.png"></link>  
           <Head />
