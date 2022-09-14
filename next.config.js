@@ -1,4 +1,5 @@
 /** @type {import('next').NextConfig} */
+const withPWA  = require("next-pwa");
 const nextConfig = {
   reactStrictMode: false,
   trailingSlash: false,
@@ -6,15 +7,25 @@ const nextConfig = {
   i18n: {
     locales: ['en', 'fr', 'de', 'es'],
     defaultLocale: 'en',
- },
+  },
   images: {
     loader: 'custom',
     path: '/',
     domains: ['placedog.net', 'cdn0.tnwcdn.com', 'cfprototype.vercel.app', 'cities.tnwcdn.com'],
-  }
+  },
+  
 }
 
 module.exports = nextConfig
+
+module.exports = withPWA({
+  pwa: {
+    dest: "public",
+    register: true,
+    skipWaiting: true,
+  },
+});
+
 
 module.exports = {
   exportPathMap: async function (
@@ -45,3 +56,5 @@ module.exports = {
     ]
   },
 }
+
+

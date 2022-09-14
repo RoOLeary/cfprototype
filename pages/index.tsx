@@ -49,7 +49,9 @@ export default function Home() {
   
   return (
     <Layout>
-      <Head><title>Next JS Prototype {title && `- ${title}`}</title></Head>
+      <Head>
+        <title>Next JS Prototype {title && `- ${title}`}</title>
+      </Head>
       <section className="b-text  c-section" id="learn-more">
         <div className="o-wrapper">
           {!data ? <h1 className={'b-text__heading'}>Loading...</h1> :
