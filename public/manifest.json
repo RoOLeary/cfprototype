@@ -8,7 +8,7 @@
     "short_name": "pwa",
     "icons": [
         {
-            "src": "icons/maskable_icon.png",
+            "src": "icons/maskable.png",
             "sizes": "48x48",      
             "type": "image/x-icon",
             "purpose": "maskable"
