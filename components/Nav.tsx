@@ -11,7 +11,8 @@ import styled from 'styled-components';
 
 const UserInfo = styled.div`
     display: flex;
-    align-items: center;
+    flex-direction: column;
+    align-items: end;
 `;
 
 const links: { name: string; href: string }[] = [
@@ -48,11 +49,6 @@ const Nav = (): JSX.Element => {
     const menuRef = useRef(null);
     const unitRef = useRef(null);
     const mobTogglRef = useRef(null); 
-
-
-    console.log(session);
-
-
 
     const toggleMobileMenu = (e) => {
         mobTogglRef.current.classList.toggle('mobile-menu-active');
