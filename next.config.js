@@ -18,6 +18,16 @@ module.exports = withPWA({
     dest: 'public',
     swSrc: 'service-worker.js',
   },
+  exportPathMap: async function (
+        defaultPathMap,
+        { dev, dir, outDir, distDir, buildId }
+    ) {
+        return {
+        '/': { page: '/' },
+        '/about': { page: '/about' },
+        '/posts': { page: '/posts'}
+        }
+    },
 });
 
 // // module.exports = {
