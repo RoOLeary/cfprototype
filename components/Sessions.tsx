@@ -60,17 +60,13 @@ const Sessions = ({ content, sessions }) => {
             </div>
           <div className="o-grid__col l:o-grid__col--span-8">
             <div className="c-tabs js-tabs">
-              {sortedData.length && sortedData.map((d, i) => {
+              <div className="b-sessions__tabList" role="tablist" aria-label="Schedule">
+                {sortedData.length && sortedData.map((d, i) => {
                 const startDate = new Date(d.sessionTimeStart.date).toDateString()
-                console.log('LIBRARY', format(new Date(startDate), "'Today is a' MMMM"));
                 const now = new Date().toDateString();
                 if(startDate === now){
                   selected = i
                 }
-              })}
-              <div className="b-sessions__tabList" role="tablist" aria-label="Schedule">
-                {sortedData.length && sortedData.map((d, i) => {
-                const startDate = new Date(d.sessionTimeStart.date).toDateString()
                 return (
                   <button key={i} className="b-sessions__tab" id={`tab-${d.sessionTimeStart.date}`} role="tab">
                   <span className="b-sessions__tabDay">{d.sessionDayTitle}</span>
@@ -89,13 +85,15 @@ const Sessions = ({ content, sessions }) => {
                 )})}
               </div>
               {sortedData.length && sortedData.map((d, i) => {
+              const startDate = new Date(d.sessionTimeStart.date).toDateString()
+              const endDate = new Date(d.sessionTimeEnd.date).toDateString()
               const typeClassName = d.sessionType ? ('c-session--'+`${d.slug}`) : ''
               return (
                 <div key={i} className={`b-sessions__tabPanel ${selected === i ? '' : 'hidden' }`} id={`tabpanel-${new Date(d.sessionTimeStart.date).toDateString()}`} role="tabpanel">
                 <h3 className="b-sessions__heading">{d.sessionType}</h3>
                   <ol className="b-sessions__list">
                       <li className={`c-session ${typeClassName}`}>
-                          <div className="c-session__time">{new Date(d?.sessionTimeStart?.date).toTimeString()} &ndash; {new Date(d.sessionTimeEnd.date).toTimeString()}</div>
+                          <div className="c-session__time">{format(new Date(startDate), 'p')} &ndash; {format(new Date(endDate), 'p')}</div>
                           <div className="c-session__text">
                               {/* <div className="c-session__title">{d.title}</div> */}
                               <div className="c-session__speaker">{d.sessionSpeakers}</div>
