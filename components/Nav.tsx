@@ -43,6 +43,11 @@ const Nav = (): JSX.Element => {
     const unitRef = useRef(null);
     const mobTogglRef = useRef(null); 
 
+
+    console.log(session);
+
+
+
     const toggleMobileMenu = (e) => {
         mobTogglRef.current.classList.toggle('mobile-menu-active');
         menuRef.current.classList.toggle('show');
