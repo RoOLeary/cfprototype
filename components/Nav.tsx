@@ -7,6 +7,12 @@ import { useRef, useEffect } from 'react'
 import { AnimateSharedLayout, motion } from 'framer-motion'
 import styles from '../styles/Nav.module.css'
 import { isActiveLink } from '../lib/utils';
+import styled from 'styled-components';
+
+const UserInfo = styled.div`
+    display: flex;
+    align-items: center;
+`;
 
 const links: { name: string; href: string }[] = [
     {
@@ -122,12 +128,12 @@ const Nav = (): JSX.Element => {
                     </li> 
                 </ul>
             </div>
-            {session && <div>
-                    <p>
+            {session && 
+                <UserInfo>
                     <Image loader={imageLoader} src={session.user.image} width="44px" height="44px" />
-                    Signed in as {session.user.name}
-                    </p>
-                </div>}
+                    <p>Signed in as {session.user.name}</p>
+                </UserInfo>
+            }
         </nav>
     )
 }
