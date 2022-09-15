@@ -51,11 +51,17 @@ const Post = (props : IPost) => {
   
   const { title, slug, tags, media, authors } = props[1];
   const imgSrc = media ? media[0].media.attributes.url : 'https://placedog.net/500/300';
-  
   return (
     <Article className="post">
       <div className={styles.articleFlex}>
-        <Image src={imgSrc} loader={imageLoader} width={"300"} height={"200"} layout="responsive" />
+        <Image
+          alt={title}
+          src={imgSrc}
+          loader={imageLoader}
+          width={"300"}
+          height={"200"}
+          layout="responsive"
+        />
       </div>
       <div className={styles.innerFlex}>
           <a href={`/posts/${slug}`} className={styles.artMarg}><h3 dangerouslySetInnerHTML={{__html: title ? title.replace(/<[^>]+>/g, '') : 'Article Title'}} /></a>

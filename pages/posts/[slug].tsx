@@ -5,15 +5,14 @@ import Link from 'next/link';
 import { useRouter } from 'next/router';
 import Layout from '../../components/Layout'
 import FlexGrid from '../../components/FlexGrid'
-import styles from '../../styles/Home.module.css'
 import { IPost } from '../../interfaces/IPost'
 import { GetStaticPaths, GetStaticProps, GetServerSideProps } from 'next';
 import styled from "styled-components";
 import imageLoader from './../../imageLoader'
+import Tags from '../../components/Tags'
 
 const Section = styled.section`
   background: ${props => props.primary ? "white" : "teal"}
-  
 `;
 
 const SingleContainer = styled.div`
@@ -33,7 +32,6 @@ const SingleArticleGrid = styled.div`
     padding: 2em 0;
     
   }
-  
 `;
 
 // export const getServerSideProps: GetServerSideProps = async () => {
@@ -48,8 +46,10 @@ const SingleArticleGrid = styled.div`
 //       }
 //     }
 //   );
-
-
+const PostDate = styled.div`
+  display: flex;
+  justify-content: center;
+`
 //   const postList = await response.json()
 //   return {
 //     paths: Array.from(postList).map((post) => {
@@ -100,31 +100,37 @@ export default function Post( post: IPost ) {
       <Head><title>{post ? post['title'] : 'Generic Post Title'}</title></Head>
       
       <Section primary className={'b-section'}>
-        <div>
-        <Image alt={post['title']} className={'articleFtImg'} loader={imageLoader} src={post['media'][0].media.attributes.url && post['media'][0].media.attributes.url} layout="responsive" width={1200} height={400} />
+        <div style={{ marginTop: '80px !important' }}>
+        <Image
+          alt={post['title']}
+          className={'articleFtImg'}
+          loader={imageLoader}
+          src={post['media'][0].media.attributes.url && post['media'][0].media.attributes.url}
+          layout="responsive"
+          width={1200}
+          height={400}
+        />
           <SingleContainer className={'o-wrapper singleContainer'}>
             <br /><br />
-            <h1 className={'b-text__heading articleSingle'} dangerouslySetInnerHTML={{__html: post['title']}} />
+            <Tags tags={post['tags']}/>
+            <h1
+              className={'b-text__heading articleSingle'}
+              dangerouslySetInnerHTML={{__html: post['title']}}
+            />
             <br />
+            <PostDate>
+              {date.toDateString()}<br /><br />
+              <br />
+            </PostDate>
             <SingleArticleGrid>
+              <div>
+                <Link href={{ pathname: `/authors/${post['authors'][0].slug}`, query: { name: post['authors'][0].name }}}><a>{post['authors'][0].name}</a></Link>
+                <br />
                 <div>
-                    <Link href={{ pathname: `/authors/${post['authors'][0].slug}`, query: { name: post['authors'][0].name }}}><a>{post['authors'][0].name}</a></Link>
-                    <br />
-                    <div>
-                        {date.toUTCString()}<br /><br />
-                        <h4>Tagged in:</h4>
-                        <ul>
-                        {post['tags'] ? post['tags'].map((t, idx) => {
-                          return(
-                            <li className={styles.tags} key={idx}>
-                              <Link href={{ pathname: `/topic/${t.slug}`, query: { data: JSON.stringify(t.slug) } }}><a>{t.name}</a></Link>
-                            </li>
-                            ); 
-                          }).slice(0,1) : '' }
-                        </ul>
-                        <br />
-                    </div>
+                  {date.toUTCString()}<br /><br />
+                  <br />
                 </div>
+              </div>
                 <div>
                 {cnt &&   
                     <>
@@ -135,8 +141,6 @@ export default function Post( post: IPost ) {
                 }
                 </div>
             </SingleArticleGrid>
-           
-            
           </SingleContainer>
         </div>
       </Section>

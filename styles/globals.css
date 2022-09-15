@@ -4229,3 +4229,7 @@ h1.b-text__heading.articleSingle{
 .articleFtImg{
   object-fit: cover; 
 }
+
+.opacity-text {
+  color: #a7aab2!important;
+}
