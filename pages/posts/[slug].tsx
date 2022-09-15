@@ -6,7 +6,7 @@ import { useRouter } from 'next/router';
 import Layout from '../../components/Layout'
 import FlexGrid from '../../components/FlexGrid'
 import { IPost } from '../../interfaces/IPost'
-import { GetStaticPaths, GetStaticProps, GetServerSideProps } from 'next';
+import { GetServerSideProps } from 'next';
 import styled from "styled-components";
 import imageLoader from './../../imageLoader'
 import Tags from '../../components/Tags'
@@ -34,35 +34,11 @@ const SingleArticleGrid = styled.div`
   }
 `;
 
-// export const getServerSideProps: GetServerSideProps = async () => {
-//   const response = await fetch(
-//     'https://api2.tnw-staging.com/v2/articles?limit=500',
-//       {        
-//         mode: "no-cors",
-//         credentials: "include",
-//         headers: {
-//             "Access-Control-Allow-Origin" : "*", 
-//             "Access-Control-Allow-Credentials" : "true"
-//       }
-//     }
-//   );
+
 const PostDate = styled.div`
   display: flex;
   justify-content: center;
 `
-//   const postList = await response.json()
-//   return {
-//     paths: Array.from(postList).map((post) => {
-//       return {
-//         params: {
-//           slug: `${post['slug']}`,
-//         },
-//       }
-//     }),
-//     fallback: false
-//   }
-// }
-
 
 export const getServerSideProps: GetServerSideProps = async ({ params }) => {
   const response = await fetch(
@@ -86,8 +62,6 @@ export const getServerSideProps: GetServerSideProps = async ({ params }) => {
 
 export default function Post( post: IPost ) {
   const router = useRouter();
-
-  // console.log(post['content'][0].content);
 
   const filterBody = (el) => {
     return el;
