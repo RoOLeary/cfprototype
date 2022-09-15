@@ -1,4 +1,6 @@
+import Image from 'next/image'
 import { IImageBlocks } from '../interfaces/IImageBlocks'
+import imageLoader from '../imageLoader'
 
 /* reason for destructuring here for the moment is to ensure only relevant block variables are 
    being passed. There's a further refactor in here, but is also for consistencies sake as the 
@@ -14,7 +16,13 @@ const Blocks = ({ ctas1, ctas2, heading1, heading2, image1, image2, text1, text2
             {image1 &&
               <div className="o-grid__col m:o-grid__col--span-6">
                 <figure className="b-blocks__image">
-                  <img alt={heading1} loading="lazy" src={image1} />
+                  <Image 
+                    alt={heading1}
+                    loading="lazy"
+                    src={image1}
+                    layout="fill"
+                    loader={imageLoader}
+                  />
                 </figure>
               </div>
             }
