@@ -122,7 +122,12 @@ const Nav = (): JSX.Element => {
                     </li> 
                 </ul>
             </div>
-            {session && <div>Signed in as {session.user.name}</div>}
+            {session && <div>
+                    <p>
+                    <Image loader={imageLoader} src={session.user.image} width="44px" height="44px" />
+                    Signed in as {session.user.name}
+                    </p>
+                </div>}
         </nav>
     )
 }
