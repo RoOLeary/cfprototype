@@ -14,9 +14,10 @@ import IBlocks from './../interfaces/IBlocks'
 
 interface IProps {
     content: IBlocks[];
+    sessions: any;
 }
 
-function renderContent(content: IBlocks[]){
+function renderContent(content: IBlocks[], sessions: any){
     const pageBlocksList = Object.entries(content).map((block: any, id: number) => {
     const blockContent = block[1];
         switch(blockContent['blockType']) {
@@ -92,7 +93,7 @@ function renderContent(content: IBlocks[]){
                 ); 
             case 'sessions':
                 return (
-                    <Sessions key={block[1]['uid']} content={blockContent}/>
+                    <Sessions key={block[1]['uid']} content={blockContent} sessions={sessions}/>
                 ); 
             // case 'tickets':
             //     return <Tickets key={block[1]['uid']} content={blockContent} />
@@ -112,10 +113,10 @@ function renderContent(content: IBlocks[]){
     return pageBlocksList;
 }
 
-const PageBlocks = ({ content }: IProps) => {
+const PageBlocks = ({ content, sessions }: IProps) => {
     return(
         <>
-            {renderContent(content)}
+            {renderContent(content, sessions)}
         </>
     )
 } 
