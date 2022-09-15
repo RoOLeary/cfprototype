@@ -46,8 +46,10 @@ const SingleArticleGrid = styled.div`
 //       }
 //     }
 //   );
-
-
+const PostDate = styled.div`
+  display: flex;
+  justify-content: center;
+`
 //   const postList = await response.json()
 //   return {
 //     paths: Array.from(postList).map((post) => {
@@ -111,17 +113,24 @@ export default function Post( post: IPost ) {
           <SingleContainer className={'o-wrapper singleContainer'}>
             <br /><br />
             <Tags tags={post['tags']}/>
-            <h1 className={'b-text__heading articleSingle'} dangerouslySetInnerHTML={{__html: post['title']}} />
+            <h1
+              className={'b-text__heading articleSingle'}
+              dangerouslySetInnerHTML={{__html: post['title']}}
+            />
             <br />
+            <PostDate>
+              {date.toDateString()}<br /><br />
+              <br />
+            </PostDate>
             <SingleArticleGrid>
+              <div>
+                <Link href={{ pathname: `/authors/${post['authors'][0].slug}`, query: { name: post['authors'][0].name }}}><a>{post['authors'][0].name}</a></Link>
+                <br />
                 <div>
-                    <Link href={{ pathname: `/authors/${post['authors'][0].slug}`, query: { name: post['authors'][0].name }}}><a>{post['authors'][0].name}</a></Link>
-                    <br />
-                    <div>
-                        {date.toUTCString()}<br /><br />
-                        <br />
-                    </div>
+                  {date.toUTCString()}<br /><br />
+                  <br />
                 </div>
+              </div>
                 <div>
                 {cnt &&   
                     <>
@@ -132,8 +141,6 @@ export default function Post( post: IPost ) {
                 }
                 </div>
             </SingleArticleGrid>
-           
-            
           </SingleContainer>
         </div>
       </Section>

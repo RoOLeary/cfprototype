@@ -2,6 +2,13 @@ import styled from "styled-components";
 import Link from 'next/link';
 import styles from '../styles/Home.module.css'
 
+interface ITags {
+  tags: {
+    slug: string
+    name: string
+  }[]
+}
+
 const TagsContainer = styled.div`
   display: flex;
   justify-content: center;
@@ -17,11 +24,11 @@ const TagText = styled.a`
   text-decoration: none !important;
 `
 
-const Tags = ({ tags }) => { 
+const Tags = ({ tags }: ITags) => { 
   return(
     <TagsContainer>
       <ul>
-      {tags ? tags.map((t, idx) => {
+      {tags ? tags.map((t, idx: number) => {
         return(
           <li className={styles.tags} key={idx}>
             <Link

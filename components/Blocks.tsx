@@ -55,7 +55,13 @@ const Blocks = ({ ctas1, ctas2, heading1, heading2, image1, image2, text1, text2
             {image2 &&
               <div className="o-grid__col m:o-grid__col--span-6">
                 <figure className="b-blocks__image">
-                  <img alt={heading2} loading="lazy" src={image2} />
+                <Image 
+                    alt={heading2}
+                    loading="lazy"
+                    src={image2}
+                    layout="fill"
+                    loader={imageLoader}
+                  />
                 </figure>
               </div>
             }
