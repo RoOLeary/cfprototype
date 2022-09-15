@@ -14,7 +14,14 @@ const Sessions = ({ content, sessions }) => {
     uid
   } = content
   const { data } = sessions
-  console.log('sessions data', data)
+  const sortedData = data.sort(
+    (a, b) => {
+      const aDate = new Date(a.sessionDayDate.date);
+      const bDate = new Date (b.sessionDayDate.date);
+      return (Number(aDate) - Number(bDate))
+    },
+  );
+  console.log('data', sortedData)
   let selected = 0;
   return(
     <section className="b-sessions c-section">
@@ -39,7 +46,7 @@ const Sessions = ({ content, sessions }) => {
                 <div className="c-formatted c-section__text"> 
                   {text ? text : ''}
                   <ul className="b-sessions__legend">
-                    {data.length && data.map((d, i) => (
+                    {sortedData.length && sortedData.map((d, i) => (
                       <li key={i} className={`b-sessions__legendItem b-sessions__legendItem--${d.slug}`}>{d.title}</li>
                     ))}
                   </ul>
@@ -53,9 +60,8 @@ const Sessions = ({ content, sessions }) => {
             </div>
           <div className="o-grid__col l:o-grid__col--span-8">
             <div className="c-tabs js-tabs">
-              {data.length && data.map((d, i) => {
+              {sortedData.length && sortedData.map((d, i) => {
                 const startDate = new Date(d.sessionTimeStart.date).toDateString()
-                console.log('startdate', startDate);
                 console.log('LIBRARY', format(new Date(startDate), "'Today is a' MMMM"));
                 const now = new Date().toDateString();
                 if(startDate === now){
@@ -63,16 +69,26 @@ const Sessions = ({ content, sessions }) => {
                 }
               })}
               <div className="b-sessions__tabList" role="tablist" aria-label="Schedule">
-                {data.length && data.map((d, i) => (
+                {sortedData.length && sortedData.map((d, i) => {
+                const startDate = new Date(d.sessionTimeStart.date).toDateString()
+                return (
                   <button key={i} className="b-sessions__tab" id={`tab-${d.sessionTimeStart.date}`} role="tab">
                   <span className="b-sessions__tabDay">{d.sessionDayTitle}</span>
                   <span className="b-sessions__tabDate">
-                      <span className="m:u-show">{new Date(d.sessionTimeStart.date).toDateString()}</span>
+                    <span className="m:u-show">
+                      {format(new Date(startDate), 'eeee')},{' '}
+                    </span>
+                    <span className="m:u-show">
+                      {format(new Date(startDate), 'MMMM')} {' '}
+                    </span>
+                    <span className="m:u-show">
+                      {format(new Date(startDate), 'dd')}
+                    </span>
                   </span>
                   </button>
-                ))}
+                )})}
               </div>
-              {data.length && data.map((d, i) => {
+              {sortedData.length && sortedData.map((d, i) => {
               const typeClassName = d.sessionType ? ('c-session--'+`${d.slug}`) : ''
               return (
                 <div key={i} className={`b-sessions__tabPanel ${selected === i ? '' : 'hidden' }`} id={`tabpanel-${new Date(d.sessionTimeStart.date).toDateString()}`} role="tabpanel">
