@@ -7,7 +7,7 @@ import Layout from '../../components/Layout'
 import FlexGrid from '../../components/FlexGrid'
 import styles from '../../styles/Home.module.css'
 import { IPost } from '../../interfaces/IPost'
-import { GetStaticPaths, GetStaticProps } from 'next';
+import { GetStaticPaths, GetStaticProps, GetServerSideProps } from 'next';
 import styled from "styled-components";
 import imageLoader from './../../imageLoader'
 
@@ -36,35 +36,35 @@ const SingleArticleGrid = styled.div`
   
 `;
 
-export const getStaticPaths: GetStaticPaths = async () => {
-  const response = await fetch(
-    'https://api2.tnw-staging.com/v2/articles?limit=500',
-      {        
-        mode: "no-cors",
-        credentials: "include",
-        headers: {
-            "Access-Control-Allow-Origin" : "*", 
-            "Access-Control-Allow-Credentials" : "true"
-      }
-    }
-  );
+// export const getServerSideProps: GetServerSideProps = async () => {
+//   const response = await fetch(
+//     'https://api2.tnw-staging.com/v2/articles?limit=500',
+//       {        
+//         mode: "no-cors",
+//         credentials: "include",
+//         headers: {
+//             "Access-Control-Allow-Origin" : "*", 
+//             "Access-Control-Allow-Credentials" : "true"
+//       }
+//     }
+//   );
 
 
-  const postList = await response.json()
-  return {
-    paths: Array.from(postList).map((post) => {
-      return {
-        params: {
-          slug: `${post['slug']}`,
-        },
-      }
-    }),
-    fallback: false
-  }
-}
+//   const postList = await response.json()
+//   return {
+//     paths: Array.from(postList).map((post) => {
+//       return {
+//         params: {
+//           slug: `${post['slug']}`,
+//         },
+//       }
+//     }),
+//     fallback: false
+//   }
+// }
 
 
-export const getStaticProps: GetStaticProps = async ({ params }) => {
+export const getServerSideProps: GetServerSideProps = async ({ params }) => {
   const response = await fetch(
     `https://api2.tnw-staging.com/v2/articles/${params.slug}`,
         {        
