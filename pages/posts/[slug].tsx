@@ -107,6 +107,7 @@ export default function Post( post: IPost ) {
                 <div>
                   {date.toUTCString()}<br /><br />
                   <br />
+                  {session && <p>Add to Favourites</p> }
                 </div>
               </div>
                 <div>
@@ -118,7 +119,6 @@ export default function Post( post: IPost ) {
                     </>
                 }
 
-                {session && <p>Favourite this article</p> }
                 </div>
             </SingleArticleGrid>
           </SingleContainer>
