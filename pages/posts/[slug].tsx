@@ -72,13 +72,19 @@ export default function Post( post: IPost ) {
   const router = useRouter();
   const { data: session } = useSession();
   const [ faved, setIsFaved] = useState(false);
-  console.log(session);
+  // console.log(session);
 
   const faveIconSrc = faved ? 'icons8-star-48-faved.png' : 'icons8-star-48.png'
+
+
+  // TEMP!!!
 
   const toggleFave = () => {
     setIsFaved(!faved);
   }
+
+  // ALSO TEMP!!! Should be recreated as a helper to enable content injection as per in-article adverts
+  // functionality. 
 
   const filterBody = (el) => {
     return el;
@@ -120,6 +126,7 @@ export default function Post( post: IPost ) {
                 <div>
                   {date.toUTCString()}<br /><br />
                   <br />
+                  {/* Uncomment to test locally without signin */}
                   {/* <FaveBlock><a onClick={toggleFave} style={{ marginRight: '5px' }}>Add to Favourites</a> <Image loader={imageLoader} width="30px" height="30px" src={`/assets/img/${faveIconSrc}`} /></FaveBlock> */}
                   {session && <FaveBlock><a onClick={toggleFave} style={{ marginRight: '5px' }}>Add to Favourites</a> <Image loader={imageLoader} width="44px" height="44px" src={`/assets/img/${faveIconSrc}`} /></FaveBlock>}
                 </div>
