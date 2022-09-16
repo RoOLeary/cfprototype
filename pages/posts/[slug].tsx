@@ -120,7 +120,7 @@ export default function Post( post: IPost ) {
                 <div>
                   {date.toUTCString()}<br /><br />
                   <br />
-                  {/* <FaveBlock><a onClick={toggleFave} style={{ marginRight: '5px' }}>Add to Favourites</a> <Image loader={imageLoader} width="30px" height="30px" src={`/assets/img/${faveIconSrc}`} /></FaveBlock> */}
+                  <FaveBlock><a onClick={toggleFave} style={{ marginRight: '5px' }}>Add to Favourites</a> <Image loader={imageLoader} width="30px" height="30px" src={`/assets/img/${faveIconSrc}`} /></FaveBlock>
                   {session && <FaveBlock><a onClick={toggleFave} style={{ marginRight: '5px' }}>Add to Favourites</a> <Image loader={imageLoader} width="44px" height="44px" src={`/assets/img/${faveIconSrc}`} /></FaveBlock>}
                 </div>
               </div>
