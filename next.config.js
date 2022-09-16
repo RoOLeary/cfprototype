@@ -6,7 +6,7 @@ module.exports = withPWA({
   trailingSlash: false,
   distDir: '/build',
   i18n: {
-    locales: ['en', 'fr', 'de', 'es'],
+    locales: ['en', 'fr', 'de', 'es', 'nl'],
     defaultLocale: 'en',
   },
   images: {
