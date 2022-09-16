@@ -10,6 +10,7 @@ import { GetServerSideProps } from 'next';
 import styled from "styled-components";
 import imageLoader from './../../imageLoader'
 import Tags from '../../components/Tags'
+import { useSession, signIn, signOut } from "next-auth/react"
 
 const Section = styled.section`
   background: ${props => props.primary ? "white" : "teal"}
@@ -62,6 +63,9 @@ export const getServerSideProps: GetServerSideProps = async ({ params }) => {
 
 export default function Post( post: IPost ) {
   const router = useRouter();
+  const { data: session } = useSession();
+
+  console.log(session);
 
   const filterBody = (el) => {
     return el;
@@ -113,6 +117,8 @@ export default function Post( post: IPost ) {
                       <Link href={'/'}><button className={'c-button'}>Back to Post Index</button></Link>
                     </>
                 }
+
+                {session && <p>Favourite this article</p> }
                 </div>
             </SingleArticleGrid>
           </SingleContainer>
