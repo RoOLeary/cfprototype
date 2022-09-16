@@ -1,8 +1,9 @@
+/* eslint-disable react-hooks/exhaustive-deps */
 import Head from 'next/head';
 import Image from 'next/image';
 import Layout from '../components/Layout';
 import Signup from '../components/Signup';
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import Post from '../components/Post';
 import styled from 'styled-components';
 import imageLoader from './../imageLoader'
@@ -34,15 +35,24 @@ const LatestHeader = styled.h1`
 `
 
 export default function Home(props:any) {
-
+  const [postsData, setPostsData ] = useState(props);
   const [title, setPageTitle ] = useState('Latest Posts');
-  const { data, size, setSize, error } = useSWRInfinitePosts(props.data, fetcher, PAGE_SIZE);
-  const posts = data ? [].concat(...data) : [];
-  const isLoadingInitialData = !data && !error;
-  const isLoadingMore = isLoadingInitialData || (size > 0 && data && typeof data[size - 1] === "undefined");
-  const isEmpty = data?.[0]?.length === 0;
-  const isReachingEnd = isEmpty || (data && data[data.length - 1]?.length < PAGE_SIZE);
-  
+  const { data, setSize, error, size } = useSWRInfinitePosts(postsData.data, fetcher, PAGE_SIZE);
+
+  useEffect(() => {
+    setPostsData({ data, size, error })
+  }, [data.length])
+
+  const handleLoadMoreClick = () => {
+    setSize(size + 1)   
+    setPostsData({ data, size: size + 1, error })
+  }
+
+  const posts = postsData.data ? [].concat(...postsData.data) : [];
+  const isLoadingInitialData = !postsData.data && !postsData.error;
+  const isLoadingMore = isLoadingInitialData || (postsData?.size > 0 && postsData.data && typeof postsData.data[postsData?.size - 1] === "undefined");
+  const isEmpty = postsData.data?.[0]?.length === 0;
+  const isReachingEnd = isEmpty || (postsData.data && postsData.data[postsData.data.length - 1]?.length < PAGE_SIZE);
   return (
     <Layout>
       <Head>
@@ -50,7 +60,7 @@ export default function Home(props:any) {
       </Head>
       <section className="b-text  c-section" id="learn-more">
         <div className="o-wrapper">
-          {!data ? <h1 className={'b-text__heading'}>Loading...</h1> :
+          {!posts ? <h1 className={'b-text__heading'}>Loading...</h1> :
             <div>
             <LatestHeader className={'b-text__heading'}>{title}</LatestHeader>
 
@@ -71,12 +81,15 @@ export default function Home(props:any) {
           <button
             className={'c-button'}
             disabled={isLoadingMore || isReachingEnd}
-            onClick={() => setSize(size + 1)}>
-            {isLoadingMore
-                ? 'Loading...'
-                : isReachingEnd
-                    ? 'No More Posts'
-                    : 'Load More'}
+            onClick={handleLoadMoreClick}
+            >
+             {isLoadingMore
+              ? 'Loading...'
+              : isReachingEnd
+                  ? 'No More Posts'
+                  : 
+                  'Load More'
+                  } 
           </button>
         </div>
       </section>
