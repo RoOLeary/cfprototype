@@ -107,7 +107,7 @@ export default function Post( post: IPost ) {
                 <div>
                   {date.toUTCString()}<br /><br />
                   <br />
-                  {session && <p>Add to Favourites</p> }
+                  {session && <a onClick={() => alert('added to favourites')}>Add to Favourites</a> }
                 </div>
               </div>
                 <div>
