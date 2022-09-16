@@ -15,6 +15,10 @@ const UserInfo = styled.div`
     align-items: end;
 `;
 
+const UserImage = styled.img`
+    border-radius: 50%;
+`;
+
 const links: { name: string; href: string }[] = [
     {
         name: 'Home',
@@ -81,6 +85,9 @@ const Nav = (): JSX.Element => {
         window.addEventListener('scroll', () => update(height)); 
     }, []);
 
+
+   
+
     return(
         <nav className={'c-nav js-nav t-dark'} ref={unitRef}>
             <div className={'c-nav__left'}>
@@ -126,7 +133,7 @@ const Nav = (): JSX.Element => {
             </div>
             {session && 
                 <UserInfo>
-                    <Image loader={imageLoader} src={session.user.image} width="44px" height="44px" />
+                    <UserImage loader={imageLoader} src={session.user.image} width="44px" height="44px" className={''} />
                     <p>Signed in as {session.user.name}</p>
                 </UserInfo>
             }
