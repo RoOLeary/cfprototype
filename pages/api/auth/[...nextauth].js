@@ -28,7 +28,10 @@ const options = {
     
           session.user.uid = token.sub;
           return session;
-        }
+        },
+        async redirect({ url, baseUrl }) {
+            return '/members'; 
+        },
     },
 }
 
