@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react"
 import { useRouter } from "next/router"
-import Post from './post';
+import Post from './Post';
 
 const PostList = (props) => {
   // const [users, setUsers] = useState([])

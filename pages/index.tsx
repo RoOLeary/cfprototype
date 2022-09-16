@@ -3,12 +3,18 @@ import Image from 'next/image';
 import Layout from '../components/Layout';
 import Signup from '../components/Signup';
 import React, { useState } from "react";
-import Post from '../components/post';
+import Post from '../components/Post';
 import useSWRInfinite from "swr/infinite";
+import useSWR from "swr";
 import styled from 'styled-components';
 import imageLoader from './../imageLoader'
+import { GetServerSideProps } from 'next'
+import useSWRInfinitePosts from '../hooks/useSWRInfinite'
 
-const fetcher = url => fetch(url).then(res => res.json())
+const fetcher = async (url: string) => {
+  const res = await fetch(url);
+  return await res.json();
+}
 const PAGE_SIZE = 10;
 
 
@@ -31,16 +37,11 @@ const LatestHeader = styled.h1`
   margin-top: 1em; 
 `
 
-export default function Home() {
+export default function Home(props:any) {
 
   const [title, setPageTitle ] = useState('Latest Posts');
-  // some other crap in here I can do without for the moment. 
-  const { data, error, size, setSize } = useSWRInfinite(
-    (index) =>
-      `https://api2.tnw-staging.com/v2/articles?page=${index +
-        1}&limit=${PAGE_SIZE}`,
-    fetcher,
-  );
+  const { data, size, setSize, error } = useSWRInfinitePosts(props.data, fetcher);
+  console.log('DATA in index', data)
   const posts = data ? [].concat(...data) : [];
   const isLoadingInitialData = !data && !error;
   const isLoadingMore = isLoadingInitialData || (size > 0 && data && typeof data[size - 1] === "undefined");
@@ -87,4 +88,18 @@ export default function Home() {
       <Signup signupHeading={'Sign Up'} signupText={'We said.....SIGN. UP!'} />
     </Layout>
   )
+}
+
+export const getServerSideProps: any = async () => {
+  // if (typeof window !== 'undefined') {
+  //   return {}
+  // }
+
+  const props = await fetcher('https://api2.tnw-staging.com/v2/articles')
+  console.log('allPosts!!!', props)
+  return {
+    props: { 
+      data: props
+    }
+  }
 }
