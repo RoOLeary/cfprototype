@@ -4,11 +4,8 @@ import Layout from '../components/Layout';
 import Signup from '../components/Signup';
 import React, { useState } from "react";
 import Post from '../components/Post';
-import useSWRInfinite from "swr/infinite";
-import useSWR from "swr";
 import styled from 'styled-components';
 import imageLoader from './../imageLoader'
-import { GetServerSideProps } from 'next'
 import useSWRInfinitePosts from '../hooks/useSWRInfinite'
 
 const fetcher = async (url: string) => {
@@ -16,7 +13,6 @@ const fetcher = async (url: string) => {
   return await res.json();
 }
 const PAGE_SIZE = 10;
-
 
 const Grid = styled.div`
   margin-top: 2em;
@@ -40,8 +36,7 @@ const LatestHeader = styled.h1`
 export default function Home(props:any) {
 
   const [title, setPageTitle ] = useState('Latest Posts');
-  const { data, size, setSize, error } = useSWRInfinitePosts(props.data, fetcher);
-  console.log('DATA in index', data)
+  const { data, size, setSize, error } = useSWRInfinitePosts(props.data, fetcher, PAGE_SIZE);
   const posts = data ? [].concat(...data) : [];
   const isLoadingInitialData = !data && !error;
   const isLoadingMore = isLoadingInitialData || (size > 0 && data && typeof data[size - 1] === "undefined");
@@ -91,12 +86,7 @@ export default function Home(props:any) {
 }
 
 export const getServerSideProps: any = async () => {
-  // if (typeof window !== 'undefined') {
-  //   return {}
-  // }
-
-  const props = await fetcher('https://api2.tnw-staging.com/v2/articles')
-  console.log('allPosts!!!', props)
+  const props = await fetcher(`https://api2.tnw-staging.com/v2/articles?page=1&limit=${PAGE_SIZE}`)
   return {
     props: { 
       data: props
