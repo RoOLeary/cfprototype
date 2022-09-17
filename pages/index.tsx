@@ -34,7 +34,7 @@ const LatestHeader = styled.h1`
 `
 
 export default function Home(props:any) {
-  const [postsData, setPostsData ] = useState({ ...props, size: 1 });
+  const [postsData, setPostsData ] = useState({ ...props });
   const [title, setPageTitle ] = useState('Latest Posts');
   const { data, setSize, error, size } = useSWRInfinitePosts(postsData.data, fetcher, PAGE_SIZE);
 
@@ -51,7 +51,7 @@ export default function Home(props:any) {
 
   const posts = postsData.data ? [].concat(...postsData.data) : [];
   const isLoadingInitialData = !postsData.data && !postsData.error;
-  // const isLoadingMore = isLoadingInitialData || (postsData?.size > 0 && postsData.data && typeof postsData.data[postsData?.size - 1] === "undefined");
+  const isLoadingMore = isLoadingInitialData || (postsData?.size > 0 && postsData.data && typeof postsData.data[postsData?.size - 1] === "undefined");
   const isEmpty = postsData.data?.[0]?.length === 0;
   const isReachingEnd = isEmpty || (postsData.data && postsData.data[postsData.data.length - 1]?.length < PAGE_SIZE);
   return (
@@ -81,16 +81,16 @@ export default function Home(props:any) {
         <div className="o-wrapper">
           <button
             className={'c-button'}
-            // disabled={isLoadingMore || isReachingEnd}
+            disabled={isLoadingMore || isReachingEnd}
             onClick={HandleLoadMoreClick}
             >
-             {/* {isLoadingMore
+              {isLoadingMore
               ? 'Loading...'
               : isReachingEnd
                   ? 'No More Posts'
-                  :  */}
+                  : 
                   'Load More'
-                  {/* }  */}
+              }  
           </button>
         </div>
       </section>
