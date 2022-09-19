@@ -43,6 +43,9 @@ export default function Home(props:any) {
     await setSize(size + 1)
     const dataProps = await fetcher(`https://api2.tnw-staging.com/v2/articles?page=${size === 1 ? 2 : size}&limit=${PAGE_SIZE}`)
     arr.push(dataProps)
+    console.log('DATA', data)
+    console.log('ARR', arr)
+    
     // I have no idea why this random arr.push code
     // ended up making the trick, it does nothing, but without it the system
     // BREAKS, and it only works on the second button click 🤷‍♀️
