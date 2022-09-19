@@ -3,14 +3,13 @@ import Head from 'next/head';
 import Image from 'next/image';
 import Layout from '../components/Layout';
 import Signup from '../components/Signup';
-import Post from '../components/post';
+import Post from '../components/Post';
 import useSWRInfinite from "swr/infinite";
 import styled from 'styled-components';
 import imageLoader from './../imageLoader'
 
 const fetcher = url => fetch(url).then(res => res.json())
 const PAGE_SIZE = 10;
-
 
 const Grid = styled.div`
   margin-top: 2em;
