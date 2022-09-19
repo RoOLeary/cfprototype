@@ -22,7 +22,7 @@ export const getStaticProps = async ({params}) => {
   const response = await fetch(
     `https://cities.thenextweb.com/api/pages/${slug}.json`
   )
-  await delay(2000);
+  await delay(1000);
   const entry = await response.json();
   return {
     props: { 
