@@ -1,4 +1,4 @@
-import React, { useState, useRef, useEffect } from "react";
+import React, { useState, useEffect } from "react";
 
 import Head from 'next/head';
 import Image from 'next/image';
@@ -34,9 +34,11 @@ export default function Home(props:any) {
   }
   const [postsData, setPostsData ] = useState({ page: 1, data: [] });
   const [title, setPageTitle ] = useState('Latest Posts');
+
   useEffect(() => {
     setPostsData({ ...allData})
   }, [])
+
   const HandleLoadMoreClick = () => {
     const currentPage = postsData.page + 1
     const arr = {
@@ -99,10 +101,12 @@ export default function Home(props:any) {
   )
 }
 
-Home.getInitialProps = async () => {
-  const res = await fetch(`https://api2.tnw-staging.com/v2/articles?page=1&limit=100000`)
+export const getServerSideProps = async () => {
+  const res = await fetch(`https://api2.tnw-staging.com/v2/articles?page=1&limit=200`)
   const props = await res.json()
   return {
-    data: props
+    props: {
+      data: props
+    }
   }
 }
