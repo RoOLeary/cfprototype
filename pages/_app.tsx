@@ -48,7 +48,7 @@ function Cfprototype({ Component, pageProps:  { session, ...pageProps }}: AppPro
 
   useEffect(() => {
     Router.events.on("routeChangeStart", (url)=>{
-      setIsLoading(!isLoading);
+      setIsLoading(true);
       NProgress.start();
       console.log('route changing.')
     });
