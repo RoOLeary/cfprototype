@@ -18,11 +18,11 @@ export default function AllComps({ entry }) {
 
 export const getStaticProps = async ({params}) => {
   const slug = params?.slug || "all-components";
-  
+  const delay = (s) => new Promise(resolve => setTimeout(resolve, s))
   const response = await fetch(
     `https://cities.thenextweb.com/api/pages/${slug}.json`
   )
-  
+  await delay(2000);
   const entry = await response.json();
   return {
     props: { 
