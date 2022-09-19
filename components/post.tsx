@@ -64,7 +64,7 @@ const Post = (props : IPost) => {
         />
       </div>
       <div className={styles.innerFlex}>
-          <a href={`/posts/${slug}`} className={styles.artMarg}><h3 dangerouslySetInnerHTML={{__html: title ? title.replace(/<[^>]+>/g, '') : 'Article Title'}} /></a>
+          <Link href={`/posts/${slug}`} scroll={false}><a className={styles.artMarg}><h3 dangerouslySetInnerHTML={{__html: title ? title.replace(/<[^>]+>/g, '') : 'Article Title'}} /></a></Link>
           <div>
             <div className={styles.artMarg}><Link href={{ pathname: `/authors/${authors[0].slug}`, query: { name: `${authors[0].name}` }}}><a>{authors[0].name}</a></Link><br/>
               <div>Tags:

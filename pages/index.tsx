@@ -54,6 +54,7 @@ export default function Home(props:any) {
   // const isLoadingMore = isLoadingInitialData || (postsData?.size > 0 && postsData.data && typeof postsData.data[postsData?.size - 1] === "undefined");
   const isEmpty = postsData.data?.[0]?.length === 0;
   const isReachingEnd = isEmpty || (postsData.data && postsData.data.length === props.data.length);
+
   return (
     <Layout>
       <Head>

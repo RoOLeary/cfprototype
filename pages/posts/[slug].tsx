@@ -8,8 +8,9 @@ import FlexGrid from '../../components/FlexGrid'
 import { IPost } from '../../interfaces/IPost'
 import { GetServerSideProps } from 'next';
 import styled from "styled-components";
-import imageLoader from './../../imageLoader'
-import Tags from '../../components/Tags'
+import imageLoader from './../../imageLoader';
+import Tags from '../../components/Tags';
+import { useState } from 'react';
 import { useSession, signIn, signOut } from "next-auth/react"
 
 const Section = styled.section`
@@ -39,7 +40,13 @@ const SingleArticleGrid = styled.div`
 const PostDate = styled.div`
   display: flex;
   justify-content: center;
-`
+`;
+
+const FaveBlock = styled.div`
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+`;
 
 export const getServerSideProps: GetServerSideProps = async ({ params }) => {
   const response = await fetch(
@@ -64,8 +71,20 @@ export const getServerSideProps: GetServerSideProps = async ({ params }) => {
 export default function Post( post: IPost ) {
   const router = useRouter();
   const { data: session } = useSession();
+  const [ faved, setIsFaved] = useState(false);
+  // console.log(session);
 
-  console.log(session);
+  const faveIconSrc = faved ? 'icons8-star-48-faved.png' : 'icons8-star-48.png'
+
+
+  // TEMP!!!
+
+  const toggleFave = () => {
+    setIsFaved(!faved);
+  }
+
+  // ALSO TEMP!!! Should be recreated as a helper to enable content injection as per in-article adverts
+  // functionality. 
 
   const filterBody = (el) => {
     return el;
@@ -107,7 +126,9 @@ export default function Post( post: IPost ) {
                 <div>
                   {date.toUTCString()}<br /><br />
                   <br />
-                  {session && <a onClick={() => alert('added to favourites')}>Add to Favourites</a> }
+                  {/* Uncomment to test locally without signin */}
+                  {/* <FaveBlock><a onClick={toggleFave} style={{ marginRight: '5px' }}>Add to Favourites</a> <Image loader={imageLoader} width="30px" height="30px" src={`/assets/img/${faveIconSrc}`} /></FaveBlock> */}
+                  {session && <FaveBlock><a onClick={toggleFave} style={{ marginRight: '5px' }}>Add to Favourites</a> <Image loader={imageLoader} width="44px" height="44px" src={`/assets/img/${faveIconSrc}`} /></FaveBlock>}
                 </div>
               </div>
                 <div>

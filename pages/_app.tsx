@@ -1,9 +1,12 @@
 import type { AppProps, NextWebVitalsMetric } from 'next/app';
 import { AnimatePresence } from 'framer-motion';
-import { useEffect } from 'react';
+import Router from 'next/router'
+import { useState, useEffect } from 'react';
 import Nav from './../components/Nav';
+import Loader from './../components/Loader';
 import '../styles/globals.css'
 import { SessionProvider } from "next-auth/react";
+import NProgress from 'nprogress';
 
 declare const window: any
 
@@ -23,6 +26,13 @@ declare const window: any
 
 function Cfprototype({ Component, pageProps:  { session, ...pageProps }}: AppProps): JSX.Element {
 
+  const [isLoading, setIsLoading] = useState(false);
+  const router = Router;
+
+  const handleRouteChange = () => {
+    document.body.scrollIntoView();
+  }
+
   useEffect(() => {
     // On page load or when changing themes, best to add inline in `head` to avoid FOUC
     if (
@@ -35,6 +45,27 @@ function Cfprototype({ Component, pageProps:  { session, ...pageProps }}: AppPro
         document.documentElement.classList.remove('dark')
     }
   })
+
+  useEffect(() => {
+    Router.events.on("routeChangeStart", (url)=>{
+      setIsLoading(true);
+      NProgress.start();
+      console.log('route changing.')
+    });
+
+    Router.events.on("routeChangeComplete", (url)=>{
+      console.log('route changed')
+      setIsLoading(false);
+      NProgress.done(false);
+      router.events.on('routeChangeComplete', handleRouteChange)
+     
+    });
+
+    Router.events.on("routeChangeError", (url) =>{
+      console.log('something is bollocksed.')
+    });
+
+  }, [Router])
 
   useEffect(() => {
     if ("serviceWorker" in navigator) {
@@ -57,7 +88,7 @@ function Cfprototype({ Component, pageProps:  { session, ...pageProps }}: AppPro
 
   return (
     <SessionProvider session={session}>  
-        <AnimatePresence
+        {/* <AnimatePresence
           exitBeforeEnter
           initial={false}
           onExitComplete={() => window.scrollTo({
@@ -65,10 +96,11 @@ function Cfprototype({ Component, pageProps:  { session, ...pageProps }}: AppPro
             left: 0,
             behavior: 'smooth',
           })}
-        >
-          <Nav key="nav"/>
+        > */}
+          <Nav key="nav"/> 
+          {isLoading && <Loader /> } 
           <Component {...pageProps} />
-        </AnimatePresence>
+        {/* </AnimatePresence> */}
       </SessionProvider>
     );
   }
