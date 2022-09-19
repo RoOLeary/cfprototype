@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react"
 import { useRouter } from "next/router"
-import Post from './Post';
+import PostSingle from './PostSingle';
 
 const PostList = (props) => {
   // const [users, setUsers] = useState([])
@@ -55,7 +55,7 @@ const PostList = (props) => {
         {props.postData.length > 0 &&
           props.postData.map((post, i) => {
             return (
-              <Post {...post} key={i} />
+              <PostSingle {...post} key={i} />
             )
           })}
       </ul>

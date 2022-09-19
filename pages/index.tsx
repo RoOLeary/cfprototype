@@ -3,7 +3,7 @@ import Head from 'next/head';
 import Image from 'next/image';
 import Layout from '../components/Layout';
 import Signup from '../components/Signup';
-import Post from '../components/Post';
+import PostSingle from '../components/PostSingle';
 import useSWRInfinite from "swr/infinite";
 import styled from 'styled-components';
 import imageLoader from './../imageLoader'
@@ -60,7 +60,7 @@ export default function Home() {
             <Grid className={'b-articleGrid'}>
               <div>
               {Object.entries(posts).map((post, idx) => (
-                  <Post {...post} key={idx} />
+                  <PostSingle {...post} key={idx} />
               ))}
               </div>
               <Sidebar>

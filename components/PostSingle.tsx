@@ -21,21 +21,6 @@ const Article = styled.article`
   grid-template-columns: 1fr 3fr; 
 `;
 
-const RespImg = styled.img`
-  width: 100%;
-  @media screen and (max-width: 768px){
-    margin: 2em 0; 
-  }
-`;
-
-const InnerTitle = styled.h2`
-  font-size: 24px;
-`;
-
-const InnerText = styled.div`
-  text-decoration: none; 
-`;
-
 
 interface IPost {
   title?: string, 
@@ -47,7 +32,7 @@ interface IPost {
 
 
 
-const Post = (props : IPost) => {
+const PostSingle = (props : IPost) => {
   
   const { title, slug, tags, media, authors } = props[1];
   const imgSrc = media ? media[0].media.attributes.url : 'https://placedog.net/500/300';
@@ -81,4 +66,4 @@ const Post = (props : IPost) => {
   )
 }
 
-export default Post; 
+export default PostSingle; 
