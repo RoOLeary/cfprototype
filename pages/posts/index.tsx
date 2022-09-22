@@ -102,7 +102,7 @@ export default function Index(props:any) {
 }
 
 export const getServerSideProps = async () => {
-    const res = await fetch(`https://api2.tnw-staging.com/v2/articles?page=1&limit=200`)
+    const res = await fetch(`https://api2.tnw-staging.com/v2/articles?page=1&limit=10`)
     const props = await res.json()
     return {
       props: {
