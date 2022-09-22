@@ -33,12 +33,14 @@ export default function Index(props:any) {
   }
   const [postsData, setPostsData ] = useState({ page: 1, data: [] });
   const [title, setPageTitle ] = useState('Latest Posts');
+  const [isLoading, setIsLoading ] = useState(false);
 
   useEffect(() => {
-    setPostsData({ ...allData})
+    setPostsData({ ...allData })
   }, [])
 
   const HandleLoadMoreClick = () => {
+    setIsLoading(true);
     const currentPage = postsData.page + 1
     const arr = {
       data: postsData.data,
@@ -46,6 +48,7 @@ export default function Index(props:any) {
     }
     props.data.slice(postsData.data.length, postsData.data.length + 10).map((post:any) => arr.data.push(post))
     setPostsData({ ...arr})
+    setIsLoading(false);
   }
 
   const posts = postsData.data ? [].concat(...postsData.data) : [];
@@ -88,8 +91,8 @@ export default function Index(props:any) {
               // isLoadingMore
               // ? 'Loading...'
               // : 
-              isReachingEnd
-                  ? 'No More Posts'
+              isLoading
+                  ? 'Loading Posts...s'
                   : 
                   'Load More'
               }  
@@ -102,7 +105,7 @@ export default function Index(props:any) {
 }
 
 export const getServerSideProps = async () => {
-    const res = await fetch(`https://api2.tnw-staging.com/v2/articles?page=1&limit=10`)
+    const res = await fetch(`https://api2.tnw-staging.com/v2/articles?limit=200`)
     const props = await res.json()
     return {
       props: {
