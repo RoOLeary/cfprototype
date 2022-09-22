@@ -1,4 +1,4 @@
-import React, { useRef, useEffect, useState } from "react"
+import React from "react";
 import Head from 'next/head';
 import Image from 'next/image';
 import Layout from '../components/Layout';
@@ -7,7 +7,6 @@ import PostSingle from '../components/PostSingle';
 import useSWRInfinite from "swr/infinite";
 import styled from 'styled-components';
 import imageLoader from './../imageLoader'
-import { useElementWhenOnScreen } from './../hooks/useElementWhenOnScreen'
 
 const fetcher = url => fetch(url).then(res => res.json())
 const PAGE_SIZE = 10;
@@ -32,10 +31,6 @@ const LatestHeader = styled.h1`
 `
 
 export default function Home() {
-
-
-
-
   const title = 'Latest Posts';
   // some other crap in here I can do without for the moment. 
   const { data, error, size, setSize } = useSWRInfinite(
@@ -44,31 +39,12 @@ export default function Home() {
         1}&limit=${PAGE_SIZE}`,
     fetcher,
   );
-
-
   const posts = data ? [].concat(...data) : [];
   const isLoadingInitialData = !data && !error;
   const isLoadingMore = isLoadingInitialData || (size > 0 && data && typeof data[size - 1] === "undefined");
   const isEmpty = data?.[0]?.length === 0;
   const isReachingEnd = isEmpty || (data && data[data.length - 1]?.length < PAGE_SIZE);
   
-  const [containerRef, isVisible] = useElementWhenOnScreen({
-    root: null,
-    rootMargin: "0px",
-    threshold: 1.0
-  })
-
-  const showMe = () => {
-    console.log('observed!')
-   
-  }
-
-  // const hideMe = () => {
-  //   // console.log('not in view. Eat a dick.')
-   
-  // }
-
-
   return (
     <Layout>
       <Head>
@@ -93,10 +69,19 @@ export default function Home() {
             </div> }
         </div>
         <br />
+        <div className="o-wrapper">
+          <button
+            className={'c-button'}
+            disabled={isLoadingMore || isReachingEnd}
+            onClick={() => setSize(size + 1)}>
+            {isLoadingMore
+                ? 'Loading...'
+                : isReachingEnd
+                    ? 'No More Posts'
+                    : 'Load More'}
+          </button>
+        </div>
       </section>
-      
-      <div ref={containerRef}></div>
-      {isVisible ? showMe() : "Nada" }
       <Signup signupHeading={'Sign Up'} signupText={'We said.....SIGN. UP!'} />
     </Layout>
   )
