@@ -7,6 +7,7 @@ import PostSingle from '../components/PostSingle';
 import useSWRInfinite from "swr/infinite";
 import styled from 'styled-components';
 import imageLoader from './../imageLoader'
+import { useElementWhenOnScreen } from '../hooks/useElementWhenOnScreen';
 
 const fetcher = url => fetch(url).then(res => res.json())
 const PAGE_SIZE = 10;
@@ -31,6 +32,7 @@ const LatestHeader = styled.h1`
 `
 
 export default function Home() {
+  const ioTag = useElementWhenOnScreen(); 
   const title = 'Latest Posts';
   // some other crap in here I can do without for the moment. 
   const { data, error, size, setSize } = useSWRInfinite(
