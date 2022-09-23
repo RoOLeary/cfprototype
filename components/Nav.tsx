@@ -29,6 +29,10 @@ const links: { name: string; href: string }[] = [
         href: '/all-components',
     },
     {
+        name: 'Posts (SSR)',
+        href: '/posts',
+    },
+    {
         name: 'About',
         href: '/about',
     },
