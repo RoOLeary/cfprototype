@@ -36,18 +36,18 @@ const links: { name: string; href: string }[] = [
         name: 'About',
         href: '/about',
     },
-    {
-        name: 'Conference',
-        href: '/conference',
-    },
-    {
-        name: 'Programs',
-        href: '/programs',
-    },
-    {
-        name: 'Spaces',
-        href: '/spaces',
-    },
+    // {
+    //     name: 'Conference',
+    //     href: '/conference',
+    // },
+    // {
+    //     name: 'Programs',
+    //     href: '/programs',
+    // },
+    // {
+    //     name: 'Spaces',
+    //     href: '/spaces',
+    // },
 ]
 
 
@@ -97,7 +97,7 @@ const Nav = (): JSX.Element => {
             <div className={'c-nav__left'}>
                 <Link href={`/`}>
                     <a className={"c-nav__logoLink"}>
-                        <Image src={'https://cities.tnwcdn.com/assets/img/tnw.svg'} width={100} height={75} loader={imageLoader} />
+                        <Image alt={'Ro Ro Lo Go'} src={'/assets/img/logo.png'} width={50} height={50} loader={imageLoader} />
                     </a>
                 </Link>
             </div>

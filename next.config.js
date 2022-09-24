@@ -12,7 +12,7 @@ module.exports = withPWA({
   images: {
     loader: 'custom',
     path: '/',
-    domains: ['placedog.net', 'cdn0.tnwcdn.com', 'cfprototype.vercel.app', 'cities.tnwcdn.com'],
+    domains: ['placedog.net', 'cdn0.tnwcdn.com', 'cfprototype.vercel.app', 'cities.tnwcdn.com', 'localhost:3000'],
   },
   pwa: {
     dest: 'public',
