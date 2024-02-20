@@ -121,7 +121,7 @@ export default function Post( post: IPost ) {
             </PostDate>
             <SingleArticleGrid>
               <div>
-                <Link href={{ pathname: `/authors/${post['authors'][0].slug}`, query: { name: post['authors'][0].name }}}><a>{post['authors'][0].name}</a></Link>
+                <Link href={{ pathname: `/authors/${post['authors'][0].slug}`, query: { name: post['authors'][0].name }}}>{post['authors'][0].name}</Link>
                 <br />
                 <div>
                   {date.toUTCString()}<br /><br />
@@ -136,7 +136,7 @@ export default function Post( post: IPost ) {
                     <>
                       <div className={'articleContent'} dangerouslySetInnerHTML={{__html: filterBody(cnt) }} />
                       <br />
-                      <Link href={'/'}><button className={'c-button'}>Back to Post Index</button></Link>
+                      <Link href={'/'} legacyBehavior><button className={'c-button'}>Back to Post Index</button></Link>
                     </>
                 }
 
@@ -146,5 +146,5 @@ export default function Post( post: IPost ) {
         </div>
       </Section>
     </Layout>
-  )
+  );
 }

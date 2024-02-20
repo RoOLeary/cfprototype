@@ -1,3 +1,4 @@
+/* eslint-disable react/no-children-prop */
 import React from "react";
 import Head from 'next/head';
 import Image from 'next/image';
@@ -48,8 +49,8 @@ export default function Home() {
   const isReachingEnd = isEmpty || (data && data[data.length - 1]?.length < PAGE_SIZE);
   
   return (
-    <Layout>
-      <Head>
+    <Layout children={""}>
+      <Head children={""}>
         <title>Next JS Prototype {title && `- ${title}`}</title>
       </Head>
       <section className="b-text  c-section" id="learn-more">
@@ -60,7 +61,7 @@ export default function Home() {
 
             <Grid className={'b-articleGrid'}>
               <div>
-              {Object.entries(posts).map((post, idx) => (
+              {Object.entries(posts).map(({post, idx}:any) => (
                   <PostSingle {...post} key={idx} />
               ))}
               </div>

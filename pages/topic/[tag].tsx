@@ -39,14 +39,14 @@ export default function Tag( tag: ITag ) {
                     <br />
                     <ul>
                         {posts.map((tag, i) => {
-                            return <li key={i}><Link href={`/posts/${tag.slug}`}><a dangerouslySetInnerHTML={{__html: tag.title}} /></Link></li>
+                            return <li key={i}><Link href={`/posts/${tag.slug}`} dangerouslySetInnerHTML={{__html: tag.title}}></Link></li>;
                         })}
                     </ul>
                     
                 </div>
                 <br />
                 <div className="o-wrapper">
-                    <Link href={'/'}><button className={'c-button'}>Back</button></Link>
+                    <Link href={'/'} legacyBehavior><button className={'c-button'}>Back</button></Link>
                     {!isReachingEnd ? 
                     <button
                         className={'c-button'}
@@ -62,8 +62,7 @@ export default function Tag( tag: ITag ) {
                 </div>
             </section>
         </Layout>
-       
-    )
+    );
 }
 
 

@@ -28,7 +28,7 @@ const Signup = ({ signupHeading, signupText, hubspotEmbed }: ISignup): JSX.Eleme
     };
 
 
-    return(
+    return (
         <section className="b-textImage b-textImage--tint b-signUp js-equinoxNode t-dark">
             <div className="o-wrapper">
                 <div className="b-textImage__text">
@@ -39,7 +39,7 @@ const Signup = ({ signupHeading, signupText, hubspotEmbed }: ISignup): JSX.Eleme
                 </div>
             </div>
         </section>
-    )
+    );
 }
 
 export default Signup;

@@ -17,9 +17,9 @@ export default function Programs() {
                 <div className={'o-wrapper'}>
                 <h1>Programs Index</h1>
                 <br />
-                <Link href={`/programs/about`} as={`/programs/about`}><a>About Us</a></Link>
+                <Link href={`/programs/about`} as={`/programs/about`}>About Us</Link>
                 </div>
             </section>
         </Layout>
-    )
+    );
 }

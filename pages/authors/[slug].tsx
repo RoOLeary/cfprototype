@@ -29,7 +29,7 @@ export default function Author ( author: Props ) {
     const isEmpty = data?.[0]?.length === 0;
     const isReachingEnd = isEmpty || (data && data[data.length - 1]?.length < PAGE_SIZE);
 
-    return(
+    return (
         <Layout>
             <section className={'b-text c-section'}>
                 <div className={'o-wrapper'}>
@@ -38,7 +38,11 @@ export default function Author ( author: Props ) {
                 <ul>
                     {posts.map((post, i) => {
                         // console.log(post.title);
-                        return <li key={i}><Link href={`/posts/${post.slug}`}><a dangerouslySetInnerHTML={{__html: post.title}} /></Link></li>
+                        return (
+                            <li key={i}><Link
+                                href={`/posts/${post.slug}`}
+                                dangerouslySetInnerHTML={{__html: post.title}}></Link></li>
+                        );
                     })}
                 </ul>
                 <br />

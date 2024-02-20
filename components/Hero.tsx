@@ -27,7 +27,7 @@ const Hero = ({ eyebrow, heading, subHeading }: IHero ): JSX.Element => {
     const y5 = useTransform(scrollY, [0, 400], [0, -250]);
    
     
-    return(
+    return (
         <section className={"b-hero js-equinoxNode t-dark"}>
             <div className={"b-hero__grid"}>
 
@@ -65,13 +65,13 @@ const Hero = ({ eyebrow, heading, subHeading }: IHero ): JSX.Element => {
                            <p>{subHeading}</p>
                         </div>
                         <div className={"b-hero__cta"}>
-                            <Link href={"/all-components"}><a className={"c-button c-button--primary"}>{word}</a></Link>
+                            <Link href={"/all-components"} className={"c-button c-button--primary"}>{word}</Link>
                         </div>
                     </div>
                 </div>
             </div>
         </section>
-    )
+    );
 }
 
 export default Hero;

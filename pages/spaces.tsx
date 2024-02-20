@@ -17,9 +17,9 @@ export default function Spaces() {
                 <div className={'o-wrapper'}>
                 <h1>Spaces Index</h1>
                 <br />
-                <Link href={`/spaces/about`} as={`/spaces/about`}><a>About Us</a></Link>
+                <Link href={`/spaces/about`} as={`/spaces/about`}>About Us</Link>
                 </div>
             </section>
         </Layout>
-    )
+    );
 }

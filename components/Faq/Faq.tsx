@@ -20,7 +20,7 @@ const Faq = ({ content }: IFaqs ) => {
             answerInner.parentElement.style.setProperty('--height', answerInner.offsetHeight + 'px')
         })
     },[]);
-    return(
+    return (
         <section className="b-faq c-section js-faq">
             <div className="o-wrapper">
                 <div className="o-grid o-grid--gap-xxl l:o-grid--reverse">
@@ -31,7 +31,7 @@ const Faq = ({ content }: IFaqs ) => {
                                 {faqLeadtext ? faqLeadtext : 'We’re here to help you find the answers to your questions.'}
                             </div>
                             <div className="c-section__cta">
-                                <Link href={'/contact'}><a className="c-button c-button--primary">CONTACT</a></Link>
+                                <Link href={'/contact'} className="c-button c-button--primary">CONTACT</Link>
                             </div>
                         </div>
                     </div>
@@ -47,7 +47,7 @@ const Faq = ({ content }: IFaqs ) => {
                 </div>
             </div>
         </section>
-    )
+    );
 }
 
 export default Faq;

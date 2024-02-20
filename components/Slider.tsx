@@ -96,40 +96,38 @@ const Slider = ({ content }: ISlider ) => {
         }
     }, [activeSlide, isAutoPlay, transitionSlide, length]);
 
-    return(
-        <>
-            <div className="slider__wrapper" ref={elementRef}>
+    return <>
+        <div className="slider__wrapper" ref={elementRef}>
+                {content.sliderMatrix.map((sl, i) => {
+                    const current = ++i;
+                    return (
+                        <div key={++i} className={`flex__container flex--${sl.sliderColor.replace(/\s/g, '')} ${activeSlide == current ? `flex--active` : 'animate--start' }`} data-slide={current}>
+                            <div className="flex__item flex__item--left">
+                            <div className="flex__content">
+                                <p className="text--sub">{sl.textSub}</p>
+                                <h1 className="text--big font-serif">{sl.textHeading}</h1>
+                            </div>
+                            <p className="text__background font-serif">{sl.textBackground}</p>
+                            </div>
+                            <div className="flex__item flex__item--right"></div>
+                            <img className="isabel_img hidden md:block" src={sl.slideImage} />
+                        </div>
+                    );
+                })}
+                
+                <div className="slider__navi">
                     {content.sliderMatrix.map((sl, i) => {
                         const current = ++i;
                         return(
-                            <div key={++i} className={`flex__container flex--${sl.sliderColor.replace(/\s/g, '')} ${activeSlide == current ? `flex--active` : 'animate--start' }`} data-slide={current}>
-                                <div className="flex__item flex__item--left">
-                                <div className="flex__content">
-                                    <p className="text--sub">{sl.textSub}</p>
-                                    <h1 className="text--big font-serif">{sl.textHeading}</h1>
-                                </div>
-                                <p className="text__background font-serif">{sl.textBackground}</p>
-                                </div>
-                                <div className="flex__item flex__item--right"></div>
-                                <img className="isabel_img hidden md:block" src={sl.slideImage} />
-                            </div>
-                        )
-                    })}
-                    
-                    <div className="slider__navi">
-                        {content.sliderMatrix.map((sl, i) => {
-                            const current = ++i;
-                            return(
-                                <a key={++i} href="#" onClick={(e) => transitionSlide(e)} className={`slide-nav ${activeSlide == current ? `active` : '' }`} data-slide={current}>{sl.sliderColor}</a>
-                            ) 
-                        })} 
-                    </div>
-                    
+                            <a key={++i} href="#" onClick={(e) => transitionSlide(e)} className={`slide-nav ${activeSlide == current ? `active` : '' }`} data-slide={current}>{sl.sliderColor}</a>
+                        ) 
+                    })} 
                 </div>
-
                 
-            </>
-        ); 
+            </div>
+
+            
+        </>; 
 }; 
 
 export default Slider;

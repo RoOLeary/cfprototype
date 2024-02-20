@@ -73,9 +73,9 @@ export default function Conference() {
               She said, &#39;You&#39;re movin&#39; with your auntie and uncle in Bel-Air&#39;
           </p>
           <br />
-          <Link href={`conference/about`}><a>About</a></Link>
+          <Link href={`conference/about`}>About</Link>
           <br />
-          <Link href={`conference/tickets`}><a>Tickets</a></Link>
+          <Link href={`conference/tickets`}>Tickets</Link>
         </div>
       </section>
       <Text content={TextText} />
@@ -94,5 +94,5 @@ export default function Conference() {
       <Tickets />
       <Video heading={'IM&#39;M PICKLE RICK'} videoEmbedCode={video.videoEmbedCode} />
     </Layout>
-  )
+  );
 }

@@ -92,13 +92,13 @@ const Nav = (): JSX.Element => {
 
    
 
-    return(
+    return (
         <nav className={'c-nav js-nav t-dark'} ref={unitRef}>
             <div className={'c-nav__left'}>
-                <Link href={`/`}>
-                    <a className={"c-nav__logoLink"}>
-                        <Image alt={'Ro Ro Lo Go'} src={'/assets/img/logo.png'} width={50} height={50} loader={imageLoader} />
-                    </a>
+                <Link href={`/`} className={"c-nav__logoLink"}>
+
+                    <Image alt={'Ro Ro Lo Go'} src={'/assets/img/logo.png'} width={50} height={50} loader={imageLoader} />
+
                 </Link>
             </div>
             <label className={'c-nav__mobileMenuToggle'} htmlFor="navMobileMenuToggle" ref={mobTogglRef} onClick={toggleMobileMenu}>
@@ -110,21 +110,24 @@ const Nav = (): JSX.Element => {
                 <ul className="c-nav__menu">
                     {links.map(({ name, href }) => (
                         <li key={name} className="c-nav__menuItem">
-                            <Link href={href}>
-                                <a className={'c-nav__menuLink'} onClick={(e) => closeOnChange(e)}>
-                                    {name}
-                                    {isActiveLink(href, router.pathname) && (
-                                        <motion.div
-                                            layoutId="navigation-underline"
-                                            className="navigation-underline"
-                                            animate
-                                        />
-                                    )}
-                                </a>
+                            <Link
+                                href={href}
+                                className={'c-nav__menuLink'}
+                                onClick={(e) => closeOnChange(e)}>
+
+                                {name}
+                                {isActiveLink(href, router.pathname) && (
+                                    <motion.div
+                                        layoutId="navigation-underline"
+                                        className="navigation-underline"
+                                        animate
+                                    />
+                                )}
+
                             </Link>
                         </li>
                     ))}
-                    {session ? <li className="c-nav__menuItem"><Link href={"/members"}><a className="c-nav__menuLink">Members</a></Link></li> : ''}
+                    {session ? <li className="c-nav__menuItem"><Link href={"/members"} className="c-nav__menuLink">Members</Link></li> : ''}
                     <li className="c-nav__menuItem">
                         {!session ? <>
                         <a className="c-button c-button--primary" onClick={() => signIn()}>Sign In</a></>
@@ -142,7 +145,7 @@ const Nav = (): JSX.Element => {
                 </UserInfo>
             }
         </nav>
-    )
+    );
 }
 
 export default Nav;

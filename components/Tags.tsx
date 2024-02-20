@@ -25,23 +25,23 @@ const TagText = styled.a`
 `
 
 const Tags = ({ tags }: ITags) => { 
-  return(
+  return (
     <TagsContainer>
       <ul>
       {tags ? tags.map((t, idx: number) => {
-        return(
+        return (
           <li className={styles.tags} key={idx}>
             <Link
               href={{ pathname: `/topic/${t.slug}`, query: { data: JSON.stringify(t.slug) } }}
-            >
+              legacyBehavior>
               <TagText className="opacity-text">{t.name}</TagText>
             </Link>
           </li>
-          ); 
+        ); 
         }).slice(0,1) : '' }
       </ul>
     </TagsContainer>
-  )
+  );
 }
 
 export default Tags;

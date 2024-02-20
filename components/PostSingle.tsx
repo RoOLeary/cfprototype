@@ -49,13 +49,13 @@ const PostSingle = (props : IPost) => {
         />
       </div>
       <div className={styles.innerFlex}>
-          <Link href={`/posts/${slug}`} scroll={false}><a className={styles.artMarg}><h3 dangerouslySetInnerHTML={{__html: title ? title.replace(/<[^>]+>/g, '') : 'Article Title'}} /></a></Link>
+          <Link href={`/posts/${slug}`} scroll={false} className={styles.artMarg}><h3 dangerouslySetInnerHTML={{__html: title ? title.replace(/<[^>]+>/g, '') : 'Article Title'}} /></Link>
           <div>
-            <div className={styles.artMarg}><Link href={{ pathname: `/authors/${authors[0].slug}`, query: { name: `${authors[0].name}` }}}><a>{authors[0].name}</a></Link><br/>
+            <div className={styles.artMarg}><Link href={{ pathname: `/authors/${authors[0].slug}`, query: { name: `${authors[0].name}` }}}>{authors[0].name}</Link><br/>
               <div>Tags:
               <ul>
                 {tags ? tags.map((t, id) => {
-                  return <li className={styles.tags} key={id}><Link href={`/topic/${t.slug}`}><a>{t.name}</a></Link></li>; 
+                  return <li className={styles.tags} key={id}><Link href={`/topic/${t.slug}`}>{t.name}</Link></li>; 
                 }).slice(0, 1) : 'no tags' }
               </ul>
               </div>
@@ -63,7 +63,7 @@ const PostSingle = (props : IPost) => {
           </div>
         </div>
     </Article>
-  )
+  );
 }
 
 export default PostSingle; 
