@@ -51,7 +51,7 @@ export default function Home() {
   return (
     <Layout>
       <Head>
-        <title>Next JS Prototype {title && `- ${title}`}</title>
+        <title>Next JS Prototype</title>
       </Head>
       <section className="b-text  c-section" id="learn-more">
         <div className="o-wrapper">
