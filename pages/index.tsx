@@ -61,7 +61,7 @@ export default function Home() {
 
             <Grid className={'b-articleGrid'}>
               <div>
-              {Object.entries(posts).map(({post, idx}:any) => (
+              {Object.entries(posts).map((post, idx) => (
                   <PostSingle {...post} key={idx} />
               ))}
               </div>
@@ -85,7 +85,6 @@ export default function Home() {
           </button>
         </div>
       </section>
-      <Signup signupHeading={'Sign Up'} signupText={'We said.....SIGN. UP!'} />
     </Layout>
   )
 }

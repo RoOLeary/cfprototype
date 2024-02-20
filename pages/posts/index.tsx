@@ -1,3 +1,4 @@
+/* eslint-disable react-hooks/exhaustive-deps */
 import React, { useState, useEffect } from "react";
 import styled from 'styled-components';
 import Head from 'next/head';
@@ -37,7 +38,7 @@ export default function Index(props:any) {
 
   useEffect(() => {
     setPostsData({ ...allData })
-  }, [])
+  }, [allData])
 
   const HandleLoadMoreClick = () => {
     setIsLoading(true);

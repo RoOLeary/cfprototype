@@ -16,7 +16,7 @@ module.exports = withPWA({
   },
   pwa: {
     dest: 'public',
-    swSrc: 'service-worker.js',
+    swSrc: 'sw.js',
   },
   exportPathMap: async function (
         defaultPathMap,
