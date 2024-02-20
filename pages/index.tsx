@@ -49,8 +49,8 @@ export default function Home() {
   const isReachingEnd = isEmpty || (data && data[data.length - 1]?.length < PAGE_SIZE);
   
   return (
-    <Layout children={""}>
-      <Head children={""}>
+    <Layout>
+      <Head>
         <title>Next JS Prototype {title && `- ${title}`}</title>
       </Head>
       <section className="b-text  c-section" id="learn-more">
