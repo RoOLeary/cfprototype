@@ -128,7 +128,7 @@ export default function Post( post: IPost ) {
                   <br />
                   {/* Uncomment to test locally without signin */}
                   {/* <FaveBlock><a onClick={toggleFave} style={{ marginRight: '5px' }}>Add to Favourites</a> <Image loader={imageLoader} width="30px" height="30px" src={`/assets/img/${faveIconSrc}`} /></FaveBlock> */}
-                  {session && <FaveBlock><a onClick={toggleFave} style={{ marginRight: '5px' }}>Add to Favourites</a> <Image loader={imageLoader} width="44px" height="44px" src={`/assets/img/${faveIconSrc}`} /></FaveBlock>}
+                  {session && <FaveBlock><a onClick={toggleFave} style={{ marginRight: '5px' }}>Add to Favourites</a> <Image loader={imageLoader} width={44} height={44} src={`/assets/img/${faveIconSrc}`} alt={''} /></FaveBlock>}
                 </div>
               </div>
                 <div>
